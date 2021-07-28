@@ -15,6 +15,6 @@
         android:background="#fff"
         app:labelVisibilityMode="labeled"
         app:menu="@menu/menufile1"
-        tools:layout_editor_absoluteX="46dp"
-        tools:layout_editor_absoluteY="672dp" />
+        tools:layout_editor_absoluteX="0dp"
+        tools:layout_editor_absoluteY="846dp" />
 </androidx.constraintlayout.widget.ConstraintLayout>
