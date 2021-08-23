@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical" android:layout_width="match_parent"
+    android:layout_height="wrap_content">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="15dp"
+            android:orientation="vertical">
+
+            <TextView
+                android:id="@+id/text_1"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="이름"
+                android:layout_margin="5dp"/>
+            <TextView
+                android:id="@+id/text_2"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="장소"
+                android:layout_margin="5dp"/>
+            <TextView
+                android:id="@+id/text_3"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="접수기간"
+                android:layout_margin="5dp"/>
+            <TextView
+                android:id="@+id/text_4"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="교육기간"
+                android:layout_margin="5dp"/>
+            <TextView
+                android:id="@+id/text_5"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="교육시간"
+                android:layout_margin="5dp"/>
+
+        </LinearLayout>
+
+    </LinearLayout>
+
+</LinearLayout>
