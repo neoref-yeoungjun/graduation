@@ -43,6 +43,7 @@ public class MainActivity extends AppCompatActivity {
                     case R.id.item_fragment4:
                         setFrag(1);
                         break;
+
                     case R.id.item_fragment5:
                         setFrag(2);
                         break;
@@ -78,6 +79,7 @@ public class MainActivity extends AppCompatActivity {
                 ft.replace(R.id.frame_container,setting1);
                 ft.commit();
                 break;
+
 
         }
     }
