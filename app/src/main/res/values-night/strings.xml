@@ -1,5 +1,5 @@
+<?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <string name="app_name">graduation</string>
     <string name="eduname">이름</string>
     <string name="edulocation">장소</string>
     <string name="apply">접수기간</string>
