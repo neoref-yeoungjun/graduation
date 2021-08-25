@@ -17,4 +17,7 @@
         <item name="windowNoTitle">true</item>
 
     </style>
+    <style name="Theme.Graduation.AppBarOverlay" parent="ThemeOverlay.AppCompat.Dark.ActionBar" />
+
+    <style name="Theme.Graduation.PopupOverlay" parent="ThemeOverlay.AppCompat.Light" />
 </resources>
