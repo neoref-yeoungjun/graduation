@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    tools:showIn="navigation_view">
+<!--navigation_view-->
+
+    <group
+        android:id="@+id/menu_1"
+        android:background="#A9F5F2"
+        android:checkableBehavior="single">
+        <item
+            android:id="@+id/organization"
+            android:title="기관별" />
+        <item
+            android:id="@+id/location"
+            android:title="지역별" />
+        <item
+            android:id="@+id/category"
+            android:title="분야별" />
+    </group>
+
+    <group
+        android:id="@+id/menu_2"
+        android:background="#F2F5A9"
+        android:checkableBehavior="single">
+        <item
+            android:id="@+id/interest_edu"
+            android:title="관심강좌" />
+        <item
+            android:id="@+id/mypage"
+            android:title="마이페이지"/>
+    </group>
+
+    <group
+        android:id="@+id/menu_3"
+        android:background="#ECCEF5"
+        android:checkableBehavior="single">
+        <item
+            android:id="@+id/question"
+            android:title="문의게시판"/>
+    </group>
+
+</menu>
