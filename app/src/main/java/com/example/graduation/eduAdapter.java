@@ -33,11 +33,11 @@ public class eduAdapter extends RecyclerView.Adapter<eduAdapter.eduViewHolder> {
     @Override
     public void onBindViewHolder(@NonNull eduViewHolder holder, int position) {
 
-        holder.text_1.setText(arrayList.get(position).getName());
-        holder.text_2.setText(arrayList.get(position).getInstitution());
-        holder.text_3.setText(arrayList.get(position).getApply_start());
-        holder.text_4.setText(arrayList.get(position).getEdu_start());
-        holder.text_5.setText(arrayList.get(position).getWeek());
+        holder.name.setText(arrayList.get(position).getName());
+        holder.institution.setText(arrayList.get(position).getInstitution());
+        holder.apply_start.setText(arrayList.get(position).getApply_start());
+        holder.edu_start.setText(arrayList.get(position).getEdu_start());
+        holder.time.setText(arrayList.get(position).getTime());
 
     }
 
@@ -47,18 +47,19 @@ public class eduAdapter extends RecyclerView.Adapter<eduAdapter.eduViewHolder> {
     }
 
     public class eduViewHolder extends RecyclerView.ViewHolder {
-        TextView text_1;
-        TextView text_2;
-        TextView text_3;
-        TextView text_4;
-        TextView text_5;
+        TextView name;
+        TextView institution;
+        TextView apply_start;
+        TextView edu_start;
+        TextView time;
+
         public eduViewHolder(@NonNull View itemView) {
             super(itemView);
-            this.text_1=itemView.findViewById(R.id.text_1);
-            this.text_2=itemView.findViewById(R.id.text_2);
-            this.text_3=itemView.findViewById(R.id.text_3);
-            this.text_4=itemView.findViewById(R.id.text_4);
-            this.text_5=itemView.findViewById(R.id.text_5);
+            this.name=itemView.findViewById(R.id.text_1);
+            this.institution=itemView.findViewById(R.id.text_2);
+            this.apply_start=itemView.findViewById(R.id.text_3);
+            this.edu_start=itemView.findViewById(R.id.text_4);
+            this.time=itemView.findViewById(R.id.text_5);
 
 
         }
