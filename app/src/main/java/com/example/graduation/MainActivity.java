@@ -56,12 +56,15 @@ public class MainActivity extends AppCompatActivity {
 
                 if(id == R.id.organization){
                     Toast.makeText(context, title + ": 계정 정보를 확인합니다.", Toast.LENGTH_SHORT).show();
+                    setFrag(0);
                 }
                 else if(id == R.id.location){
                     Toast.makeText(context, title + ": 설정 정보를 확인합니다.", Toast.LENGTH_SHORT).show();
+                    setFrag(1);
                 }
                 else if(id == R.id.category){
                     Toast.makeText(context, title + ": 로그아웃 시도중", Toast.LENGTH_SHORT).show();
+                    setFrag(2);
                 }
 
                 return true;
