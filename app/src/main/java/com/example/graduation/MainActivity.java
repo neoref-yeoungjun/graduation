@@ -106,7 +106,7 @@ public class MainActivity extends AppCompatActivity {
         setting1 = new SettingFragment();
         setFrag(0);
     }
-
+// fragment
     private void setFrag(int n)
     {
         fm = getSupportFragmentManager();
