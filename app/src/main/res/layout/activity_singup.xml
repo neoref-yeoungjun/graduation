@@ -1,0 +1,215 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:orientation="vertical">
+
+    <TextView
+        android:id="@+id/textView1"
+        android:background="#1F51B7"
+        android:layout_width="match_parent"
+        android:layout_height="100dp"
+        android:gravity="center"
+        android:textColor="#ECECF2"
+        android:textSize="40sp"
+        android:textStyle="bold"
+        android:text="회원 가입" />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        android:background="#CDDDEF">
+
+        <EditText
+            android:id="@+id/user_id"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="5dp"
+            android:padding="10dp"
+            android:gravity="left"
+            android:textSize="15dp"
+            android:hint="아이디 or 이메일" />
+
+        <EditText
+            android:id="@+id/user_password"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="5dp"
+            android:padding="10dp"
+            android:gravity="left"
+            android:textSize="15dp"
+            android:hint="비밀번호 입력" />
+
+        <EditText
+            android:id="@+id/user_password_check"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="5dp"
+            android:padding="10dp"
+            android:gravity="left"
+            android:textSize="15dp"
+            android:hint="비밀번호 확인" />
+
+        <TextView
+            android:id="@+id/textView2"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="5dp"
+            android:padding="5dp"
+            android:gravity="center"
+            android:textColor="#1F51B7"
+            android:textStyle="bold"
+            android:text="관심 분야 (중복 선택 가능)"
+            android:textSize="15dp" />
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="35dp"
+            android:orientation="horizontal">
+
+            <CheckBox
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="top"
+                android:text="IT"
+                android:id="@+id/checkBox1" />
+
+            <CheckBox
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="top"
+                android:text="미술"
+                android:id="@+id/checkBox2" />
+
+            <CheckBox
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="top"
+                android:text="음악"
+                android:id="@+id/checkBox3" />
+
+            <CheckBox
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="top"
+                android:text="요리"
+                android:id="@+id/checkBox4" />
+
+            <CheckBox
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="top"
+                android:text="자격증"
+                android:id="@+id/checkBox5" />
+
+            <CheckBox
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="top"
+                android:text="외국어"
+                android:id="@+id/checkBox6" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="35dp"
+            android:orientation="horizontal">
+
+            <CheckBox
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="top"
+                android:text="인문학"
+                android:id="@+id/checkBox7" />
+
+            <CheckBox
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="top"
+                android:text="교육"
+                android:id="@+id/checkBox8" />
+
+            <CheckBox
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="top"
+                android:text="건강"
+                android:id="@+id/checkBox9" />
+
+        </LinearLayout>
+
+
+        <RadioGroup
+            android:id="@+id/radioGroup"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center">
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="30dp"
+                android:layout_margin="5dp"
+                android:padding="5dp"
+                android:gravity="center"
+                android:textColor="#1F51B7"
+                android:textStyle="bold"
+                android:textSize="15dp"
+                android:text="지역" />
+
+            <RadioButton
+                android:layout_width="wrap_content"
+                android:layout_height="30dp"
+                android:padding="5dp"
+                android:id="@+id/radio1"
+                android:text="충주시"/>
+
+            <RadioButton
+                android:layout_width="wrap_content"
+                android:layout_height="30dp"
+                android:padding="5dp"
+                android:id="@+id/radio2"
+                android:text="청주시"/>
+
+        </RadioGroup>
+
+        <TextView
+            android:id="@+id/textView3"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="5dp"
+            android:padding="5dp"
+            android:gravity="center"
+            android:textColor="#1F51B7"
+            android:textStyle="bold"
+            android:text="생년월일"
+            android:textSize="15dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/editTextTextPersonName2"
+            />
+
+        <Button
+            android:id="@+id/birthdate"
+            android:layout_width="180dp"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:layout_margin="1dp"
+            android:textStyle="bold"
+            android:text="생년월일" />
+
+        <Button
+            android:id="@+id/check"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="10dp"
+            android:textStyle="bold"
+            android:text="가입 하기" />
+
+
+
+
+    </LinearLayout>
+
+</LinearLayout>

@@ -27,6 +27,12 @@ public class MainActivity extends AppCompatActivity {
     private HomeFragment home1;
     private InterestFragment interest1;
     private SettingFragment setting1;
+    private OrganizationFragment organi1;
+    private LocationFragment location1;
+    private CategoryFragment cate1;
+    private MypageFragment mypage1;
+    private QuestionFragment question1;
+
 
     private DrawerLayout mDrawerLayout;
     private Context context = this;
@@ -61,13 +67,22 @@ public class MainActivity extends AppCompatActivity {
                 String title = menuItem.getTitle().toString();
 
                 if(id == R.id.organization){
-                    setFrag(0);
+                    setFrag(3);
                 }
                 else if(id == R.id.location){
-                    setFrag(1);
+                    setFrag(4);
                 }
                 else if(id == R.id.category){
-                    setFrag(2);
+                    setFrag(5);
+                }
+                else if(id == R.id.interest_edu){
+                    setFrag(1);
+                }
+                else if(id == R.id.mypage){
+                    setFrag(6);
+                }
+                else if(id == R.id.question){
+                    setFrag(7);
                 }
 
                 return true;
@@ -110,6 +125,11 @@ public class MainActivity extends AppCompatActivity {
         home1= new HomeFragment();
         interest1= new InterestFragment();
         setting1 = new SettingFragment();
+        organi1 = new OrganizationFragment();
+        location1 = new LocationFragment();
+        cate1 = new CategoryFragment();
+        mypage1 = new MypageFragment();
+        question1 = new QuestionFragment();
         setFrag(0);
     }
 
@@ -130,6 +150,26 @@ public class MainActivity extends AppCompatActivity {
                 break;
             case 2:
                 ft.replace(R.id.frame_container,setting1);
+                ft.commit();
+                break;
+            case 3:
+                ft.replace(R.id.frame_container,organi1);
+                ft.commit();
+                break;
+            case 4:
+                ft.replace(R.id.frame_container,location1);
+                ft.commit();
+                break;
+            case 5:
+                ft.replace(R.id.frame_container,cate1);
+                ft.commit();
+                break;
+            case 6:
+                ft.replace(R.id.frame_container,mypage1);
+                ft.commit();
+                break;
+            case 7:
+                ft.replace(R.id.frame_container,question1);
                 ft.commit();
                 break;
 
