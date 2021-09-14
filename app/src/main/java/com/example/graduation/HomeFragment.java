@@ -1,5 +1,4 @@
 package com.example.graduation;
-import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.LayoutInflater;
@@ -18,7 +17,6 @@ import java.util.ArrayList;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
-import androidx.fragment.app.FragmentTransaction;
 import androidx.recyclerview.widget.DividerItemDecoration;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
@@ -30,7 +28,6 @@ public class HomeFragment extends Fragment {
     private ArrayList<edu> arrayList;
     private FirebaseDatabase database;
     private DatabaseReference databaseReference;
-    private eduAdapter.OnItemClickListener listener;
 
     private View view;
 
@@ -45,22 +42,6 @@ public class HomeFragment extends Fragment {
         recyclerView.setLayoutManager(layoutManager);
         arrayList = new ArrayList<>(); // User 객체를 담을 어레이 리스트 (어댑터쪽으로)
 
-
-        eduAdapter.OnItemClickListener listener= new eduAdapter.OnItemClickListener() {
-            @Override
-            public void onItemClick(View v, int pos) {
-//                eduAdapter.eduViewHolder viewHolder = (eduAdapter.eduViewHolder) recyclerView.findViewHolderForAdapterPosition(pos);
-                Bundle bundle = new Bundle();
-                bundle.putString("table_1",arrayList.get(pos).getName());
-
-                FragmentTransaction transaction = getActivity().getSupportFragmentManager().beginTransaction();
-                eduTableFragment eduTableFragment = new eduTableFragment();
-                eduTableFragment.setArguments(bundle);
-                transaction.replace(R.id.frame_container, eduTableFragment);
-                transaction.commit();
-
-            }
-        };
         database = FirebaseDatabase.getInstance(); // 파이어베이스 데이터베이스 연동
         databaseReference = database.getReference("edu"); // DB 테이블 연결
         databaseReference.addListenerForSingleValueEvent(new ValueEventListener() {
@@ -85,13 +66,10 @@ public class HomeFragment extends Fragment {
 
 
 
-        adapter = new eduAdapter(arrayList, getContext(), listener);
+        adapter = new eduAdapter(arrayList, getContext());
         recyclerView.setAdapter(adapter); // 리사이클러뷰에 어댑터 연결
-
 
         return view;
     }
-
-
 }
 
