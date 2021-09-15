@@ -52,10 +52,21 @@ public class HomeFragment extends Fragment {
 //                eduAdapter.eduViewHolder viewHolder = (eduAdapter.eduViewHolder) recyclerView.findViewHolderForAdapterPosition(pos);
                 Bundle bundle = new Bundle();
                 bundle.putString("table_name",arrayList.get(pos).getName());
-                bundle.putString("table_apply_start",arrayList.get(pos).getApply_start());
-                bundle.putString("table_apply_end",arrayList.get(pos).getApply_end());
+                bundle.putString("table_outlook",arrayList.get(pos).getOutlook());
                 bundle.putString("table_institution",arrayList.get(pos).getInstitution());
                 bundle.putString("table_place",arrayList.get(pos).getPlace());
+                bundle.putString("table_week",arrayList.get(pos).getWeek());
+                bundle.putString("table_time",arrayList.get(pos).getTime());
+                bundle.putString("table_teacher",arrayList.get(pos).getTeacher());
+//                bundle.putString("table_edu_person",arrayList.get(pos).getEdu_person());
+                bundle.putString("table_apply_start",arrayList.get(pos).getApply_start());
+                bundle.putString("table_apply_end",arrayList.get(pos).getApply_end());
+                bundle.putString("table_edu_start",arrayList.get(pos).getEdu_start());
+                bundle.putString("table_edu_end",arrayList.get(pos).getEdu_end());
+                bundle.putString("table_target",arrayList.get(pos).getTarget());
+                bundle.putString("table_fee",arrayList.get(pos).getFee());
+                bundle.putString("table_teacher_info",arrayList.get(pos).getTeacher_info());
+                bundle.putString("table_apply_url",arrayList.get(pos).getApply_url());
 
                 FragmentTransaction transaction = getActivity().getSupportFragmentManager().beginTransaction();
                 eduTableFragment eduTableFragment = new eduTableFragment();
