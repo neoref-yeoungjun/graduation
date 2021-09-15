@@ -27,17 +27,93 @@
             android:layout_height="match_parent" >
         <TextView
             android:layout_width="wrap_content"
-            android:layout_height="match_parent"
-            android:text="강좌 이름:"
+            android:layout_height="wrap_content"
+            android:text="강좌 명:"
+            android:textColor="@color/black"
+            android:layout_margin="5dp"
             android:textSize="15dp"/>
 
         <TextView
-            android:id="@+id/table_1"
+            android:id="@+id/table_name"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="강좌"
+            android:textColor="@color/black"
+            android:layout_margin="5dp"
             android:textSize="15dp"/>
 
+        </TableRow>
+        <TableRow
+            android:layout_width="match_parent"
+            android:layout_height="match_parent" >
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="접수 기간:"
+                android:textColor="@color/black"
+                android:layout_margin="5dp"
+                android:textSize="15dp"/>
+
+            <TextView
+                android:id="@+id/table_apply_start"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="접수 시작"
+                android:textColor="@color/black"
+                android:layout_margin="5dp"
+                android:textSize="15dp"/>
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="~"
+                android:textColor="@color/black"
+                android:layout_margin="5dp"
+                android:textSize="15dp"/>
+            <TextView
+                android:id="@+id/table_apply_end"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="접수 끝"
+                android:textColor="@color/black"
+                android:layout_margin="5dp"
+                android:textSize="15dp"/>
+
+        </TableRow>
+        <TableRow
+            android:layout_width="match_parent"
+            android:layout_height="match_parent" >
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="장    소:"
+                android:textColor="@color/black"
+                android:layout_margin="5dp"
+                android:textSize="15dp"/>
+
+            <TextView
+                android:id="@+id/table_institution"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="장소명"
+                android:textColor="@color/black"
+                android:layout_margin="5dp"
+                android:textSize="15dp"/>
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="교육 장소:"
+                android:textColor="@color/black"
+                android:layout_margin="5dp"
+                android:textSize="15dp"/>
+
+            <TextView
+                android:id="@+id/table_place"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="장소명"
+                android:textColor="@color/black"
+                android:layout_margin="5dp"
+                android:textSize="15dp"/>
         </TableRow>
 
     </TableLayout>

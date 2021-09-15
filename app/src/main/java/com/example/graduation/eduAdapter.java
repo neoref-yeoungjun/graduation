@@ -65,11 +65,7 @@ public class eduAdapter extends RecyclerView.Adapter<eduAdapter.eduViewHolder> {
         holder.time.setText(arrayList.get(position).getTime());
         holder.fee.setText(arrayList.get(position).getFee());
         holder.week.setText(arrayList.get(position).getWeek());
-//        holder.outlook.setText(arrayList.get(position).getOutlook());
-//        holder.place.setText(arrayList.get(position).getPlace());
-//        holder.target.setText(arrayList.get(position).getTarget());
-//        holder.teacher.setText(arrayList.get(position).getTeacher());
-//        holder.teacher_info.setText(arrayList.get(position).getTeacher_info());
+
 
     }
 
@@ -97,6 +93,7 @@ public class eduAdapter extends RecyclerView.Adapter<eduAdapter.eduViewHolder> {
         TextView target;
         TextView teacher;
         TextView teacher_info;
+
 
         public eduViewHolder(@NonNull View itemView) {
             super(itemView);

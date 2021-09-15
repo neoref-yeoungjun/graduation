@@ -6,51 +6,59 @@
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
     android:layout_margin="5dp"
-    card_view:cardCornerRadius="12dp"
+    card_view:cardCornerRadius="2dp"
     card_view:cardElevation="3dp"
     card_view:contentPadding="4dp">
 
     <LinearLayout
+
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:orientation="vertical">
     <LinearLayout
-        android:id="@+id/list_edu1"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:orientation="horizontal">
-        <TextView
-            android:id="@+id/name"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="강좌이름: "
-            android:textColor="@color/black"
-            android:layout_margin="5dp" />
-        <TextView
-            android:id="@+id/text_1"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="@string/eduname"
-            android:textColor="@color/black"
-            android:layout_margin="5dp" />
+        android:orientation="vertical">
 
-        <View
-            android:layout_width="0dp"
-            android:layout_height="0dp"
-            android:layout_weight="1"
-            />
-
-        <TextView
-            android:id="@+id/apply_day"
-            android:layout_width="wrap_content"
+        <LinearLayout
+            android:id="@+id/list_edu1"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_margin="5dp"
-            android:background="#787878"
-            android:padding="3dp"
-            android:gravity="right"
-            android:text="마감 됨"
-            android:textSize="20sp"
-            android:textColor="@color/white" />
+            android:orientation="horizontal">
+
+            <TextView
+                android:id="@+id/name"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_margin="5dp"
+                android:text="강좌이름: "
+                android:textColor="@color/black" />
+
+            <TextView
+                android:id="@+id/text_1"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_margin="5dp"
+                android:text="@string/eduname"
+                android:textColor="@color/black" />
+
+            <View
+                android:layout_width="0dp"
+                android:layout_height="0dp"
+                android:layout_weight="1" />
+
+            <TextView
+                android:id="@+id/apply_day"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_margin="5dp"
+                android:background="#787878"
+                android:gravity="right"
+                android:padding="3dp"
+                android:text="마감 됨"
+                android:textColor="@color/white"
+                android:textSize="15dp"
+                tools:ignore="TextContrastCheck" />
 
     </LinearLayout>
         <LinearLayout
@@ -58,196 +66,220 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:orientation="horizontal">
-        <TextView
-            android:id="@+id/institution"
-            android:layout_width="wrap_content"
+
+            <TextView
+                android:id="@+id/institution"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_margin="5dp"
+                android:text="장       소: "
+                android:textColor="@color/black" />
+
+            <TextView
+                android:id="@+id/text_2"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_margin="5dp"
+                android:layout_weight="1"
+                android:text="@string/edulocation"
+                android:textColor="@color/black" />
+            <View
+                android:layout_width="0dp"
+                android:layout_height="0dp"
+                android:layout_weight="1" />
+
+            <CheckBox
+                android:id="@+id/favorite_Btn"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_margin="5dp"
+                android:button="@drawable/favorite_star"
+                android:minWidth="36dp"
+                android:minHeight="20dp"
+                android:scaleX="1.5"
+                android:scaleY="1.5"
+                card_view:buttonTint="#FFEB3B">
+
+            </CheckBox>
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/list_edu3"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="장       소: "
-            android:textColor="@color/black"
-            android:layout_margin="5dp" />
-        <TextView
-            android:id="@+id/text_2"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_weight="1"
-            android:text="@string/edulocation"
-            android:textColor="@color/black"
-            android:layout_margin="5dp"/>
+            android:orientation="horizontal">
 
+            <TextView
+                android:id="@+id/apply"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_margin="5dp"
+                android:autoSizeMaxTextSize="100sp"
+                android:autoSizeMinTextSize="12sp"
+                android:autoSizeStepGranularity="2sp"
+                android:autoSizeTextType="uniform"
+                android:text="접수기간:"
+                android:textColor="@color/black" />
 
+            <TextView
+                android:id="@+id/text_3"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
 
-    </LinearLayout>
-    <LinearLayout
-        android:id="@+id/list_edu3"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:orientation="horizontal">
-        <TextView
-            android:id="@+id/apply"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="접수기간:"
-            android:textColor="@color/black"
-            android:autoSizeTextType="uniform"
-            android:autoSizeMinTextSize="12sp"
-            android:autoSizeMaxTextSize="100sp"
-            android:autoSizeStepGranularity="2sp"
-            android:layout_margin="5dp"/>
-        <TextView
-            android:id="@+id/text_3"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
+                android:layout_margin="5dp"
+                android:autoSizeMaxTextSize="100sp"
 
-            android:text="@string/apply"
-            android:textColor="@color/black"
+                android:autoSizeMinTextSize="12sp"
+                android:autoSizeStepGranularity="2sp"
+                android:autoSizeTextType="uniform"
+                android:text="@string/apply"
+                android:textColor="@color/black" />
 
-            android:autoSizeTextType="uniform"
-            android:autoSizeMinTextSize="12sp"
-            android:autoSizeMaxTextSize="100sp"
-            android:autoSizeStepGranularity="2sp"
-            android:layout_margin="5dp"/>
-        <TextView
-            android:id="@+id/semicolron"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
+            <TextView
+                android:id="@+id/semicolron"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
 
-            android:text="~"
-            android:textColor="@color/black"
-            android:autoSizeTextType="uniform"
-            android:autoSizeMinTextSize="12sp"
-            android:autoSizeMaxTextSize="100sp"
-            android:autoSizeStepGranularity="2sp"
-            android:layout_margin="5dp"/>
-        <TextView
-            android:id="@+id/text_4"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
+                android:layout_margin="5dp"
+                android:autoSizeMaxTextSize="100sp"
+                android:autoSizeMinTextSize="12sp"
+                android:autoSizeStepGranularity="2sp"
+                android:autoSizeTextType="uniform"
+                android:text="~"
+                android:textColor="@color/black" />
 
-            android:text="접수기간끝"
-            android:textColor="@color/black"
-            android:autoSizeTextType="uniform"
-            android:autoSizeMinTextSize="12sp"
-            android:autoSizeMaxTextSize="100sp"
-            android:autoSizeStepGranularity="2sp"
-            android:layout_margin="5dp"/>
-    </LinearLayout>
+            <TextView
+                android:id="@+id/text_4"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+
+                android:layout_margin="5dp"
+                android:autoSizeMaxTextSize="100sp"
+                android:autoSizeMinTextSize="12sp"
+                android:autoSizeStepGranularity="2sp"
+                android:autoSizeTextType="uniform"
+                android:text="접수기간끝"
+                android:textColor="@color/black" />
+        </LinearLayout>
+
         <LinearLayout
             android:id="@+id/list_edu4"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:orientation="horizontal">
 
-        <TextView
-            android:id="@+id/eud_startend"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="교육기간:"
-            android:textColor="@color/black"
-            android:autoSizeTextType="uniform"
-            android:autoSizeMinTextSize="12sp"
-            android:autoSizeMaxTextSize="100sp"
-            android:autoSizeStepGranularity="2sp"
-            android:layout_margin="5dp"/>
-        <TextView
-            android:id="@+id/text_5"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:textColor="@color/black"
-            android:text="@string/edu"
-            android:autoSizeTextType="uniform"
-            android:autoSizeMinTextSize="12sp"
-            android:autoSizeMaxTextSize="100sp"
-            android:autoSizeStepGranularity="2sp"
-            android:layout_margin="5dp"/>
-        <TextView
-            android:id="@+id/text_edu"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="~"
-            android:textColor="@color/black"
-            android:autoSizeTextType="uniform"
-            android:autoSizeMinTextSize="12sp"
-            android:autoSizeMaxTextSize="100sp"
-            android:autoSizeStepGranularity="2sp"
-            android:layout_margin="5dp"/>
-        <TextView
-            android:id="@+id/text_6"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="교육기간끝"
-            android:textColor="@color/black"
-            android:autoSizeTextType="uniform"
-            android:autoSizeMinTextSize="12sp"
-            android:autoSizeMaxTextSize="100sp"
-            android:autoSizeStepGranularity="2sp"
-            android:layout_margin="5dp"/>
+
+            <TextView
+                android:id="@+id/eud_startend"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_margin="5dp"
+                android:autoSizeMaxTextSize="100sp"
+                android:autoSizeMinTextSize="12sp"
+                android:autoSizeStepGranularity="2sp"
+                android:autoSizeTextType="uniform"
+                android:text="교육기간:"
+                android:textColor="@color/black" />
 
 
+            <TextView
+                android:id="@+id/text_5"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_margin="5dp"
+                android:autoSizeMaxTextSize="100sp"
+                android:autoSizeMinTextSize="12sp"
+                android:autoSizeStepGranularity="2sp"
+                android:autoSizeTextType="uniform"
+                android:text="@string/edu"
+                android:textColor="@color/black" />
 
-</LinearLayout>
-    <LinearLayout
-        android:id="@+id/list_edu5"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:orientation="horizontal">
-        <TextView
-            android:id="@+id/timeweek"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="교육시간, 요일:"
-            android:textColor="@color/black"
-            android:layout_margin="5dp" />
-        <TextView
-            android:id="@+id/text_7"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="@string/edutime"
-            android:textColor="@color/black"
-            android:layout_margin="5dp"/>
+            <TextView
+                android:id="@+id/text_edu"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_margin="5dp"
+                android:autoSizeMaxTextSize="100sp"
+                android:autoSizeMinTextSize="12sp"
+                android:autoSizeStepGranularity="2sp"
+                android:autoSizeTextType="uniform"
+                android:text="~"
+                android:textColor="@color/black" />
 
-        <TextView
-            android:id="@+id/text_8"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="요일"
-            android:textColor="@color/black"
-            android:layout_margin="5dp"/>
-        <View
-            android:layout_width="0dp"
-            android:layout_height="0dp"
-            android:layout_weight="1"
-            />
-        <TextView
-            android:id="@+id/fee"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="수강료:"
-            android:textColor="@color/black"
-            android:layout_margin="5dp" />
-        <TextView
-            android:id="@+id/text_9"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="수강료"
-            android:textColor="@color/black"
-            android:layout_margin="5dp"/>
-        <View
-            android:layout_width="0dp"
-            android:layout_height="0dp"
-            android:layout_weight="1"
-            />
+            <TextView
+                android:id="@+id/text_6"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_margin="5dp"
+                android:autoSizeMaxTextSize="100sp"
+                android:autoSizeMinTextSize="12sp"
+                android:autoSizeStepGranularity="2sp"
+                android:autoSizeTextType="uniform"
+                android:text="교육기간끝"
+                android:textColor="@color/black" />
 
-        <ImageButton
-            android:id="@+id/favoriteBtn"
-            android:layout_width="wrap_content"
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/list_edu5"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:background="@color/white"
-            android:scaleType="centerInside"
+            android:orientation="horizontal">
 
-            android:src="@drawable/ic_baseline_star_border_24"
-            card_view:tint="#FFEB3B"
-            tools:ignore="SpeakableTextPresentCheck" />
+            <TextView
+                android:id="@+id/timeweek"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_margin="5dp"
+                android:text="교육시간, 요일:"
+                android:textColor="@color/black" />
 
+            <TextView
+                android:id="@+id/text_7"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_margin="5dp"
+                android:text="@string/edutime"
+                android:textColor="@color/black" />
+
+            <TextView
+                android:id="@+id/text_8"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_margin="5dp"
+                android:text="요일"
+                android:textColor="@color/black" />
+
+            <View
+                android:layout_width="0dp"
+                android:layout_height="0dp"
+                android:layout_weight="1" />
+
+            <TextView
+                android:id="@+id/fee"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_margin="5dp"
+                android:text="수강료:"
+                android:textColor="@color/black" />
+
+            <TextView
+                android:id="@+id/text_9"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_margin="5dp"
+                android:text="수강료"
+                android:textColor="@color/black" />
+
+            <View
+                android:layout_width="0dp"
+                android:layout_height="0dp"
+                android:layout_weight="1" />
+
+
+        </LinearLayout>
     </LinearLayout>
     </LinearLayout>
 </androidx.cardview.widget.CardView>
