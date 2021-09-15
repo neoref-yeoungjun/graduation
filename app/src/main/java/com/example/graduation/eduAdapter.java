@@ -14,7 +14,10 @@ import androidx.annotation.NonNull;
 import androidx.fragment.app.FragmentTransaction;
 import androidx.recyclerview.widget.RecyclerView;
 
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
+import java.util.Calendar;
+import java.util.Date;
 
 public class eduAdapter extends RecyclerView.Adapter<eduAdapter.eduViewHolder> {
 
@@ -24,7 +27,9 @@ public class eduAdapter extends RecyclerView.Adapter<eduAdapter.eduViewHolder> {
     public interface OnItemClickListener{
         void onItemClick(View v, int pos);
     }
-
+    Date currentTime = Calendar.getInstance().getTime();
+    SimpleDateFormat today = new SimpleDateFormat("yyyy-mm-dd");
+    String day = today.format(currentTime);
     private OnItemClickListener mListener =null;
 
     public eduAdapter(ArrayList<edu> arrayList, Context context, OnItemClickListener listener) {
@@ -32,10 +37,6 @@ public class eduAdapter extends RecyclerView.Adapter<eduAdapter.eduViewHolder> {
         this.context = context;
         this.mListener = listener;
     }
-
-
-
-
 
 
     @NonNull
@@ -51,16 +52,24 @@ public class eduAdapter extends RecyclerView.Adapter<eduAdapter.eduViewHolder> {
     @Override
     public void onBindViewHolder(@NonNull eduViewHolder holder, int position) {
 
-        holder.name.setText(arrayList.get(position).getName());
-        holder.institution.setText(arrayList.get(position).getInstitution());
         holder.apply_start.setText(arrayList.get(position).getApply_start());
+//        holder.apply_method.setText(arrayList.get(position).getApply_method());
+//        holder.apply_person.setText((int) arrayList.get(position).getApply_person());
         holder.apply_end.setText(arrayList.get(position).getApply_end());
+//        holder.category.setText(arrayList.get(position).getCategory());
+//        holder.edu_person.setText((int) arrayList.get(position).getEdu_person());
         holder.edu_start.setText(arrayList.get(position).getEdu_start());
         holder.edu_end.setText(arrayList.get(position).getEdu_end());
+        holder.institution.setText(arrayList.get(position).getInstitution());
+        holder.name.setText(arrayList.get(position).getName());
         holder.time.setText(arrayList.get(position).getTime());
         holder.fee.setText(arrayList.get(position).getFee());
         holder.week.setText(arrayList.get(position).getWeek());
-
+//        holder.outlook.setText(arrayList.get(position).getOutlook());
+//        holder.place.setText(arrayList.get(position).getPlace());
+//        holder.target.setText(arrayList.get(position).getTarget());
+//        holder.teacher.setText(arrayList.get(position).getTeacher());
+//        holder.teacher_info.setText(arrayList.get(position).getTeacher_info());
 
     }
 
@@ -70,15 +79,24 @@ public class eduAdapter extends RecyclerView.Adapter<eduAdapter.eduViewHolder> {
     }
 
     public class eduViewHolder extends RecyclerView.ViewHolder {
-        TextView name;
-        TextView institution;
         TextView apply_start;
+        TextView apply_method;
+        TextView apply_person;
         TextView apply_end;
+        TextView category;
+        TextView edu_person;
         TextView edu_start;
         TextView edu_end;
+        TextView institution;
+        TextView name;
         TextView time;
         TextView fee;
         TextView week;
+        TextView outlook;
+        TextView place;
+        TextView target;
+        TextView teacher;
+        TextView teacher_info;
 
         public eduViewHolder(@NonNull View itemView) {
             super(itemView);
