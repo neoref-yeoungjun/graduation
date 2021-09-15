@@ -53,11 +53,7 @@ public class eduAdapter extends RecyclerView.Adapter<eduAdapter.eduViewHolder> {
     public void onBindViewHolder(@NonNull eduViewHolder holder, int position) {
 
         holder.apply_start.setText(arrayList.get(position).getApply_start());
-//        holder.apply_method.setText(arrayList.get(position).getApply_method());
-//        holder.apply_person.setText((int) arrayList.get(position).getApply_person());
         holder.apply_end.setText(arrayList.get(position).getApply_end());
-//        holder.category.setText(arrayList.get(position).getCategory());
-//        holder.edu_person.setText((int) arrayList.get(position).getEdu_person());
         holder.edu_start.setText(arrayList.get(position).getEdu_start());
         holder.edu_end.setText(arrayList.get(position).getEdu_end());
         holder.institution.setText(arrayList.get(position).getInstitution());
@@ -65,11 +61,11 @@ public class eduAdapter extends RecyclerView.Adapter<eduAdapter.eduViewHolder> {
         holder.time.setText(arrayList.get(position).getTime());
         holder.fee.setText(arrayList.get(position).getFee());
         holder.week.setText(arrayList.get(position).getWeek());
-//        holder.outlook.setText(arrayList.get(position).getOutlook());
-//        holder.place.setText(arrayList.get(position).getPlace());
-//        holder.target.setText(arrayList.get(position).getTarget());
-//        holder.teacher.setText(arrayList.get(position).getTeacher());
-//        holder.teacher_info.setText(arrayList.get(position).getTeacher_info());
+
+        final edu favoritebtn = arrayList.get(position);
+
+
+
 
     }
 
@@ -80,11 +76,7 @@ public class eduAdapter extends RecyclerView.Adapter<eduAdapter.eduViewHolder> {
 
     public class eduViewHolder extends RecyclerView.ViewHolder {
         TextView apply_start;
-        TextView apply_method;
-        TextView apply_person;
         TextView apply_end;
-        TextView category;
-        TextView edu_person;
         TextView edu_start;
         TextView edu_end;
         TextView institution;
@@ -92,11 +84,7 @@ public class eduAdapter extends RecyclerView.Adapter<eduAdapter.eduViewHolder> {
         TextView time;
         TextView fee;
         TextView week;
-        TextView outlook;
-        TextView place;
-        TextView target;
-        TextView teacher;
-        TextView teacher_info;
+
 
         public eduViewHolder(@NonNull View itemView) {
             super(itemView);
