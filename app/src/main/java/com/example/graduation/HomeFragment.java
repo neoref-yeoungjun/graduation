@@ -51,7 +51,11 @@ public class HomeFragment extends Fragment {
             public void onItemClick(View v, int pos) {
 //                eduAdapter.eduViewHolder viewHolder = (eduAdapter.eduViewHolder) recyclerView.findViewHolderForAdapterPosition(pos);
                 Bundle bundle = new Bundle();
-                bundle.putString("table_1",arrayList.get(pos).getName());
+                bundle.putString("table_name",arrayList.get(pos).getName());
+                bundle.putString("table_apply_start",arrayList.get(pos).getApply_start());
+                bundle.putString("table_apply_end",arrayList.get(pos).getApply_end());
+                bundle.putString("table_institution",arrayList.get(pos).getInstitution());
+                bundle.putString("table_place",arrayList.get(pos).getPlace());
 
                 FragmentTransaction transaction = getActivity().getSupportFragmentManager().beginTransaction();
                 eduTableFragment eduTableFragment = new eduTableFragment();
