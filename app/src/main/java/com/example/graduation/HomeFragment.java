@@ -39,7 +39,7 @@ public class HomeFragment extends Fragment {
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
         view = inflater.inflate(R.layout.frag_home, container, false);
         recyclerView = (RecyclerView) view.findViewById(R.id.recycler_view);
-        recyclerView.addItemDecoration(new DividerItemDecoration(view.getContext(), 1));// 구분선 추가
+//        recyclerView.addItemDecoration(new DividerItemDecoration(view.getContext(), 1));// 구분선 추가
         recyclerView.setHasFixedSize(true); // 리사이클러뷰 기존성능 강화
         layoutManager = new LinearLayoutManager(getContext());
         recyclerView.setLayoutManager(layoutManager);

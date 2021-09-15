@@ -1,13 +1,19 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
-    android:orientation="vertical"
+<androidx.cardview.widget.CardView
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:card_view="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    android:background="?attr/selectableItemBackground">
+    android:layout_margin="5dp"
+    card_view:cardCornerRadius="12dp"
+    card_view:cardElevation="3dp"
+    card_view:contentPadding="4dp">
 
-
-
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
     <LinearLayout
         android:id="@+id/list_edu1"
         android:layout_width="match_parent"
@@ -24,10 +30,27 @@
             android:id="@+id/text_1"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_weight="1"
             android:text="@string/eduname"
             android:textColor="@color/black"
             android:layout_margin="5dp" />
+
+        <View
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:layout_weight="1"
+            />
+
+        <TextView
+            android:id="@+id/apply_day"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_margin="5dp"
+            android:background="#787878"
+            android:padding="3dp"
+            android:gravity="right"
+            android:text="마감 됨"
+            android:textSize="20sp"
+            android:textColor="@color/white" />
 
     </LinearLayout>
         <LinearLayout
@@ -129,7 +152,6 @@
             android:id="@+id/text_5"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_weight="1"
             android:textColor="@color/black"
             android:text="@string/edu"
             android:autoSizeTextType="uniform"
@@ -141,7 +163,6 @@
             android:id="@+id/text_edu"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_weight="1"
             android:text="~"
             android:textColor="@color/black"
             android:autoSizeTextType="uniform"
@@ -153,7 +174,6 @@
             android:id="@+id/text_6"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_weight="1"
             android:text="교육기간끝"
             android:textColor="@color/black"
             android:autoSizeTextType="uniform"
@@ -181,7 +201,6 @@
             android:id="@+id/text_7"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_weight="1"
             android:text="@string/edutime"
             android:textColor="@color/black"
             android:layout_margin="5dp"/>
@@ -190,10 +209,14 @@
             android:id="@+id/text_8"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_weight="1"
             android:text="요일"
             android:textColor="@color/black"
             android:layout_margin="5dp"/>
+        <View
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:layout_weight="1"
+            />
         <TextView
             android:id="@+id/fee"
             android:layout_width="wrap_content"
@@ -205,11 +228,26 @@
             android:id="@+id/text_9"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_weight="1"
             android:text="수강료"
             android:textColor="@color/black"
             android:layout_margin="5dp"/>
+        <View
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:layout_weight="1"
+            />
+
+        <ImageButton
+            android:id="@+id/favoriteBtn"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="@color/white"
+            android:scaleType="centerInside"
+
+            android:src="@drawable/ic_baseline_star_border_24"
+            card_view:tint="#FFEB3B"
+            tools:ignore="SpeakableTextPresentCheck" />
 
     </LinearLayout>
-
-</LinearLayout>
+    </LinearLayout>
+</androidx.cardview.widget.CardView>
