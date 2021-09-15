@@ -3,11 +3,10 @@ package com.example.graduation;
 public class edu {
     private String apply_start;
     private String apply_method;
-    private long apply_person;
     private String apply_url;
     private String apply_end;
     private String category;
-    private long edu_person;
+    private int edu_person;
     private String edu_start;
     private String edu_end;
     private String institution;
@@ -41,13 +40,6 @@ public class edu {
         this.apply_method = apply_method;
     }
 
-    public long getApply_person() {
-        return apply_person;
-    }
-
-    public void setApply_person(long apply_person) {
-        this.apply_person = apply_person;
-    }
 
     public String getApply_url() {
         return apply_url;
@@ -77,7 +69,7 @@ public class edu {
         return edu_person;
     }
 
-    public void setEdu_person(long edu_person) {
+    public void setEdu_person(int edu_person) {
         this.edu_person = edu_person;
     }
 
