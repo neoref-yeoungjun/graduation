@@ -334,6 +334,8 @@
                 android:autoLink="web"
                 android:textColor="@color/black"
                 android:layout_margin="5dp"
+                android:maxLines="2"
+                android:ellipsize="end"
                 android:textSize="15dp"/>
 
         </LinearLayout>

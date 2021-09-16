@@ -44,7 +44,7 @@ public class eduTableFragment extends Fragment {
     private String apply_start;
     private String apply_url;
     private String apply_end;
-//    private String edu_person;
+    private int edu_person;
     private String edu_start;
     private String edu_end;
     private String institution;
@@ -57,6 +57,9 @@ public class eduTableFragment extends Fragment {
     private String target;
     private String teacher;
     private String teacher_info;
+
+
+
     @Nullable
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
@@ -101,8 +104,8 @@ public class eduTableFragment extends Fragment {
             teacher = getArguments().getString("table_teacher");
             table_teacher.setText(teacher);
 
-//            edu_person = getArguments().getString("table_edu_person");
-//            table_edu_person.setText(edu_person);
+            edu_person = Integer.parseInt(getArguments().getString("table_edu_person"));
+            table_edu_person.setText(String.valueOf(edu_person));
 
             apply_start = getArguments().getString("table_apply_start");
             table_apply_start.setText(apply_start);

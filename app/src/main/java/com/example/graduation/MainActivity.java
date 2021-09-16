@@ -5,6 +5,7 @@ import androidx.appcompat.app.ActionBar;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.core.view.GravityCompat;
 import androidx.drawerlayout.widget.DrawerLayout;
+import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentManager;
 import androidx.fragment.app.FragmentTransaction;
 
@@ -117,6 +118,16 @@ public class MainActivity extends AppCompatActivity {
                     case R.id.item_fragment1 :
                         setFrag(0);
                         break;
+
+                    case R.id.item_fragment2://이전 버튼
+                        onBackPressed();
+                        break;
+
+                    case R.id.item_fragment3://새로 고침
+
+
+                        break;
+
                     case R.id.item_fragment4:
                         setFrag(1);
                         break;
@@ -154,36 +165,44 @@ public class MainActivity extends AppCompatActivity {
         switch(n)
         {
             case 0:
-            ft.replace(R.id.frame_container,home1);
+            ft.replace(R.id.frame_container,home1,"Frag1");
+            ft.addToBackStack(null);
             ft.commit();
             break;
 
             case 1:
-                ft.replace(R.id.frame_container,interest1);
+                ft.replace(R.id.frame_container,interest1,"Frag2");
+                ft.addToBackStack(null);
                 ft.commit();
                 break;
             case 2:
-                ft.replace(R.id.frame_container,setting1);
+                ft.replace(R.id.frame_container,setting1,"Frag3");
+                ft.addToBackStack(null);
                 ft.commit();
                 break;
             case 3:
-                ft.replace(R.id.frame_container,organi1);
+                ft.replace(R.id.frame_container,organi1,"Frag4");
+                ft.addToBackStack(null);
                 ft.commit();
                 break;
             case 4:
-                ft.replace(R.id.frame_container,location1);
+                ft.replace(R.id.frame_container,location1,"Frag5");
+                ft.addToBackStack(null);
                 ft.commit();
                 break;
             case 5:
-                ft.replace(R.id.frame_container,cate1);
+                ft.replace(R.id.frame_container,cate1,"Frag6");
+                ft.addToBackStack(null);
                 ft.commit();
                 break;
             case 6:
-                ft.replace(R.id.frame_container,mypage1);
+                ft.replace(R.id.frame_container,mypage1,"Frag7");
+                ft.addToBackStack(null);
                 ft.commit();
                 break;
             case 7:
-                ft.replace(R.id.frame_container,question1);
+                ft.replace(R.id.frame_container,question1,"Frag8");
+                ft.addToBackStack(null);
                 ft.commit();
                 break;
 
@@ -200,5 +219,9 @@ public class MainActivity extends AppCompatActivity {
             }
         }
         return super.onOptionsItemSelected(item);
+    }
+    @Override
+    public void onBackPressed() {
+        super.onBackPressed();
     }
 }

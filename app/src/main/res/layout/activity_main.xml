@@ -21,7 +21,10 @@
 
         <TextView
             android:id="@+id/toolbar_title"
-            android:text="@string/ex12"
+            android:text="충북 배움터"
+            android:textColor="@color/black"
+            android:textStyle="bold"
+            android:textSize="20sp"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_gravity="center" />
@@ -59,6 +62,8 @@
         android:layout_marginStart="0dp"
         android:layout_marginEnd="0dp"
         android:background="#fff"
+       app:itemIconTint="@drawable/bottom_navi_color"
+        app:itemTextColor="@drawable/bottom_navi_color"
         app:labelVisibilityMode="labeled"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
