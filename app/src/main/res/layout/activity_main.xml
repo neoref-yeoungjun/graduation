@@ -25,6 +25,14 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_gravity="center" />
+
+        <Button
+            android:id="@+id/loginbtn"
+            android:layout_width="40dp"
+            android:layout_height="30dp"
+            android:background="@drawable/ic_round_person_24"
+            android:layout_gravity="right"
+            android:layout_marginRight="20sp"/>
     </androidx.appcompat.widget.Toolbar>
 
     <FrameLayout

@@ -29,7 +29,8 @@
             android:padding="10dp"
             android:gravity="left"
             android:textSize="15dp"
-            android:hint="아이디 or 이메일" />
+            android:inputType="textEmailAddress"
+            android:hint="이메일" />
 
         <EditText
             android:id="@+id/password"
@@ -39,11 +40,13 @@
             android:padding="10dp"
             android:gravity="left"
             android:textSize="15dp"
-            android:hint="비밀번호 입력" />
+            android:hint="비밀번호 입력"
+            android:inputType="textPassword" />
 
         <LinearLayout
             android:layout_width="wrap_content"
             android:layout_height="75dp"
+            android:layout_gravity="center"
             android:orientation="horizontal">
 
             <Button
@@ -55,20 +58,13 @@
                 android:text="로그인" />
 
             <Button
-                android:id="@+id/sing_up"
+                android:id="@+id/sign_up"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_margin="10dp"
                 android:textStyle="bold"
                 android:text="회원가입" />
 
-            <Button
-                android:id="@+id/id_pwd_search"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_margin="10dp"
-                android:textStyle="bold"
-                android:text="아이디 패스워드 찾기" />
         </LinearLayout>
     </LinearLayout>
 
