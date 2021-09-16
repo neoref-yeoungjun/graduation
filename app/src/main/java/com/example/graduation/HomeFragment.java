@@ -34,6 +34,8 @@ public class HomeFragment extends Fragment {
 
     private View view;
 
+
+
     @Nullable
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
@@ -58,7 +60,7 @@ public class HomeFragment extends Fragment {
                 bundle.putString("table_week",arrayList.get(pos).getWeek());
                 bundle.putString("table_time",arrayList.get(pos).getTime());
                 bundle.putString("table_teacher",arrayList.get(pos).getTeacher());
-//                bundle.putString("table_edu_person",arrayList.get(pos).getEdu_person());
+                bundle.putString("table_edu_person", String.valueOf(arrayList.get(pos).getEdu_person()));
                 bundle.putString("table_apply_start",arrayList.get(pos).getApply_start());
                 bundle.putString("table_apply_end",arrayList.get(pos).getApply_end());
                 bundle.putString("table_edu_start",arrayList.get(pos).getEdu_start());
@@ -72,6 +74,7 @@ public class HomeFragment extends Fragment {
                 eduTableFragment eduTableFragment = new eduTableFragment();
                 eduTableFragment.setArguments(bundle);
                 transaction.replace(R.id.frame_container, eduTableFragment);
+                transaction.addToBackStack(null);
                 transaction.commit();
 
             }
