@@ -16,12 +16,15 @@ import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
 
-    public class RegisterActivity extends AppCompatActivity {
+public class RegisterActivity extends AppCompatActivity {
 
         private static final String TAG = "SignUpActivity";
         private FirebaseAuth mAuth;
         private Button sign_up;
+        private DatabaseReference mDatabaseRef;
 
         @Override
         protected void onCreate(Bundle savedInstanceState) {
@@ -29,6 +32,7 @@ import com.google.firebase.auth.FirebaseUser;
             setContentView(R.layout.activity_signup);
 
             mAuth = FirebaseAuth.getInstance();
+            mDatabaseRef = FirebaseDatabase.getInstance().getReference("graduation");
 
             sign_up = findViewById(R.id.signUpButton);
             sign_up.setOnClickListener(new View.OnClickListener() {
@@ -64,6 +68,12 @@ import com.google.firebase.auth.FirebaseUser;
                                 // Sign in success, update UI with the signed-in user's information
                                 Log.d(TAG, "createUserWithEmail:success");
                                 FirebaseUser user = mAuth.getCurrentUser();
+                                UserAccount account = new UserAccount();
+                                account.setIdToken(user.getUid());
+                                account.setEmailId(user.getEmail());
+                                account.setPassword(password);
+                                // setValue : database에 정보 입력
+                                mDatabaseRef.child("UserAccount").child(user.getUid()).setValue(account);
                                 Intent intent = new Intent(RegisterActivity.this, LoginActivity.class);
                                 startActivity(intent);
                                 Toast.makeText(RegisterActivity.this, "회원가입 완료", Toast.LENGTH_SHORT).show();

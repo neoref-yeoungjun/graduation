@@ -14,7 +14,7 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="8dp"
         android:text="마이페이지"
-        android:textSize="40dp"
+        android:textSize="40sp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
