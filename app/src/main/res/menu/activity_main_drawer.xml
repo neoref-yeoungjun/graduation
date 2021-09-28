@@ -6,7 +6,6 @@
 
     <group
         android:id="@+id/menu_1"
-        android:background="#A9F5F2"
         android:checkableBehavior="single">
         <item
             android:id="@+id/organization"
@@ -21,7 +20,6 @@
 
     <group
         android:id="@+id/menu_2"
-        android:background="#F2F5A9"
         android:checkableBehavior="single">
         <item
             android:id="@+id/interest_edu"
@@ -33,7 +31,6 @@
 
     <group
         android:id="@+id/menu_3"
-        android:background="#ECCEF5"
         android:checkableBehavior="single">
         <item
             android:id="@+id/question"

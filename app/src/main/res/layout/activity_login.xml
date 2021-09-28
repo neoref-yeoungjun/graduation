@@ -2,24 +2,26 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:orientation="vertical">
 
     <TextView
         android:id="@+id/textView1"
-        android:background="#1F51B7"
+        android:background="#50697D"
         android:layout_width="match_parent"
-        android:layout_height="250dp"
+        android:layout_height="220dp"
         android:gravity="center"
-        android:textColor="#ECECF2"
+        android:textColor="#D9CFE7"
         android:textSize="40sp"
         android:textStyle="bold"
-        android:text="로그인" />
+        android:text="로 그 인" />
 
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
+        android:layout_weight="1"
         android:orientation="vertical"
-        android:background="#CDDDEF">
+        android:background="#FFFFFF">
 
         <EditText
             android:id="@+id/id"
@@ -29,7 +31,8 @@
             android:padding="10dp"
             android:gravity="left"
             android:textSize="15dp"
-            android:hint="아이디 or 이메일" />
+            android:inputType="textEmailAddress"
+            android:hint="이메일" />
 
         <EditText
             android:id="@+id/password"
@@ -39,11 +42,13 @@
             android:padding="10dp"
             android:gravity="left"
             android:textSize="15dp"
-            android:hint="비밀번호 입력" />
+            android:hint="비밀번호 입력"
+            android:inputType="textPassword" />
 
         <LinearLayout
             android:layout_width="wrap_content"
             android:layout_height="75dp"
+            android:layout_gravity="center"
             android:orientation="horizontal">
 
             <Button
@@ -52,24 +57,50 @@
                 android:layout_height="wrap_content"
                 android:layout_margin="10dp"
                 android:textStyle="bold"
-                android:text="로그인" />
+                android:text="로그인"
+                android:textColor="#D9CFE7"
+                android:background="#50697D" />
 
             <Button
-                android:id="@+id/sing_up"
+                android:id="@+id/sign_up"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_margin="10dp"
                 android:textStyle="bold"
-                android:text="회원가입" />
+                android:text="회원가입"
+                android:textColor="#D9CFE7"
+                android:background="#50697D"/>
 
             <Button
                 android:id="@+id/id_pwd_search"
-                android:layout_width="match_parent"
+                android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_margin="10dp"
                 android:textStyle="bold"
-                android:text="아이디 패스워드 찾기" />
+                android:text="아이디 비밀번호 찾기"
+                android:textColor="#D9CFE7"
+                android:background="#50697D"/>
+
         </LinearLayout>
     </LinearLayout>
+
+    <!-- 하단바 -->
+    <com.google.android.material.bottomnavigation.BottomNavigationView
+        android:id="@+id/bottomNavi"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_gravity="bottom"
+        android:layout_marginStart="0dp"
+        android:layout_marginEnd="0dp"
+        android:background="#DBDBE5"
+        app:itemIconTint="@drawable/bottom_navi_color"
+        app:itemTextColor="@drawable/bottom_navi_color"
+        app:labelVisibilityMode="labeled"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+
+        app:menu="@menu/menufile1" />
 
 </LinearLayout>

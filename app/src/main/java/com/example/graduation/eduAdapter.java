@@ -14,6 +14,7 @@ import androidx.annotation.NonNull;
 import androidx.fragment.app.FragmentTransaction;
 import androidx.recyclerview.widget.RecyclerView;
 
+import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Calendar;
@@ -27,9 +28,10 @@ public class eduAdapter extends RecyclerView.Adapter<eduAdapter.eduViewHolder> {
     public interface OnItemClickListener{
         void onItemClick(View v, int pos);
     }
-    Date currentTime = Calendar.getInstance().getTime();
-    SimpleDateFormat today = new SimpleDateFormat("yyyy-mm-dd");
-    String day = today.format(currentTime);
+    long currentTime = System.currentTimeMillis();
+    SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd");
+
+    String today = sdf.format(currentTime);
     private OnItemClickListener mListener =null;
 
     public eduAdapter(ArrayList<edu> arrayList, Context context, OnItemClickListener listener) {
@@ -37,7 +39,6 @@ public class eduAdapter extends RecyclerView.Adapter<eduAdapter.eduViewHolder> {
         this.context = context;
         this.mListener = listener;
     }
-
 
     @NonNull
     @Override
@@ -80,9 +81,9 @@ public class eduAdapter extends RecyclerView.Adapter<eduAdapter.eduViewHolder> {
         TextView time;
         TextView fee;
         TextView week;
+        TextView apply_day;
 
-
-        public eduViewHolder(@NonNull View itemView) {
+        public eduViewHolder(@NonNull View itemView)  {
             super(itemView);
             this.name = itemView.findViewById(R.id.text_1);
             this.institution = itemView.findViewById(R.id.text_2);
@@ -93,6 +94,16 @@ public class eduAdapter extends RecyclerView.Adapter<eduAdapter.eduViewHolder> {
             this.time = itemView.findViewById(R.id.text_7);
             this.week = itemView.findViewById(R.id.text_8);
             this.fee = itemView.findViewById(R.id.text_9);
+            this.apply_day = itemView.findViewById(R.id.apply_day);
+            try {
+                Date start1=sdf.parse(apply_start.toString());
+                Date today2=sdf.parse(today);
+
+            } catch (ParseException e) {
+                e.printStackTrace();
+            }
+
+
 
             //itemView.setClickable(true);
             itemView.setOnClickListener(new View.OnClickListener() {
