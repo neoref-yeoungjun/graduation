@@ -2,6 +2,7 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:orientation="vertical">
 
     <TextView
@@ -18,6 +19,7 @@
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
+        android:layout_weight="1"
         android:orientation="vertical"
         android:background="#FFFFFF">
 
@@ -81,5 +83,24 @@
 
         </LinearLayout>
     </LinearLayout>
+
+    <!-- 하단바 -->
+    <com.google.android.material.bottomnavigation.BottomNavigationView
+        android:id="@+id/bottomNavi"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_gravity="bottom"
+        android:layout_marginStart="0dp"
+        android:layout_marginEnd="0dp"
+        android:background="#DBDBE5"
+        app:itemIconTint="@drawable/bottom_navi_color"
+        app:itemTextColor="@drawable/bottom_navi_color"
+        app:labelVisibilityMode="labeled"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+
+        app:menu="@menu/menufile1" />
 
 </LinearLayout>
