@@ -5,6 +5,8 @@ import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.CheckBox;
+import android.widget.Spinner;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -15,6 +17,7 @@ import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
 
 import java.util.ArrayList;
+import java.util.Collections;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
@@ -33,6 +36,7 @@ public class HomeFragment extends Fragment {
     private DatabaseReference databaseReference;
     private eduAdapter.OnItemClickListener listener;
     private View view;
+    private CheckBox checkBoxweek;
 
 
 
@@ -46,6 +50,8 @@ public class HomeFragment extends Fragment {
         layoutManager = new LinearLayoutManager(getContext());
         recyclerView.setLayoutManager(layoutManager);
         arrayList = new ArrayList<>(); // User 객체를 담을 어레이 리스트 (어댑터쪽으로)
+        Spinner spinner =view.findViewById(R.id.spinner);
+        String serchOption="name";
 
 
         eduAdapter.OnItemClickListener listener= new eduAdapter.OnItemClickListener() {
@@ -81,15 +87,16 @@ public class HomeFragment extends Fragment {
         };
         database = FirebaseDatabase.getInstance(); // 파이어베이스 데이터베이스 연동
         databaseReference = database.getReference("edu"); // DB 테이블 연결
-        databaseReference.addListenerForSingleValueEvent(new ValueEventListener() {
+        databaseReference.orderByChild("apply_end").addListenerForSingleValueEvent(new ValueEventListener() {
             @Override
-            public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
+            public void onDataChange( DataSnapshot dataSnapshot) {
                 // 파이어베이스 데이터베이스의 데이터를 받아오는 곳
                 arrayList.clear(); // 기존 배열리스트가 존재하지않게 초기화
                 for (DataSnapshot snapshot : dataSnapshot.getChildren()) { // 반복문으로 데이터 List를 추출해냄
                     edu edu = snapshot.getValue(edu.class); // 만들어뒀던 User 객체에 데이터를 담는다.
                     arrayList.add(edu); // 담은 데이터들을 배열리스트에 넣고 리사이클러뷰로 보낼 준비
                 }
+                Collections.reverse(arrayList);
                 adapter.notifyDataSetChanged(); // 리스트 저장 및 새로고침해야 반영이 됨
             }
 
