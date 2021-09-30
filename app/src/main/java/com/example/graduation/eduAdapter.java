@@ -49,7 +49,6 @@ public class eduAdapter extends RecyclerView.Adapter<eduAdapter.eduViewHolder> i
             } else {
                 String filterPattern = constraint.toString().toLowerCase().trim();
                 for (edu item : arrayListAll) {
-                    //TODO filter 대상 setting
                     if (item.getName().toLowerCase().contains(filterPattern)) {
                         filteredList.add(item);
                     }
