@@ -20,62 +20,69 @@
 
     <TextView
         android:id="@+id/usermyid"
-        android:layout_width="100dp"
-        android:layout_height="20dp"
-        android:layout_marginHorizontal="150dp"
-        android:text="userID"
+        android:layout_width="200dp"
+        android:layout_height="30dp"
+        android:layout_marginHorizontal="100dp"
+        android:textStyle="normal"
+        android:text="User ID"
         android:textColor="@color/black"
-        android:textSize="15sp" />
+        android:textSize="20sp" />
 
-    <TableLayout
-        android:layout_width="280dp"
-        android:layout_height="70dp"
-        android:paddingLeft="10dp"
-        android:padding="10dp"
-        android:layout_marginTop="40dp"
-        android:layout_marginHorizontal="65dp"
+
+    <TableLayout android:layout_width="254dp"
+        android:layout_height="220dp"
+        android:paddingLeft="20dp"
+        android:padding="5dp"
+        android:layout_marginTop="60dp"
+        android:layout_marginHorizontal="83dp"
         android:background="#6B799E">
 
         <TableRow
-            android:layout_width="match_parent"
-            android:layout_height="match_parent">
+            android:layout_width="240dp"
+            android:layout_height="40dp">
 
             <Button
                 android:id="@+id/userinfo"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:background="@drawable/ic_baseline_person_myinfo"
+                android:layout_width="245dp"
+                android:layout_height="70dp"
                 android:text="회 원 정 보  수 정"
                 android:textColor="#261326"
                 android:textStyle="bold"
-                android:textSize="10sp"/>
+                android:textSize="25sp"/>
 
-            <Button
-                android:id="@+id/userout"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:background="@drawable/ic_baseline_backspace_signout"
-                android:text="회 원  탈 퇴"
-                android:textColor="#261326"
-                android:textStyle="bold"
-                android:textSize="10sp"/>
+        </TableRow>
+
+        <TableRow
+            android:layout_width="240dp"
+            android:layout_height="40dp">
 
             <Button
                 android:id="@+id/mylogout"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:background="@drawable/ic_baseline_login_mylogout"
+                android:layout_width="245dp"
+                android:layout_height="70dp"
                 android:text="로 그 아 웃"
                 android:textColor="#261326"
                 android:textStyle="bold"
-                android:textSize="10sp"/>
+                android:textSize="25sp"/>
 
         </TableRow>
+
+        <TableRow
+            android:layout_width="240dp"
+            android:layout_height="40dp">
+
+            <Button
+                android:id="@+id/userout"
+                android:layout_width="245dp"
+                android:layout_height="70dp"
+                android:text="회 원  탈 퇴"
+                android:textColor="#261326"
+                android:textStyle="bold"
+                android:textSize="25sp"/>
+
+        </TableRow>
+
+
     </TableLayout>
-
-
-
-
-
 
 </LinearLayout>
