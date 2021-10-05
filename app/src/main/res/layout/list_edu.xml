@@ -41,7 +41,7 @@
                 android:layout_weight="1"
                 android:layout_margin="5dp"
                 android:text="@string/eduname"
-                android:maxLength="20"
+                android:maxLength="19"
                 android:maxLines="1"
                 android:ellipsize="end"
                 android:textColor="@color/black" />
@@ -62,6 +62,7 @@
 
                 android:layout_margin="5dp"
                 android:background="#787878"
+
                 android:gravity="right"
                 android:padding="3dp"
                 android:text="마감 됨"
