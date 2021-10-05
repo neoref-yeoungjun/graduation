@@ -1,22 +1,39 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout
+<LinearLayout
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:orientation="vertical"
     android:background="@color/white">
 
-
     <TextView
-        android:id="@+id/text_quest"
-        android:layout_width="wrap_content"
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:text=" 문 의   게 시 판 "
+        android:textSize="25sp"
+        android:textStyle="bold"
+        android:paddingTop="15dp"
+        android:includeFontPadding="false"
+        android:gravity="center_horizontal"
+        android:background="#6B799E" />
+
+
+    <ListView
+        android:id="@+id/list_question"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_weight="1" />
+
+    <Button
+        android:id="@+id/question_btn"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginTop="8dp"
-        android:text="문의게시판"
-        android:textSize="40dp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
-</androidx.constraintlayout.widget.ConstraintLayout>
+        android:text="새    글    작 성 하 기"
+        android:textStyle="bold"
+        android:textSize="20sp"
+        android:background="#6B799E" />
+
+
+</LinearLayout>

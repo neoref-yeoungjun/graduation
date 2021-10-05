@@ -32,7 +32,7 @@ public class RegisterActivity extends AppCompatActivity {
             setContentView(R.layout.activity_signup);
 
             mAuth = FirebaseAuth.getInstance();
-            mDatabaseRef = FirebaseDatabase.getInstance().getReference("graduation");
+            mDatabaseRef = FirebaseDatabase.getInstance().getReference("User");
 
             sign_up = findViewById(R.id.signUpButton);
             sign_up.setOnClickListener(new View.OnClickListener() {
@@ -71,7 +71,6 @@ public class RegisterActivity extends AppCompatActivity {
                                 UserAccount account = new UserAccount();
                                 account.setIdToken(user.getUid());
                                 account.setEmailId(user.getEmail());
-                                account.setPassword(password);
                                 // setValue : database에 정보 입력
                                 mDatabaseRef.child("UserAccount").child(user.getUid()).setValue(account);
                                 Intent intent = new Intent(RegisterActivity.this, LoginActivity.class);
