@@ -8,8 +8,6 @@ import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
 
-import com.google.firebase.auth.FirebaseAuth;
-
 public class MypageFragment extends Fragment {
     @Nullable
     @Override
@@ -18,5 +16,4 @@ public class MypageFragment extends Fragment {
         return v;
 
     }
-
 }

@@ -1,7 +1,7 @@
 package com.example.graduation;
 
+import android.app.Activity;
 import android.content.Context;
-import android.content.Intent;
 import android.graphics.Color;
 import android.os.Bundle;
 import android.util.Log;
@@ -9,30 +9,34 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
-
+import android.content.Intent;
 import androidx.annotation.NonNull;
-import androidx.fragment.app.FragmentTransaction;
 import androidx.recyclerview.widget.RecyclerView;
 
-import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
-import java.util.Calendar;
-import java.util.Date;
+import java.util.List;
 
 public class eduAdapter extends RecyclerView.Adapter<eduAdapter.eduViewHolder> {
 
     private ArrayList<edu> arrayList;
     private Context context;
+    String start1;
+    String end1;
+
 
     public interface OnItemClickListener{
         void onItemClick(View v, int pos);
     }
-    long currentTime = System.currentTimeMillis();
+    long now = System.currentTimeMillis();
+
     SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd");
 
-    String today = sdf.format(currentTime);
+    final String today = sdf.format(now);
     private OnItemClickListener mListener =null;
+    Activity activity;
+
+
 
     public eduAdapter(ArrayList<edu> arrayList, Context context, OnItemClickListener listener) {
         this.arrayList = arrayList;
@@ -50,6 +54,7 @@ public class eduAdapter extends RecyclerView.Adapter<eduAdapter.eduViewHolder> {
         return holder;
     }
 
+
     @Override
     public void onBindViewHolder(@NonNull eduViewHolder holder, int position) {
 
@@ -62,14 +67,15 @@ public class eduAdapter extends RecyclerView.Adapter<eduAdapter.eduViewHolder> {
         holder.time.setText(arrayList.get(position).getTime());
         holder.fee.setText(arrayList.get(position).getFee());
         holder.week.setText(arrayList.get(position).getWeek());
-
-
+        holder.onBind(arrayList.get(position));
     }
 
     @Override
     public int getItemCount() {
         return (arrayList != null ? arrayList.size() : 0);
     }
+
+
 
     public class eduViewHolder extends RecyclerView.ViewHolder {
         TextView apply_start;
@@ -83,6 +89,7 @@ public class eduAdapter extends RecyclerView.Adapter<eduAdapter.eduViewHolder> {
         TextView week;
         TextView apply_day;
 
+
         public eduViewHolder(@NonNull View itemView)  {
             super(itemView);
             this.name = itemView.findViewById(R.id.text_1);
@@ -95,18 +102,10 @@ public class eduAdapter extends RecyclerView.Adapter<eduAdapter.eduViewHolder> {
             this.week = itemView.findViewById(R.id.text_8);
             this.fee = itemView.findViewById(R.id.text_9);
             this.apply_day = itemView.findViewById(R.id.apply_day);
-            try {
-                Date start1=sdf.parse(apply_start.toString());
-                Date today2=sdf.parse(today);
-
-            } catch (ParseException e) {
-                e.printStackTrace();
-            }
 
 
 
-            //itemView.setClickable(true);
-            itemView.setOnClickListener(new View.OnClickListener() {
+           itemView.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
                     Log.d("Recyclerview", "position="+getAdapterPosition());
@@ -129,7 +128,25 @@ public class eduAdapter extends RecyclerView.Adapter<eduAdapter.eduViewHolder> {
                     }
                 });
         }
+        public void onBind(edu edu){
+            String start1 = edu.getApply_start().toString();
+            String end1 = edu.getApply_end().toString();
+            String end2 = edu.getEdu_end().toString();
+            if(today.compareTo(start1)<0 | today.compareTo(end2)> 0) {
+                apply_day.setText("강의종료");
+                apply_day.setBackgroundColor(Color.parseColor("#787878"));
+            }
+            if(today.compareTo(start1)>0 &today.compareTo(end1)<=0){
+                apply_day.setText("접수 중");
+                apply_day.setBackgroundColor(Color.parseColor("#84FFFF"));
 
+            }
+            if(today.compareTo(end1)>0 & today.compareTo(end2)<=0){
+                apply_day.setText("교육 중");
+                apply_day.setBackgroundColor(Color.parseColor("#82B1FF"));
+
+            }
+            }
 
     }
 }
