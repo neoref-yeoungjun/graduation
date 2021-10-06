@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <string-array name="option">
+
         <item>강좌 이름</item>
         <item>교육 장소</item>
         <item>교육 요일</item>
