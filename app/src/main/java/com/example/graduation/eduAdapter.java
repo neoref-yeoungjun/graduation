@@ -1,72 +1,29 @@
 package com.example.graduation;
 
-import static android.graphics.Color.*;
-
+import android.app.Activity;
 import android.content.Context;
-import android.content.Intent;
 import android.graphics.Color;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.Filter;
-import android.widget.Filterable;
 import android.widget.TextView;
-
+import android.content.Intent;
 import androidx.annotation.NonNull;
-import androidx.fragment.app.FragmentTransaction;
 import androidx.recyclerview.widget.RecyclerView;
 
-import java.text.ParseException;
 import java.text.SimpleDateFormat;
-import java.time.LocalDate;
 import java.util.ArrayList;
-import java.util.Calendar;
-import java.util.Date;
 import java.util.List;
 
-public class eduAdapter extends RecyclerView.Adapter<eduAdapter.eduViewHolder> implements Filterable {
+public class eduAdapter extends RecyclerView.Adapter<eduAdapter.eduViewHolder> {
 
     private ArrayList<edu> arrayList;
-    private ArrayList<edu> arrayListAll;
     private Context context;
     String start1;
     String end1;
 
-    @Override
-    public Filter getFilter() {
-        return exampleFilter;
-    }
-    private Filter exampleFilter = new Filter() {
-        //Automatic on background thread
-        @Override
-        protected FilterResults performFiltering(CharSequence constraint) {
-            List<edu> filteredList = new ArrayList<>();
-
-            if (constraint == null || constraint.length() == 0) {
-                filteredList.addAll(arrayListAll);
-            } else {
-                String filterPattern = constraint.toString().toLowerCase().trim();
-                for (edu item : arrayListAll) {
-                    if (item.getName().toLowerCase().contains(filterPattern)) {
-                        filteredList.add(item);
-                    }
-                }
-            }
-            FilterResults results = new FilterResults();
-            results.values = filteredList;
-            return results;
-        }
-
-        //Automatic on UI thread
-        @Override
-        protected void publishResults(CharSequence constraint, FilterResults results) {
-            arrayList.clear();
-            arrayList.addAll((List) results.values);
-            notifyDataSetChanged();
-        }
-    };
 
     public interface OnItemClickListener{
         void onItemClick(View v, int pos);
@@ -77,6 +34,9 @@ public class eduAdapter extends RecyclerView.Adapter<eduAdapter.eduViewHolder> i
 
     final String today = sdf.format(now);
     private OnItemClickListener mListener =null;
+    Activity activity;
+
+
 
     public eduAdapter(ArrayList<edu> arrayList, Context context, OnItemClickListener listener) {
         this.arrayList = arrayList;
@@ -173,11 +133,11 @@ public class eduAdapter extends RecyclerView.Adapter<eduAdapter.eduViewHolder> i
             String end1 = edu.getApply_end().toString();
             String end2 = edu.getEdu_end().toString();
             if(today.compareTo(start1)<0 | today.compareTo(end2)> 0) {
-                apply_day.setText("마감 됨");
+                apply_day.setText("강의종료");
                 apply_day.setBackgroundColor(Color.parseColor("#787878"));
             }
             if(today.compareTo(start1)>0 &today.compareTo(end1)<=0){
-                apply_day.setText("신청 중");
+                apply_day.setText("접수 중");
                 apply_day.setBackgroundColor(Color.parseColor("#84FFFF"));
 
             }

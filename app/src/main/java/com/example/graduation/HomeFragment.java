@@ -1,14 +1,9 @@
 package com.example.graduation;
-import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.CheckBox;
-import android.widget.Spinner;
-import android.widget.TextView;
-import android.widget.Toast;
 
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
@@ -23,7 +18,6 @@ import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentTransaction;
-import androidx.recyclerview.widget.DividerItemDecoration;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
@@ -36,7 +30,6 @@ public class HomeFragment extends Fragment {
     private DatabaseReference databaseReference;
     private eduAdapter.OnItemClickListener listener;
     private View view;
-    private CheckBox checkBoxweek;
 
 
 
@@ -50,8 +43,6 @@ public class HomeFragment extends Fragment {
         layoutManager = new LinearLayoutManager(getContext());
         recyclerView.setLayoutManager(layoutManager);
         arrayList = new ArrayList<>(); // User 객체를 담을 어레이 리스트 (어댑터쪽으로)
-        Spinner spinner =view.findViewById(R.id.spinner);
-        String serchOption="name";
 
 
         eduAdapter.OnItemClickListener listener= new eduAdapter.OnItemClickListener() {
