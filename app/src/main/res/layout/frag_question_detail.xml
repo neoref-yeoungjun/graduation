@@ -96,7 +96,7 @@
                     android:id="@+id/question_modify"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_margin_right="20dp"
+                    android:layout_margin="20dp"
                     android:layout_weight="1"
                     android:layout_gravity="right"
                     android:textSize="15sp"
