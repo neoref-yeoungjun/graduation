@@ -55,7 +55,17 @@
         android:layout_width="match_parent"
         android:layout_height="50dp"
         android:orientation="horizontal"
-        android:paddingLeft="130dp">
+        android:paddingLeft="10dp">
+
+        <Button
+            android:id="@+id/comment_re"
+            android:layout_width="wrap_content"
+            android:layout_height="45dp"
+            android:layout_weight="1"
+            android:layout_gravity="right"
+            android:textSize="15sp"
+            android:textStyle="bold"
+            android:text="대 댓 글"/>
 
         <Button
             android:id="@+id/comment_modify"
