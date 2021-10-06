@@ -1,6 +1,67 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    android:layout_height="match_parent"
+    android:padding="16dp"
+    android:orientation="vertical">
 
-</androidx.constraintlayout.widget.ConstraintLayout>
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="60dp"
+        android:text=" 문 의   게 시 판 "
+        android:textSize="25sp"
+        android:textStyle="bold"
+        android:paddingTop="15dp"
+        android:includeFontPadding="false"
+        android:gravity="center_horizontal"
+        android:background="#6B799E" />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:padding="16dp"
+            android:text="제 목"/>
+
+        <EditText
+            android:id="@+id/register_title"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:padding="16dp"
+            android:background="#eeeeee"
+            android:layout_weight="1"
+            android:hint="제목을 입력하세요."/>
+
+    </LinearLayout>
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:padding="16dp"
+        android:text="내 용"/>
+
+    <EditText
+        android:id="@+id/register_content"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:padding="16dp"
+        android:layout_weight="1"
+        android:background="#eeeeee"
+        android:hint="내용을 입력하세요."/>
+
+    <Button
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="글   등 록 하 기"
+        android:textSize="20sp"
+        android:textStyle="bold"
+        android:textColor="#FFFFFF"
+        android:background="#C66000"/>
+
+
+</LinearLayout>
