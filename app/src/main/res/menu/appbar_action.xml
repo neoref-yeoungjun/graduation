@@ -5,6 +5,8 @@
         tools:context=".MainActivity
 
 
+
+
         <item
             android:id="@+id/action_search"
             android:icon="@drawable/ic_baseline_search_24"
