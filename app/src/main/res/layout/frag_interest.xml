@@ -1,21 +1,29 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout
+<LinearLayout
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="#fff">
-
+    android:padding="16dp"
+    android:orientation="vertical"
+    android:background="@color/white">
 
     <TextView
-        android:id="@+id/interest"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="관심강좌"
-        android:textSize="50sp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
-</androidx.constraintlayout.widget.ConstraintLayout>
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:text=" 관 심 강 좌 "
+        android:textSize="25sp"
+        android:textStyle="bold"
+        android:paddingTop="15dp"
+        android:includeFontPadding="false"
+        android:gravity="center_horizontal"
+        android:background="#6B799E" />
+
+    <ListView
+        android:id="@+id/interest_edu_list"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_weight="1" />
+
+</LinearLayout>
