@@ -4,8 +4,10 @@ import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
+import android.view.LayoutInflater;
 import android.view.MenuItem;
 import android.view.View;
+import android.view.ViewGroup;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
@@ -15,6 +17,7 @@ import android.widget.Spinner;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentManager;
 import androidx.fragment.app.FragmentTransaction;
 import androidx.recyclerview.widget.LinearLayoutManager;
@@ -30,7 +33,7 @@ import com.google.firebase.database.ValueEventListener;
 import java.util.ArrayList;
 import java.util.Collections;
 
-public class SearchActivity extends AppCompatActivity{
+public class SearchActivity extends Fragment {
     private FragmentManager fm;
     private FragmentTransaction ft;
     private BottomNavigationView bottomNavigationView;
@@ -47,15 +50,16 @@ public class SearchActivity extends AppCompatActivity{
     private RecyclerView.LayoutManager layoutManager;
     private eduAdapter.OnItemClickListener listener;
     String searchOption="name";
-    String text;
+    String text,text2;
     private Button btn;
 
+    @Nullable
     @Override
-    protected void onCreate(Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_search);
-        btn = findViewById(R.id.searchBtn);
-        spinner = findViewById(R.id.spinner);
+    public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
+
+        View v= inflater.inflate(R.layout.activity_search, container, false);
+        btn = v.findViewById(R.id.searchBtn);
+        spinner = v.findViewById(R.id.spinner);
 
 
 
@@ -87,7 +91,8 @@ public class SearchActivity extends AppCompatActivity{
                         }
                     });
                     text = editText.getText().toString();
-                    databaseReference.orderByChild(searchOption).startAt(text).endAt(text).addListenerForSingleValueEvent(new ValueEventListener() {
+                    text2 = text+"\uf8ff";
+                    databaseReference.orderByChild(searchOption).startAt(text).endAt(text2).addListenerForSingleValueEvent(new ValueEventListener() {
                         @Override
                         public void onDataChange(DataSnapshot dataSnapshot) {
                             // 파이어베이스 데이터베이스의 데이터를 받아오는 곳
@@ -109,64 +114,63 @@ public class SearchActivity extends AppCompatActivity{
 
                 }
             });
-            recyclerView = findViewById(R.id.recycler_view_search);
+
+
+        eduAdapter.OnItemClickListener listener= new eduAdapter.OnItemClickListener() {
+            @Override
+            public void onItemClick(View v, int pos) {
+//                eduAdapter.eduViewHolder viewHolder = (eduAdapter.eduViewHolder) recyclerView.findViewHolderForAdapterPosition(pos);
+                Bundle bundle = new Bundle();
+                bundle.putString("table_name",arrayList.get(pos).getName());
+                bundle.putString("table_outlook",arrayList.get(pos).getOutlook());
+                bundle.putString("table_institution",arrayList.get(pos).getInstitution());
+                bundle.putString("table_place",arrayList.get(pos).getPlace());
+                bundle.putString("table_week",arrayList.get(pos).getWeek());
+                bundle.putString("table_time",arrayList.get(pos).getTime());
+                bundle.putString("table_teacher",arrayList.get(pos).getTeacher());
+                bundle.putString("table_edu_person", String.valueOf(arrayList.get(pos).getEdu_person()));
+                bundle.putString("table_apply_start",arrayList.get(pos).getApply_start());
+                bundle.putString("table_apply_end",arrayList.get(pos).getApply_end());
+                bundle.putString("table_edu_start",arrayList.get(pos).getEdu_start());
+                bundle.putString("table_edu_end",arrayList.get(pos).getEdu_end());
+                bundle.putString("table_target",arrayList.get(pos).getTarget());
+                bundle.putString("table_fee",arrayList.get(pos).getFee());
+                bundle.putString("table_teacher_info",arrayList.get(pos).getTeacher_info());
+                bundle.putString("table_apply_url",arrayList.get(pos).getApply_url());
+
+
+
+                FragmentTransaction transaction = getActivity().getSupportFragmentManager().beginTransaction();
+                eduTableFragment eduTableFragment = new eduTableFragment();
+                eduTableFragment.setArguments(bundle);
+                transaction.replace(R.id.frame_container, eduTableFragment);
+                transaction.addToBackStack(null);
+                transaction.commit();
+
+            }
+        };
+
+            recyclerView = v.findViewById(R.id.recycler_view_search);
             recyclerView.setHasFixedSize(true);
             recyclerView.setLayoutManager(layoutManager);
-            editText = findViewById(R.id.searchWord);
+            editText = v.findViewById(R.id.searchWord);
             arrayList = new ArrayList<>();
-            LinearLayoutManager linearLayoutManager = new LinearLayoutManager(getApplicationContext());
+            LinearLayoutManager linearLayoutManager = new LinearLayoutManager(getContext());
             recyclerView.setLayoutManager(linearLayoutManager);
             database = FirebaseDatabase.getInstance(); // 파이어베이스 데이터베이스 연동
             databaseReference = database.getReference("edu"); // DB 테이블 연결=
 
-            adapter = new eduAdapter(arrayList, getApplicationContext(), listener);
+            adapter = new eduAdapter(arrayList, getContext(), listener);
             recyclerView.setAdapter(adapter);
 
-            bottomNavigationView = findViewById(R.id.bottomNavi);
 
-            bottomNavigationView.setOnNavigationItemSelectedListener(new BottomNavigationView.OnNavigationItemSelectedListener() {
-                @Override
-
-                public boolean onNavigationItemSelected(@NonNull MenuItem item) {
-                    switch (item.getItemId()) {
-                        case R.id.item_fragment1:
-                            Intent intent = new Intent(SearchActivity.this, MainActivity.class);
-                            startActivity(intent);
-                            break;
-
-                        case R.id.item_fragment2://이전 버튼
-                            onBackPressed();
-                            break;
-
-                        case R.id.item_fragment3://새로 고침
-
-
-                            break;
-
-                        case R.id.item_fragment4:
-                            setFrag(1);
-                            break;
-
-                        case R.id.item_fragment5:
-                            setFrag(2);
-                            break;
-
-
-                    }
-                    return true;
-                }
-            });
-            home1 = new HomeFragment();
-            interest1 = new InterestFragment();
-            setting1 = new SettingFragment();
-
-
+        return v;
         }
 
 
 
     private void setFrag(int n) {
-        fm = getSupportFragmentManager();
+        fm = getChildFragmentManager();
         ft = fm.beginTransaction();
         switch (n) {
             case 0:
@@ -189,15 +193,6 @@ public class SearchActivity extends AppCompatActivity{
     }
 
 
-    @Override
-    public void onBackPressed() {
-        super.onBackPressed();
-    }
-
-    @Override
-    protected void onResume() {
-        super.onResume();
-    }
 
 
 
