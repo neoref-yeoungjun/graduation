@@ -26,8 +26,8 @@ public class HomeFragment extends Fragment {
     private RecyclerView.Adapter adapter;
     private RecyclerView.LayoutManager layoutManager;
     private ArrayList<edu> arrayList;
-    private FirebaseDatabase database;
-    private DatabaseReference databaseReference;
+    private FirebaseDatabase database,database2;
+    private DatabaseReference databaseReference,databaseReference2;
     private eduAdapter.OnItemClickListener listener;
     private View view;
 
@@ -66,6 +66,8 @@ public class HomeFragment extends Fragment {
                 bundle.putString("table_fee",arrayList.get(pos).getFee());
                 bundle.putString("table_teacher_info",arrayList.get(pos).getTeacher_info());
                 bundle.putString("table_apply_url",arrayList.get(pos).getApply_url());
+
+
 
                 FragmentTransaction transaction = getActivity().getSupportFragmentManager().beginTransaction();
                 eduTableFragment eduTableFragment = new eduTableFragment();
