@@ -133,7 +133,7 @@ public class eduAdapter extends RecyclerView.Adapter<eduAdapter.eduViewHolder> {
             String end1 = edu.getApply_end().toString();
             String end2 = edu.getEdu_end().toString();
             if(today.compareTo(start1)<0 | today.compareTo(end2)> 0) {
-                apply_day.setText("강의종료");
+                apply_day.setText("교육종료");
                 apply_day.setBackgroundColor(Color.parseColor("#787878"));
             }
             if(today.compareTo(start1)>0 &today.compareTo(end1)<=0){

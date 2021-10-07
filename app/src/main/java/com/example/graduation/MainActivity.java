@@ -40,6 +40,7 @@ public class MainActivity extends AppCompatActivity {
     private CategoryFragment cate1;
     private MypageFragment mypage1;
     private QuestionFragment question1;
+    private SearchActivity search1;
 
 
     private DrawerLayout mDrawerLayout;
@@ -150,6 +151,7 @@ public class MainActivity extends AppCompatActivity {
         cate1 = new CategoryFragment();
         mypage1 = new MypageFragment();
         question1 = new QuestionFragment();
+        search1 = new SearchActivity();
         setFrag(0);
     }
 
@@ -200,6 +202,11 @@ public class MainActivity extends AppCompatActivity {
                 ft.addToBackStack(null);
                 ft.commit();
                 break;
+            case 8:
+                ft.replace(R.id.frame_container,search1,"Frag9");
+                ft.addToBackStack(null);
+                ft.commit();
+                break;
 
 
         }
@@ -221,8 +228,7 @@ public class MainActivity extends AppCompatActivity {
             }
 
                 case R.id.action_search: {
-                    Intent intent = new Intent(MainActivity.this, SearchActivity.class);
-                    startActivity(intent);
+                    setFrag(8);
                     return true;
                 }
                 case R.id.action_account: {
