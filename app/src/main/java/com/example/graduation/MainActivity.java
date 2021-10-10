@@ -5,23 +5,16 @@ import androidx.appcompat.app.ActionBar;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.core.view.GravityCompat;
 import androidx.drawerlayout.widget.DrawerLayout;
-import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentManager;
 import androidx.fragment.app.FragmentTransaction;
 
 import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
-import android.util.Log;
 import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.MenuItem;
 import androidx.appcompat.widget.Toolbar;
-
-import android.view.View;
-import android.widget.Button;
-import android.widget.SearchView;
-import android.widget.Toast;
 
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 import com.google.android.material.navigation.NavigationView;
@@ -35,7 +28,7 @@ public class MainActivity extends AppCompatActivity {
     private HomeFragment home1;
     private InterestFragment interest1;
     private SettingFragment setting1;
-    private OrganizationFragment organi1;
+    private WeekdayFragment weekday1;
     private LocationFragment location1;
     private CategoryFragment cate1;
     private MypageFragment mypage1;
@@ -77,7 +70,7 @@ public class MainActivity extends AppCompatActivity {
                 int id = menuItem.getItemId();
                 String title = menuItem.getTitle().toString();
 
-                if(id == R.id.organization){
+                if(id == R.id.week_day){
                     setFrag(3);
                 }
                 else if(id == R.id.location){
@@ -146,7 +139,7 @@ public class MainActivity extends AppCompatActivity {
         home1= new HomeFragment();
         interest1= new InterestFragment();
         setting1 = new SettingFragment();
-        organi1 = new OrganizationFragment();
+        weekday1 = new WeekdayFragment();
         location1 = new LocationFragment();
         cate1 = new CategoryFragment();
         mypage1 = new MypageFragment();
@@ -178,7 +171,7 @@ public class MainActivity extends AppCompatActivity {
                 ft.commit();
                 break;
             case 3:
-                ft.replace(R.id.frame_container,organi1,"Frag4");
+                ft.replace(R.id.frame_container,weekday1,"Frag4");
                 ft.addToBackStack(null);
                 ft.commit();
                 break;
