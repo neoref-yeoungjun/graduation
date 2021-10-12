@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string-array name = "cate">
+        <item>IT</item>
+        <item>요리</item>
+        <item>미술</item>
+        <item>음악</item>
+        <item>자격증</item>
+        <item>인문학</item>
+        <item>건강</item>
+        <item>기타</item>
+    </string-array>
+</resources>
