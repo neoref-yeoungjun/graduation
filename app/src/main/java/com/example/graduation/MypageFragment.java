@@ -11,9 +11,13 @@ import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentManager;
 import androidx.fragment.app.FragmentTransaction;
 
+import com.google.firebase.auth.FirebaseAuth;
+
 public class MypageFragment extends Fragment {
     private static final String TAG = "MypageFragment";
-    private Button userinfo;
+    private Button userinfo,mylogout,userout;;
+
+    private HomeFragment home1;
     private View view;
     @Nullable
     @Override
@@ -35,7 +39,37 @@ public class MypageFragment extends Fragment {
 
             }
         });
+        home1= new HomeFragment();
+        mylogout =(Button)view.findViewById(R.id.mylogout);
+        mylogout.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                signOut();
+                FragmentTransaction transaction = getActivity().getSupportFragmentManager().beginTransaction();
+                transaction.replace(R.id.frame_container, home1);
+                transaction.commit(); //저장
+            }
+        });
+
+        userout=(Button) view.findViewById(R.id.userout);
+        userout.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                revokeAccess();
+                FragmentTransaction transaction = getActivity().getSupportFragmentManager().beginTransaction();
+                transaction.replace(R.id.frame_container, home1);
+                transaction.commit(); //저장
+            }
+        });
+
         return view;
 
+    }
+    private void signOut() {
+        FirebaseAuth.getInstance().signOut();
+    }
+
+    private void revokeAccess() {
+        FirebaseAuth.getInstance().getCurrentUser().delete();
     }
 }

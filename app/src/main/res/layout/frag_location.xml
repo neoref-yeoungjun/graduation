@@ -1,22 +1,190 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout
+<LinearLayout
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:padding="16dp"
+    android:orientation="vertical"
     android:background="#fff">
 
 
     <TextView
-        android:id="@+id/text_loc"
+        android:layout_width="match_parent"
+        android:layout_height="60dp"
+        android:layout_gravity="center"
+        android:layout_marginTop="20dp"
+        android:background="#6B799E"
+        android:gravity="center"
+        android:text="지역을 선택하세요."
+        android:textColor="#263238"
+        android:textSize="30dp" />
+
+    <RadioGroup
+        android:id="@+id/radio_location"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="8dp"
-        android:text="지역별"
-        android:textSize="40dp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
-</androidx.constraintlayout.widget.ConstraintLayout>
+        android:paddingVertical="10dp"
+        android:layout_marginTop="40dp"
+        android:background="#DBDBE5"
+        android:orientation="vertical">
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+
+            <RadioButton
+                android:id="@+id/radiobtn_chungju"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="충 주 시  "
+                android:textSize="15sp"
+                android:textStyle="bold"
+                tools:ignore="TouchTargetSizeCheck" />
+
+            <RadioButton
+                android:id="@+id/radiobtn_cheongju"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="청 주 시  "
+                android:textSize="15sp"
+                android:textStyle="bold"
+                tools:ignore="TouchTargetSizeCheck" />
+
+            <RadioButton
+                android:id="@+id/radiobtn_jecheon"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="제 천 시  "
+                android:textSize="15sp"
+                android:textStyle="bold"
+                tools:ignore="TouchTargetSizeCheck" />
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+
+            <RadioButton
+                android:id="@+id/radiobtn_boeun"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="보 은 군  "
+                android:textSize="15sp"
+                android:textStyle="bold"
+                tools:ignore="TouchTargetSizeCheck" />
+
+            <RadioButton
+                android:id="@+id/radiobtn_ogcheon"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="옥 천 군  "
+                android:textSize="15sp"
+                android:textStyle="bold"
+                tools:ignore="TouchTargetSizeCheck" />
+
+            <RadioButton
+                android:id="@+id/radiobtn_yeongdong"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="영 동 군  "
+                android:textSize="15sp"
+                android:textStyle="bold"
+                tools:ignore="TouchTargetSizeCheck" />
+
+            <RadioButton
+                android:id="@+id/radiobtn_jeungpyeong"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="증 평 군  "
+                android:textSize="15sp"
+                android:textStyle="bold"
+                tools:ignore="TouchTargetSizeCheck" />
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+
+            <RadioButton
+                android:id="@+id/radiobtn_jincheong"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="진 천 군  "
+                android:textSize="15sp"
+                android:textStyle="bold"
+                tools:ignore="TouchTargetSizeCheck" />
+
+            <RadioButton
+                android:id="@+id/radiobtn_goesan"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="괴 산 군  "
+                android:textSize="15sp"
+                android:textStyle="bold"
+                tools:ignore="TouchTargetSizeCheck" />
+
+            <RadioButton
+                android:id="@+id/radiobtn_eumseong"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="음 성 군  "
+                android:textSize="15sp"
+                android:textStyle="bold"
+                tools:ignore="TouchTargetSizeCheck" />
+
+            <RadioButton
+                android:id="@+id/radiobtn_danyang"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="단 양 군  "
+                android:textSize="15sp"
+                android:textStyle="bold"
+                tools:ignore="TouchTargetSizeCheck" />
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+
+            <View
+                android:layout_width="wrap_content"
+                android:layout_height="55dp"
+                android:layout_weight="1"/>
+
+            <Button
+                android:id="@+id/cate_radio_btn"
+                android:layout_width="wrap_content"
+                android:layout_height="40dp"
+                android:layout_marginTop="15dp"
+                android:background="#6B799E"
+                android:text="확인"
+                android:textSize="15sp"
+                android:textStyle="bold"
+                tools:ignore="TouchTargetSizeCheck" />
+
+            <View
+                android:layout_width="wrap_content"
+                android:layout_height="55dp"
+                android:layout_weight="1"/>
+
+        </LinearLayout>
+
+    </RadioGroup>
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/recycler_weekday"
+        android:layout_marginTop="30dp"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:scrollbars="vertical"/>
+
+</LinearLayout>

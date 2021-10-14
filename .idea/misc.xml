@@ -3,6 +3,8 @@
   <component name="DesignSurface">
     <option name="filePathToZoomLevelMap">
       <map>
+        <entry key="..\:/Users/gkdy5/AndroidStudioProjects/graduation/app/src/main/res/drawable/checkbox_active.xml" value="0.21979166666666666" />
+        <entry key="..\:/Users/gkdy5/AndroidStudioProjects/graduation/app/src/main/res/drawable/checkbox_inactive.xml" value="0.21979166666666666" />
         <entry key="..\:/Users/gkdy5/AndroidStudioProjects/graduation/app/src/main/res/drawable/common_menu.xml" value="0.20585585585585586" />
         <entry key="..\:/Users/gkdy5/AndroidStudioProjects/graduation/app/src/main/res/drawable/favorite_star.xml" value="0.38229166666666664" />
         <entry key="..\:/Users/gkdy5/AndroidStudioProjects/graduation/app/src/main/res/drawable/ic_baseline_arrow_back_ios_24.xml" value="0.38229166666666664" />
@@ -27,6 +29,7 @@
         <entry key="..\:/Users/gkdy5/AndroidStudioProjects/graduation/app/src/main/res/layout/frag_home.xml" value="0.18153153153153154" />
         <entry key="..\:/Users/gkdy5/AndroidStudioProjects/graduation/app/src/main/res/layout/frag_interest.xml" value="0.31666666666666665" />
         <entry key="..\:/Users/gkdy5/AndroidStudioProjects/graduation/app/src/main/res/layout/frag_location.xml" value="0.17882882882882883" />
+        <entry key="..\:/Users/gkdy5/AndroidStudioProjects/graduation/app/src/main/res/layout/frag_myinfo_modify.xml" value="0.36614583333333334" />
         <entry key="..\:/Users/gkdy5/AndroidStudioProjects/graduation/app/src/main/res/layout/frag_mypage.xml" value="0.2046875" />
         <entry key="..\:/Users/gkdy5/AndroidStudioProjects/graduation/app/src/main/res/layout/frag_organization.xml" value="0.17297297297297298" />
         <entry key="..\:/Users/gkdy5/AndroidStudioProjects/graduation/app/src/main/res/layout/frag_question.xml" value="0.2046875" />
@@ -34,6 +37,7 @@
         <entry key="..\:/Users/gkdy5/AndroidStudioProjects/graduation/app/src/main/res/layout/frag_question_modify.xml" value="0.36614583333333334" />
         <entry key="..\:/Users/gkdy5/AndroidStudioProjects/graduation/app/src/main/res/layout/frag_question_register.xml" value="0.21770833333333334" />
         <entry key="..\:/Users/gkdy5/AndroidStudioProjects/graduation/app/src/main/res/layout/frag_setting.xml" value="0.31666666666666665" />
+        <entry key="..\:/Users/gkdy5/AndroidStudioProjects/graduation/app/src/main/res/layout/frag_weekday.xml" value="0.36614583333333334" />
         <entry key="..\:/Users/gkdy5/AndroidStudioProjects/graduation/app/src/main/res/layout/list_edu.xml" value="0.31666666666666665" />
         <entry key="..\:/Users/gkdy5/AndroidStudioProjects/graduation/app/src/main/res/layout/list_question.xml" value="0.21770833333333334" />
         <entry key="..\:/Users/gkdy5/AndroidStudioProjects/graduation/app/src/main/res/layout/nav_header_main.xml" value="0.17747747747747747" />

@@ -1,0 +1,226 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:padding="16dp"
+    android:background="#fff">
+
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="60dp"
+        android:layout_marginTop="20dp"
+        android:text="요일을 선택하세요."
+        android:textSize="30dp"
+        android:gravity="center"
+        android:background="#6B799E"
+        android:layout_gravity="center" />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="20dp"
+        android:background="#DBDBE5"
+        android:paddingVertical="5dp">
+
+        <View
+            android:layout_width="80dp"
+            android:layout_weight="1"
+            android:layout_height="match_parent"/>
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:paddingTop="15dp"
+            android:paddingHorizontal="5dp">
+
+            <CheckBox
+                android:id="@+id/week_check_mon"
+                android:layout_width="25dp"
+                android:layout_height="25dp"
+                android:button="@null"
+                android:background="@drawable/custom_checkbox"/>
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="5dp"
+                android:textSize="15sp"
+                android:textStyle="bold"
+                android:textColor="#000E2B"
+                android:text="월"/>
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:paddingTop="15dp"
+            android:paddingHorizontal="5dp">
+
+            <CheckBox
+                android:id="@+id/week_check_tue"
+                android:layout_width="25dp"
+                android:layout_height="25dp"
+                android:button="@null"
+                android:background="@drawable/custom_checkbox"/>
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="5dp"
+                android:textSize="15sp"
+                android:textStyle="bold"
+                android:textColor="#000E2B"
+                android:text="화"/>
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:paddingTop="15dp"
+            android:paddingHorizontal="5dp">
+
+            <CheckBox
+                android:id="@+id/week_check_wed"
+                android:layout_width="25dp"
+                android:layout_height="25dp"
+                android:button="@null"
+                android:background="@drawable/custom_checkbox"/>
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="5dp"
+                android:textSize="15sp"
+                android:textStyle="bold"
+                android:textColor="#000E2B"
+                android:text="수"/>
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:paddingTop="15dp"
+            android:paddingHorizontal="5dp">
+
+            <CheckBox
+                android:id="@+id/week_check_thu"
+                android:layout_width="25dp"
+                android:layout_height="25dp"
+                android:button="@null"
+                android:background="@drawable/custom_checkbox"/>
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="5dp"
+                android:textSize="15sp"
+                android:textStyle="bold"
+                android:textColor="#000E2B"
+                android:text="목"/>
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:paddingTop="15dp"
+            android:paddingHorizontal="5dp">
+
+            <CheckBox
+                android:id="@+id/week_check_fri"
+                android:layout_width="25dp"
+                android:layout_height="25dp"
+                android:button="@null"
+                android:background="@drawable/custom_checkbox"/>
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="5dp"
+                android:textSize="15sp"
+                android:textStyle="bold"
+                android:textColor="#000E2B"
+                android:text="금"/>
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:paddingTop="15dp"
+            android:paddingHorizontal="5dp">
+
+            <CheckBox
+                android:id="@+id/week_check_sat"
+                android:layout_width="25dp"
+                android:layout_height="25dp"
+                android:button="@null"
+                android:background="@drawable/custom_checkbox"/>
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="5dp"
+                android:textSize="15sp"
+                android:textStyle="bold"
+                android:textColor="#000E2B"
+                android:text="토"/>
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:paddingTop="15dp"
+            android:paddingHorizontal="5dp">
+
+            <CheckBox
+                android:id="@+id/week_check_sun"
+                android:layout_width="25dp"
+                android:layout_height="25dp"
+                android:button="@null"
+                android:background="@drawable/custom_checkbox"/>
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="5dp"
+                android:textSize="15sp"
+                android:textStyle="bold"
+                android:textColor="#000E2B"
+                android:text="일"/>
+
+        </LinearLayout>
+
+        <View
+            android:layout_width="80dp"
+            android:layout_weight="1"
+            android:layout_height="match_parent"/>
+
+    </LinearLayout>
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/recycler_weekday"
+        android:layout_marginTop="30dp"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:scrollbars="vertical"/>
+
+
+
+</LinearLayout>

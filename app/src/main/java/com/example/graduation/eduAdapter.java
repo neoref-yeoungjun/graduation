@@ -112,7 +112,7 @@ public class eduAdapter extends RecyclerView.Adapter<eduAdapter.eduViewHolder> {
 
                     int pos = getAdapterPosition();
                     edu edu = arrayList.get(pos);
-                    mListener.onItemClick(v, getAdapterPosition());
+                    mListener.onItemClick(v, pos);
                     if (pos != RecyclerView.NO_POSITION) {
                         if (mListener != null) {
                             Bundle bundle = new Bundle();

@@ -5,26 +5,23 @@ import androidx.appcompat.app.ActionBar;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.core.view.GravityCompat;
 import androidx.drawerlayout.widget.DrawerLayout;
-import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentManager;
 import androidx.fragment.app.FragmentTransaction;
 
 import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
-import android.util.Log;
 import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.MenuItem;
-import androidx.appcompat.widget.Toolbar;
-
-import android.view.View;
-import android.widget.Button;
-import android.widget.SearchView;
 import android.widget.Toast;
+
+import androidx.appcompat.widget.Toolbar;
 
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 import com.google.android.material.navigation.NavigationView;
+import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.auth.FirebaseUser;
 
 public class MainActivity extends AppCompatActivity {
     private static final String TAG = "Main_Activity";
@@ -35,7 +32,7 @@ public class MainActivity extends AppCompatActivity {
     private HomeFragment home1;
     private InterestFragment interest1;
     private SettingFragment setting1;
-    private OrganizationFragment organi1;
+    private WeekdayFragment weekday1;
     private LocationFragment location1;
     private CategoryFragment cate1;
     private MypageFragment mypage1;
@@ -45,6 +42,7 @@ public class MainActivity extends AppCompatActivity {
 
     private DrawerLayout mDrawerLayout;
     private Context context = this;
+    FirebaseUser user = FirebaseAuth.getInstance().getCurrentUser();// 로그인 상태확인
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -77,7 +75,7 @@ public class MainActivity extends AppCompatActivity {
                 int id = menuItem.getItemId();
                 String title = menuItem.getTitle().toString();
 
-                if(id == R.id.organization){
+                if(id == R.id.week_day){
                     setFrag(3);
                 }
                 else if(id == R.id.location){
@@ -87,13 +85,25 @@ public class MainActivity extends AppCompatActivity {
                     setFrag(5);
                 }
                 else if(id == R.id.interest_edu){
-                    setFrag(1);
+                    if (user != null) {
+                        setFrag(1);
+                    } else {
+                        Toast.makeText(getApplicationContext(), "로그인이 필요합니다.", Toast.LENGTH_SHORT).show();
+                    }
                 }
                 else if(id == R.id.mypage){
-                    setFrag(6);
+                    if (user != null) {
+                        setFrag(6);
+                    } else {
+                        Toast.makeText(getApplicationContext(), "로그인이 필요합니다.", Toast.LENGTH_SHORT).show();
+                    }
                 }
                 else if(id == R.id.question){
-                    setFrag(7);
+                    if (user != null) {
+                        setFrag(7);
+                    } else {
+                        Toast.makeText(getApplicationContext(), "로그인이 필요합니다.", Toast.LENGTH_SHORT).show();
+                    }
                 }
 
                 return true;
@@ -125,7 +135,11 @@ public class MainActivity extends AppCompatActivity {
                         break;
 
                     case R.id.item_fragment4:
-                        setFrag(1);
+                        if (user != null) {
+                            setFrag(1);
+                        } else {
+                            Toast.makeText(getApplicationContext(), "로그인이 필요합니다.", Toast.LENGTH_SHORT).show();
+                        }
                         break;
 
                     case R.id.item_fragment5:
@@ -146,7 +160,7 @@ public class MainActivity extends AppCompatActivity {
         home1= new HomeFragment();
         interest1= new InterestFragment();
         setting1 = new SettingFragment();
-        organi1 = new OrganizationFragment();
+        weekday1 = new WeekdayFragment();
         location1 = new LocationFragment();
         cate1 = new CategoryFragment();
         mypage1 = new MypageFragment();
@@ -178,7 +192,7 @@ public class MainActivity extends AppCompatActivity {
                 ft.commit();
                 break;
             case 3:
-                ft.replace(R.id.frame_container,organi1,"Frag4");
+                ft.replace(R.id.frame_container,weekday1,"Frag4");
                 ft.addToBackStack(null);
                 ft.commit();
                 break;
@@ -232,8 +246,13 @@ public class MainActivity extends AppCompatActivity {
                     return true;
                 }
                 case R.id.action_account: {
-                    Intent intent = new Intent(MainActivity.this, LoginActivity.class);
-                    startActivity(intent);
+                    if (user != null) {
+                        setFrag(6);
+                    } else {
+                        Intent intent = new Intent(MainActivity.this, LoginActivity.class);
+                        startActivity(intent);
+                    }
+
                     return true;
                 }
 

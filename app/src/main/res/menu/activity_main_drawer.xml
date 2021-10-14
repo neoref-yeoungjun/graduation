@@ -8,8 +8,8 @@
         android:id="@+id/menu_1"
         android:checkableBehavior="single">
         <item
-            android:id="@+id/organization"
-            android:title="기관별" />
+            android:id="@+id/week_day"
+            android:title="요일별" />
         <item
             android:id="@+id/location"
             android:title="지역별" />
