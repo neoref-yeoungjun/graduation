@@ -13,12 +13,13 @@
     <TextView
         android:layout_width="match_parent"
         android:layout_height="60dp"
+        android:layout_gravity="center"
         android:layout_marginTop="20dp"
-        android:text="지역을 선택하세요."
-        android:textSize="30dp"
-        android:gravity="center"
         android:background="#6B799E"
-        android:layout_gravity="center" />
+        android:gravity="center"
+        android:text="지역을 선택하세요."
+        android:textColor="#263238"
+        android:textSize="30dp" />
 
     <RadioGroup
         android:id="@+id/radio_location"
@@ -29,7 +30,7 @@
         android:background="#DBDBE5"
         android:orientation="vertical">
 
-        <RadioGroup
+        <LinearLayout
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:orientation="horizontal">
@@ -38,29 +39,32 @@
                 android:id="@+id/radiobtn_chungju"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:text="충 주 시  "
                 android:textSize="15sp"
                 android:textStyle="bold"
-                android:text="충 주 시  "/>
+                tools:ignore="TouchTargetSizeCheck" />
 
             <RadioButton
                 android:id="@+id/radiobtn_cheongju"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:text="청 주 시  "
                 android:textSize="15sp"
                 android:textStyle="bold"
-                android:text="청 주 시  "/>
+                tools:ignore="TouchTargetSizeCheck" />
 
             <RadioButton
                 android:id="@+id/radiobtn_jecheon"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:text="제 천 시  "
                 android:textSize="15sp"
                 android:textStyle="bold"
-                android:text="제 천 시  "/>
+                tools:ignore="TouchTargetSizeCheck" />
 
-        </RadioGroup>
+        </LinearLayout>
 
-        <RadioGroup
+        <LinearLayout
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:orientation="horizontal">
@@ -69,37 +73,41 @@
                 android:id="@+id/radiobtn_boeun"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:text="보 은 군  "
                 android:textSize="15sp"
                 android:textStyle="bold"
-                android:text="보 은 군  "/>
+                tools:ignore="TouchTargetSizeCheck" />
 
             <RadioButton
                 android:id="@+id/radiobtn_ogcheon"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:text="옥 천 군  "
                 android:textSize="15sp"
                 android:textStyle="bold"
-                android:text="옥 천 군  "/>
+                tools:ignore="TouchTargetSizeCheck" />
 
             <RadioButton
                 android:id="@+id/radiobtn_yeongdong"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:text="영 동 군  "
                 android:textSize="15sp"
                 android:textStyle="bold"
-                android:text="영 동 군  "/>
+                tools:ignore="TouchTargetSizeCheck" />
 
             <RadioButton
                 android:id="@+id/radiobtn_jeungpyeong"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:text="증 평 군  "
                 android:textSize="15sp"
                 android:textStyle="bold"
-                android:text="증 평 군  "/>
+                tools:ignore="TouchTargetSizeCheck" />
 
-        </RadioGroup>
+        </LinearLayout>
 
-        <RadioGroup
+        <LinearLayout
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:orientation="horizontal">
@@ -108,35 +116,39 @@
                 android:id="@+id/radiobtn_jincheong"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:text="진 천 군  "
                 android:textSize="15sp"
                 android:textStyle="bold"
-                android:text="진 천 군  "/>
+                tools:ignore="TouchTargetSizeCheck" />
 
             <RadioButton
                 android:id="@+id/radiobtn_goesan"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:text="괴 산 군  "
                 android:textSize="15sp"
                 android:textStyle="bold"
-                android:text="괴 산 군  "/>
+                tools:ignore="TouchTargetSizeCheck" />
 
             <RadioButton
                 android:id="@+id/radiobtn_eumseong"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:text="음 성 군  "
                 android:textSize="15sp"
                 android:textStyle="bold"
-                android:text="음 성 군  "/>
+                tools:ignore="TouchTargetSizeCheck" />
 
             <RadioButton
                 android:id="@+id/radiobtn_danyang"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:text="단 양 군  "
                 android:textSize="15sp"
                 android:textStyle="bold"
-                android:text="단 양 군  "/>
+                tools:ignore="TouchTargetSizeCheck" />
 
-        </RadioGroup>
+        </LinearLayout>
 
         <LinearLayout
             android:layout_width="wrap_content"
@@ -150,13 +162,14 @@
 
             <Button
                 android:id="@+id/cate_radio_btn"
-                android:layout_marginTop="15dp"
                 android:layout_width="wrap_content"
                 android:layout_height="40dp"
+                android:layout_marginTop="15dp"
                 android:background="#6B799E"
-                android:textStyle="bold"
                 android:text="확인"
-                android:textSize="15sp"/>
+                android:textSize="15sp"
+                android:textStyle="bold"
+                tools:ignore="TouchTargetSizeCheck" />
 
             <View
                 android:layout_width="wrap_content"
