@@ -14,10 +14,14 @@ import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.MenuItem;
+import android.widget.Toast;
+
 import androidx.appcompat.widget.Toolbar;
 
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 import com.google.android.material.navigation.NavigationView;
+import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.auth.FirebaseUser;
 
 public class MainActivity extends AppCompatActivity {
     private static final String TAG = "Main_Activity";
@@ -38,6 +42,7 @@ public class MainActivity extends AppCompatActivity {
 
     private DrawerLayout mDrawerLayout;
     private Context context = this;
+    FirebaseUser user = FirebaseAuth.getInstance().getCurrentUser();// 로그인 상태확인
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -80,13 +85,25 @@ public class MainActivity extends AppCompatActivity {
                     setFrag(5);
                 }
                 else if(id == R.id.interest_edu){
-                    setFrag(1);
+                    if (user != null) {
+                        setFrag(1);
+                    } else {
+                        Toast.makeText(getApplicationContext(), "로그인이 필요합니다.", Toast.LENGTH_SHORT).show();
+                    }
                 }
                 else if(id == R.id.mypage){
-                    setFrag(6);
+                    if (user != null) {
+                        setFrag(6);
+                    } else {
+                        Toast.makeText(getApplicationContext(), "로그인이 필요합니다.", Toast.LENGTH_SHORT).show();
+                    }
                 }
                 else if(id == R.id.question){
-                    setFrag(7);
+                    if (user != null) {
+                        setFrag(7);
+                    } else {
+                        Toast.makeText(getApplicationContext(), "로그인이 필요합니다.", Toast.LENGTH_SHORT).show();
+                    }
                 }
 
                 return true;
@@ -118,7 +135,11 @@ public class MainActivity extends AppCompatActivity {
                         break;
 
                     case R.id.item_fragment4:
-                        setFrag(1);
+                        if (user != null) {
+                            setFrag(1);
+                        } else {
+                            Toast.makeText(getApplicationContext(), "로그인이 필요합니다.", Toast.LENGTH_SHORT).show();
+                        }
                         break;
 
                     case R.id.item_fragment5:
@@ -225,8 +246,13 @@ public class MainActivity extends AppCompatActivity {
                     return true;
                 }
                 case R.id.action_account: {
-                    Intent intent = new Intent(MainActivity.this, LoginActivity.class);
-                    startActivity(intent);
+                    if (user != null) {
+                        setFrag(6);
+                    } else {
+                        Intent intent = new Intent(MainActivity.this, LoginActivity.class);
+                        startActivity(intent);
+                    }
+
                     return true;
                 }
 

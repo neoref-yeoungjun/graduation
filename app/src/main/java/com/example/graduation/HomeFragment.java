@@ -4,7 +4,10 @@ import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Toast;
 
+import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
@@ -44,7 +47,12 @@ public class HomeFragment extends Fragment {
         recyclerView.setLayoutManager(layoutManager);
         arrayList = new ArrayList<>(); // User 객체를 담을 어레이 리스트 (어댑터쪽으로)
 
-
+        FirebaseUser user = FirebaseAuth.getInstance().getCurrentUser();// 로그인 상태확인
+        if (user != null) {
+            Toast.makeText(getContext(), "로그인됨", Toast.LENGTH_SHORT).show();
+        } else {
+            Toast.makeText(getContext(), "로그인안됨", Toast.LENGTH_SHORT).show();
+        }
         eduAdapter.OnItemClickListener listener= new eduAdapter.OnItemClickListener() {
             @Override
             public void onItemClick(View v, int pos) {
