@@ -114,6 +114,39 @@
         </LinearLayout>
 
         <LinearLayout
+            android:id="@+id/list_cate1"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+
+            <TextView
+                android:id="@+id/cate"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_margin="5dp"
+                android:autoSizeMaxTextSize="100sp"
+                android:autoSizeMinTextSize="12sp"
+                android:autoSizeStepGranularity="2sp"
+                android:autoSizeTextType="uniform"
+                android:text="분       야:"
+                android:textColor="@color/black" />
+
+            <TextView
+                android:id="@+id/text_cate"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_margin="5dp"
+                android:autoSizeMaxTextSize="100sp"
+                android:autoSizeMinTextSize="12sp"
+                android:autoSizeStepGranularity="2sp"
+                android:autoSizeTextType="uniform"
+                android:text="분야"
+                android:textColor="@color/black" />
+
+
+        </LinearLayout>
+
+        <LinearLayout
             android:id="@+id/list_edu3"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
