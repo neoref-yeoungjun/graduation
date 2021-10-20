@@ -20,6 +20,7 @@ import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
+import com.naver.maps.map.internal.util.StringUtils;
 
 import java.util.ArrayList;
 import java.util.Collections;
@@ -165,19 +166,12 @@ public class WeekdayFragment extends Fragment {
                 }
             }
                 Week=mond+tued+wedd+thud+fird+satd+sund;
-                String[] arrWeek = Week.split(",");
+                Week= Week.substring(0,Week.length()-1);
 
-                for (int i = 0; i < arrWeek.length; i++) {
-                    if (i == arrWeek.length - 1) {
-                        result += arrWeek[i];
-                    } else {
-                        result += (arrWeek[i] + ",");
-                    }
-                }
-            Toast.makeText(getContext(), result, Toast.LENGTH_SHORT).show();
+            Toast.makeText(getContext(), Week, Toast.LENGTH_SHORT).show();
             adapter.notifyDataSetChanged();
-                result2 = result + "\uf8ff";
-                databaseReference.orderByChild("week").startAt(result).endAt(result2).addListenerForSingleValueEvent(new ValueEventListener() {
+                result2 = Week + "\uf8ff";
+                databaseReference.orderByChild("week").startAt(Week).endAt(result2).addListenerForSingleValueEvent(new ValueEventListener() {
                     @Override
                     public void onDataChange(DataSnapshot dataSnapshot) {
                         // 파이어베이스 데이터베이스의 데이터를 받아오는 곳
@@ -188,7 +182,8 @@ public class WeekdayFragment extends Fragment {
                         }
                         Collections.reverse(arrayList);// 리스트 저장 및 새로고침해야 반영이 됨
                         adapter.notifyDataSetChanged();
-                        result="";
+                        Week="";
+
                     }
 
                     @Override

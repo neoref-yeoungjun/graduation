@@ -169,20 +169,12 @@ public class CategoryFragment extends Fragment {
                 }
             }
             cate=it+health+etc+art+cook+music+humanity+certificate;
+            cate= cate.substring(0,cate.length()-1);
 
-            String[] arrcate = cate.split(",");
-
-            for (int i = 0; i < arrcate.length; i++) {
-                if (i == arrcate.length - 1) {
-                    result += arrcate[i];
-                } else {
-                    result += (arrcate[i] + ",");
-                }
-            }
-            Toast.makeText(getContext(), result, Toast.LENGTH_SHORT).show();
+            Toast.makeText(getContext(), cate, Toast.LENGTH_SHORT).show();
             adapter.notifyDataSetChanged();
-            result2 = result + "\uf8ff";
-            databaseReference.orderByChild("category").startAt(result).endAt(result2).addListenerForSingleValueEvent(new ValueEventListener() {
+            result2 = cate + "\uf8ff";
+            databaseReference.orderByChild("category").startAt(cate).endAt(result2).addListenerForSingleValueEvent(new ValueEventListener() {
                 @Override
                 public void onDataChange(DataSnapshot dataSnapshot) {
                     // 파이어베이스 데이터베이스의 데이터를 받아오는 곳
@@ -193,7 +185,7 @@ public class CategoryFragment extends Fragment {
                     }
                     Collections.reverse(arrayList);// 리스트 저장 및 새로고침해야 반영이 됨
                     adapter.notifyDataSetChanged();
-                    result="";
+                    cate="";
                 }
 
                 @Override
