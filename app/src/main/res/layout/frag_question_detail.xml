@@ -115,11 +115,7 @@
 
             </LinearLayout>
 
-            <TextView
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:padding="16dp"
-                android:text="댓 글"/>
+
 
             <LinearLayout
                 android:id="@+id/question_comment"
@@ -127,6 +123,12 @@
                 android:layout_height="wrap_content"
                 android:padding="8dp"
                 android:orientation="vertical"/>
+
+            <androidx.recyclerview.widget.RecyclerView
+                android:id="@+id/recycler_question_comment"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:scrollbars="vertical"/>
 
 
         </LinearLayout>

@@ -9,20 +9,30 @@ public class question {
     public String user;
     public String date;
     public String email;
+    public String key;
+
+
 
     public question(){
 
     }
-    public question(String title, String content, String user, String date,String email) {
+    public question(String title, String content, String user, String date,String email, String key) {
         this.title = title;
         this.content = content;
         this.user = user;
         this.date = date;
         this.email= email;
+        this.key= key;
     }
 
 
+    public String getKey() {
+        return key;
+    }
 
+    public void setKey(String key) {
+        this.key = key;
+    }
 
     public String getEmail() {
         return email;
