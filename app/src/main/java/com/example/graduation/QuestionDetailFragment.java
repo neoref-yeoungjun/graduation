@@ -111,27 +111,31 @@ public class QuestionDetailFragment extends Fragment {
         question_remove.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                database = FirebaseDatabase.getInstance(); // 파이어베이스 데이터베이스 연동
+                if (userid.equals(user_id)) {
+                    database = FirebaseDatabase.getInstance(); // 파이어베이스 데이터베이스 연동
 
-                database.getReference("comment_question").orderByChild("key").equalTo(userkey).addListenerForSingleValueEvent(new ValueEventListener() {
-                    @Override
-                    public void onDataChange(@NonNull DataSnapshot snapshot) {
-                        snapshot.getRef().removeValue();
-                    }
+                    database.getReference("comment_question").orderByChild("key").equalTo(userkey).addListenerForSingleValueEvent(new ValueEventListener() {
+                        @Override
+                        public void onDataChange(@NonNull DataSnapshot snapshot) {
+                            snapshot.getRef().removeValue();
+                        }
 
-                    @Override
-                    public void onCancelled(@NonNull DatabaseError error) {
+                        @Override
+                        public void onCancelled(@NonNull DatabaseError error) {
 
-                    }
-                });
+                        }
+                    });
 
-                databaseReference1 = database.getReference("question");
-                databaseReference1.child(userkey).removeValue();
+                    databaseReference1 = database.getReference("question");
+                    databaseReference1.child(userkey).removeValue();
 
-                FragmentTransaction transaction = getActivity().getSupportFragmentManager().beginTransaction();
-                QuestionFragment questionFragment = new QuestionFragment();
-                transaction.replace(R.id.frame_container, questionFragment);
-                transaction.commit(); //저장
+                    FragmentTransaction transaction = getActivity().getSupportFragmentManager().beginTransaction();
+                    QuestionFragment questionFragment = new QuestionFragment();
+                    transaction.replace(R.id.frame_container, questionFragment);
+                    transaction.commit(); //저장
+                } else{
+                    Toast.makeText(getContext(), "사용자가 다릅니다.", Toast.LENGTH_SHORT).show();
+                }
             }
         });
 
