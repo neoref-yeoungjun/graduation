@@ -28,69 +28,42 @@
         android:textColor="@color/black"
         android:textSize="20sp" />
 
+
     <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
+        android:layout_height="wrap_content"
+        android:background="#6B799E"
+        android:layout_marginTop="50dp"
         android:padding="16dp"
-        android:orientation="horizontal">
-
-        <TableLayout android:layout_width="match_parent"
-            android:layout_height="220dp"
-            android:paddingHorizontal="20dp"
-            android:padding="5dp"
-            android:layout_marginTop="60dp"
-            android:background="#6B799E">
-
-            <TableRow
-                android:layout_width="match_parent"
-                android:layout_height="40dp">
-
-                <Button
-                    android:id="@+id/userinfo"
-                    android:layout_width="match_parent"
-                    android:layout_height="70dp"
-                    android:text="회 원 정 보  수 정"
-                    android:paddingHorizontal="100dp"
-                    android:textColor="#261326"
-                    android:textStyle="bold"
-                    android:textSize="25sp"/>
-
-            </TableRow>
-
-            <TableRow
-                android:layout_width="match_parent"
-                android:layout_height="40dp">
-
-                <Button
-                    android:id="@+id/mylogout"
-                    android:layout_width="match_parent"
-                    android:layout_height="70dp"
-                    android:text="로 그 아 웃"
-                    android:paddingHorizontal="100dp"
-                    android:textColor="#261326"
-                    android:textStyle="bold"
-                    android:textSize="25sp"/>
-
-            </TableRow>
-
-            <TableRow
-                android:layout_width="match_parent"
-                android:layout_height="40dp">
-
-                <Button
-                    android:id="@+id/userout"
-                    android:layout_width="match_parent"
-                    android:layout_height="70dp"
-                    android:text="회 원  탈 퇴"
-                    android:paddingHorizontal="100dp"
-                    android:textColor="#261326"
-                    android:textStyle="bold"
-                    android:textSize="25sp"/>
-
-            </TableRow>
+        android:orientation="vertical">
 
 
-        </TableLayout>
+        <Button
+            android:id="@+id/userinfo"
+            android:layout_width="match_parent"
+            android:layout_height="70dp"
+            android:text="회 원 정 보  수 정"
+            android:textColor="#261326"
+            android:textStyle="bold"
+            android:textSize="25sp"/>
+
+        <Button
+            android:id="@+id/mylogout"
+            android:layout_width="match_parent"
+            android:layout_height="70dp"
+            android:text="로 그 아 웃"
+            android:textColor="#261326"
+            android:textStyle="bold"
+            android:textSize="25sp"/>
+
+        <Button
+            android:id="@+id/userout"
+            android:layout_width="match_parent"
+            android:layout_height="70dp"
+            android:text="회 원  탈 퇴"
+            android:textColor="#261326"
+            android:textStyle="bold"
+            android:textSize="25sp"/>
 
     </LinearLayout>
 
