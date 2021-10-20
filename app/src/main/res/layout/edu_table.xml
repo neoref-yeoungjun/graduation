@@ -47,19 +47,6 @@
                     android:textColor="@color/black"
                     android:textSize="15sp" />
 
-                <CheckBox
-                    android:id="@+id/favorite_Btn"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginLeft="250dp"
-                    android:button="@drawable/favorite_star"
-                    android:minWidth="36dp"
-                    android:minHeight="20dp"
-                    android:scaleX="1.5"
-                    android:scaleY="1.5"
-                    card_view:buttonTint="#FFEB3B">
-
-                </CheckBox>
 
             </LinearLayout>
 
@@ -85,6 +72,20 @@
                     android:text="분야명"
                     android:textColor="@color/black"
                     android:textSize="15sp" />
+
+                <CheckBox
+                    android:id="@+id/favorite_Btn"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="220dp"
+                    android:button="@drawable/favorite_star"
+                    android:minWidth="36dp"
+                    android:minHeight="20dp"
+                    android:scaleX="1.5"
+                    android:scaleY="1.5"
+                    card_view:buttonTint="#FFEB3B">
+
+                </CheckBox>
 
 
             </LinearLayout>
