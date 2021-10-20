@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string-array name = "loca">
+        <item>충주시</item>
+        <item>청주시</item>
+        <item>제천시</item>
+        <item>보은군</item>
+        <item>옥천군</item>
+        <item>영동군</item>
+        <item>증평군</item>
+        <item>진천군</item>
+        <item>괴산군</item>
+        <item>음성군</item>
+        <item>단양군</item>
+    </string-array>
+</resources>
