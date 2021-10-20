@@ -217,59 +217,58 @@ public class eduTableFragment extends Fragment implements OnMapReadyCallback {
         mapFragment.getMapAsync(this);
 
 
-//        edu_comment_content = (EditText) v.findViewById(R.id.edu_comment_content);
-//        edu_comment_btn = (Button)v.findViewById(R.id.edu_comment_btn);
-//        edu_comment_btn.setOnClickListener(new View.OnClickListener() {
-//            @Override
-//            public void onClick(View v) {
-//                long now = System.currentTimeMillis();
-//                java.text.SimpleDateFormat dayTime = new java.text.SimpleDateFormat("yyyy-MM-dd HH:mm");
-//                Date date = new Date(now);
-//                str = dayTime.format(date);
-//                str2 =edu_comment_content.getText().toString();
-//                String eemail=useremail.replaceAll(EMAIL_PATTERN, "$1****$2");
-//                dataRef =FirebaseDatabase.getInstance().getReference("comment_edu").push();
-//                Comment comment = new Comment(eemail,str,str2,name,teacher);
-//
-//                dataRef.setValue(comment);
-//                adapter.notifyDataSetChanged();
-//
-//                edu_comment_content.setText(null);
-//            }
-//        });
+        edu_comment_content = (EditText) v.findViewById(R.id.edu_comment_content);
+        edu_comment_btn = (Button)v.findViewById(R.id.edu_comment_btn);
+        edu_comment_btn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                long now = System.currentTimeMillis();
+                java.text.SimpleDateFormat dayTime = new java.text.SimpleDateFormat("yyyy-MM-dd HH:mm");
+                Date date = new Date(now);
+                str = dayTime.format(date);
+                str2 =edu_comment_content.getText().toString();
+                String eemail=useremail.replaceAll(EMAIL_PATTERN, "$1****$2");
+                dataRef =FirebaseDatabase.getInstance().getReference("comment_edu").push();
+                Comment comment = new Comment(eemail,str,str2,name,teacher);
+                dataRef.setValue(comment);
+                adapter.notifyDataSetChanged();
 
-//        recyclerView = (RecyclerView) v.findViewById(R.id.recycler_edu_comment);
-//        recyclerView.setHasFixedSize(true); // 리사이클러뷰 기존성능 강화
-//        layoutManager = new LinearLayoutManager(getContext());
-//        recyclerView.setLayoutManager(layoutManager);
-//        arrayList = new ArrayList<>();
-//
-//        CommentAdapter.OnItemClickListener listener= null;
-//
-//        database = FirebaseDatabase.getInstance(); // 파이어베이스 데이터베이스 연동
-//        databaseReference1 = database.getReference("comment_edu"); // DB 테이블 연결
-//        databaseReference1.orderByChild("key").equalTo(name).orderByChild("mykey").equalTo(teacher).addListenerForSingleValueEvent(new ValueEventListener() {
-//            @Override
-//            public void onDataChange( DataSnapshot dataSnapshot) {
-//                // 파이어베이스 데이터베이스의 데이터를 받아오는 곳
-//                arrayList.clear(); // 기존 배열리스트가 존재하지않게 초기화
-//                for (DataSnapshot snapshot : dataSnapshot.getChildren()) { // 반복문으로 데이터 List를 추출해냄
-//                    Comment comment = snapshot.getValue(Comment.class); // 만들어뒀던 User 객체에 데이터를 담는다.
-//                    arrayList.add(comment); // 담은 데이터들을 배열리스트에 넣고 리사이클러뷰로 보낼 준비
-//                }
-//                Collections.reverse(arrayList);
-//                adapter.notifyDataSetChanged(); // 리스트 저장 및 새로고침해야 반영이 됨
-//            }
-//
-//            @Override
-//            public void onCancelled(@NonNull DatabaseError databaseError) {
-//                // 디비를 가져오던중 에러 발생 시
-//                Log.e("HomeFragment", String.valueOf(databaseError.toException())); // 에러문 출력
-//            }
-//        });
-//
-//        adapter = new CommentAdapter(arrayList, getContext(), listener);
-//        recyclerView.setAdapter(adapter); // 리사이클러뷰에 어댑터 연결
+                edu_comment_content.setText(null);
+            }
+        });
+
+        recyclerView = (RecyclerView) v.findViewById(R.id.recycler_edu_comment);
+        recyclerView.setHasFixedSize(true); // 리사이클러뷰 기존성능 강화
+        layoutManager = new LinearLayoutManager(getContext());
+        recyclerView.setLayoutManager(layoutManager);
+        arrayList = new ArrayList<>();
+
+        CommentAdapter.OnItemClickListener listener= null;
+
+        database = FirebaseDatabase.getInstance(); // 파이어베이스 데이터베이스 연동
+        databaseReference1 = database.getReference("comment_edu"); // DB 테이블 연결
+        databaseReference1.orderByChild("key").equalTo(name).addListenerForSingleValueEvent(new ValueEventListener() {
+            @Override
+            public void onDataChange( DataSnapshot dataSnapshot) {
+                // 파이어베이스 데이터베이스의 데이터를 받아오는 곳
+                arrayList.clear(); // 기존 배열리스트가 존재하지않게 초기화
+                for (DataSnapshot snapshot : dataSnapshot.getChildren()) { // 반복문으로 데이터 List를 추출해냄
+                    Comment comment = snapshot.getValue(Comment.class); // 만들어뒀던 User 객체에 데이터를 담는다.
+                    arrayList.add(comment); // 담은 데이터들을 배열리스트에 넣고 리사이클러뷰로 보낼 준비
+                }
+                Collections.reverse(arrayList);
+                adapter.notifyDataSetChanged(); // 리스트 저장 및 새로고침해야 반영이 됨
+            }
+
+            @Override
+            public void onCancelled(@NonNull DatabaseError databaseError) {
+                // 디비를 가져오던중 에러 발생 시
+                Log.e("HomeFragment", String.valueOf(databaseError.toException())); // 에러문 출력
+            }
+        });
+
+        adapter = new CommentAdapter(arrayList, getContext(), listener);
+        recyclerView.setAdapter(adapter); // 리사이클러뷰에 어댑터 연결
 
 
         return v;
