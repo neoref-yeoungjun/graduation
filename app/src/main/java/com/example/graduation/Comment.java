@@ -5,16 +5,26 @@ public class Comment {
     private String date;
     private String content;
     private String key;
+    private String mykey;
 
     public Comment(){
 
     }
 
-    public Comment(String email, String date, String content, String key) {
+    public Comment(String email, String date, String content, String key, String mykey) {
         this.email = email;
         this.date = date;
         this.content = content;
         this.key = key;
+        this.mykey= mykey;
+    }
+
+    public String getMykey() {
+        return mykey;
+    }
+
+    public void setMykey(String mykey) {
+        this.mykey = mykey;
     }
 
     public String getEmail() {
