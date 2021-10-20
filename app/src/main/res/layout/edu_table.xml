@@ -1,9 +1,12 @@
 <?xml version="1.0" encoding="utf-8"?>
 
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:card_view="http://schemas.android.com/tools">
 
     <ScrollView
-        xmlns:android="http://schemas.android.com/apk/res/android"
-        xmlns:app="http://schemas.android.com/apk/res-auto"
         android:id="@+id/scrollView3"
         android:layout_width="match_parent"
         android:layout_height="match_parent">
@@ -16,7 +19,6 @@
             android:layout_marginTop="10dp"
             android:layout_marginEnd="10dp"
             android:layout_marginRight="10dp"
-            android:background="#F2D3C1"
             android:orientation="vertical"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
@@ -25,7 +27,8 @@
 
             <LinearLayout
                 android:layout_width="match_parent"
-                android:layout_height="match_parent">
+                android:layout_height="match_parent"
+                android:background="#eeeeee">
 
                 <TextView
                     android:layout_width="wrap_content"
@@ -33,7 +36,7 @@
                     android:layout_margin="5dp"
                     android:text="강좌 명:"
                     android:textColor="@color/black"
-                    android:textSize="15dp" />
+                    android:textSize="15sp" />
 
                 <TextView
                     android:id="@+id/table_name"
@@ -42,7 +45,47 @@
                     android:layout_margin="5dp"
                     android:text="강좌"
                     android:textColor="@color/black"
-                    android:textSize="15dp" />
+                    android:textSize="15sp" />
+
+                <CheckBox
+                    android:id="@+id/favorite_Btn"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="250dp"
+                    android:button="@drawable/favorite_star"
+                    android:minWidth="36dp"
+                    android:minHeight="20dp"
+                    android:scaleX="1.5"
+                    android:scaleY="1.5"
+                    card_view:buttonTint="#FFEB3B">
+
+                </CheckBox>
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:background="#eeeeee"
+                android:layout_height="match_parent">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="5dp"
+                    android:text="분    야:"
+                    android:textColor="@color/black"
+                    android:textSize="15sp" />
+
+                <TextView
+                    android:id="@+id/table_cate"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="5dp"
+                    android:maxLines="2"
+                    android:text="분야명"
+                    android:textColor="@color/black"
+                    android:textSize="15sp" />
+
 
             </LinearLayout>
 
@@ -53,6 +96,7 @@
 
             <LinearLayout
                 android:layout_width="match_parent"
+                android:background="#eeeeee"
                 android:layout_height="match_parent">
 
                 <TextView
@@ -76,6 +120,7 @@
 
             <LinearLayout
                 android:layout_width="match_parent"
+                android:background="#eeeeee"
                 android:layout_height="match_parent">
 
                 <TextView
@@ -117,6 +162,7 @@
 
             <LinearLayout
                 android:layout_width="match_parent"
+                android:background="#eeeeee"
                 android:layout_height="match_parent">
 
                 <TextView
@@ -161,6 +207,7 @@
 
             <LinearLayout
                 android:layout_width="match_parent"
+                android:background="#eeeeee"
                 android:layout_height="match_parent">
 
                 <TextView
@@ -205,6 +252,7 @@
 
             <LinearLayout
                 android:layout_width="match_parent"
+                android:background="#eeeeee"
                 android:layout_height="match_parent">
 
                 <TextView
@@ -245,6 +293,7 @@
 
             <LinearLayout
                 android:layout_width="match_parent"
+                android:background="#eeeeee"
                 android:layout_height="match_parent">
 
                 <TextView
@@ -285,6 +334,7 @@
 
             <LinearLayout
                 android:layout_width="match_parent"
+                android:background="#eeeeee"
                 android:layout_height="match_parent">
 
                 <TextView
@@ -329,6 +379,7 @@
 
             <LinearLayout
                 android:layout_width="match_parent"
+                android:background="#eeeeee"
                 android:layout_height="match_parent">
 
                 <TextView
@@ -353,6 +404,7 @@
 
             <LinearLayout
                 android:layout_width="match_parent"
+                android:background="#eeeeee"
                 android:layout_height="match_parent">
 
                 <TextView
@@ -377,6 +429,7 @@
                     android:textSize="15dp" />
 
             </LinearLayout>
+
             <View
                 android:layout_width="match_parent"
                 android:background="@color/white"
@@ -393,8 +446,72 @@
                 android:layout_height="10dp"
                 android:layout_weight="1" />
 
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+
+                <View
+                    android:layout_width="wrap_content"
+                    android:layout_height="10dp"
+                    android:layout_weight="1"/>
+
+                <Button
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text=" 길 찾 기 로   이 동 "
+                    android:textStyle="bold"
+                    android:textColor="@color/black"
+                    android:textSize="15sp"/>
+
+                <View
+                    android:layout_width="wrap_content"
+                    android:layout_height="10dp"
+                    android:layout_weight="1"/>
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/question_comment"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:padding="8dp"
+                android:orientation="vertical"/>
+
+            <androidx.recyclerview.widget.RecyclerView
+                android:id="@+id/recycler_question_comment"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:scrollbars="vertical"/>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+
+                <EditText
+                    android:id="@+id/question_comment_content"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:padding="8dp"
+                    android:background="#eeeeee"
+                    android:layout_weight="1"
+                    android:hint="댓글 내용을 입력하세요"/>
+
+                <Button
+                    android:id="@+id/question_comment_btn"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:padding="8dp"
+                    android:text="등 록 하 기"/>
+
+            </LinearLayout>
 
         </LinearLayout>
 
-
     </ScrollView>
+
+</LinearLayout>
+
+
+
