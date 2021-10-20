@@ -54,6 +54,10 @@ public class eduAdapter extends RecyclerView.Adapter<eduAdapter.eduViewHolder> {
         return holder;
     }
 
+    @Override
+    public int getItemViewType(int position) {
+        return position;
+    }
 
     @Override
     public void onBindViewHolder(@NonNull eduViewHolder holder, int position) {

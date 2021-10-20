@@ -76,6 +76,7 @@ public class QuestionFragment extends Fragment {
                 bundle.putString("con", arrayList.get(pos).getContent());
                 bundle.putString("date",arrayList.get(pos).getDate());
                 bundle.putString("userid",arrayList.get(pos).getUser());
+                bundle.putString("key",arrayList.get(pos).getKey());
 
                 FragmentTransaction transaction = getActivity().getSupportFragmentManager().beginTransaction();
                 QuestionDetailFragment questionDetailFragment = new QuestionDetailFragment();
