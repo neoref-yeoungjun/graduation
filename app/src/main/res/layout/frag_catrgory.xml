@@ -21,98 +21,257 @@
         android:layout_gravity="center" />
 
     <LinearLayout
-        android:layout_width="wrap_content"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginTop="40dp"
+        android:layout_marginTop="20dp"
+        android:orientation="vertical"
         android:background="#DBDBE5"
-        android:orientation="horizontal">
+        android:paddingVertical="5dp">
 
-        <View
-            android:layout_width="wrap_content"
-            android:layout_height="30dp"
-            android:layout_weight="1"/>
-
-        <TextView
+        <LinearLayout
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:textStyle="bold"
-            android:textSize="20sp"
-            android:text="1 순 위 :"/>
+            android:orientation="horizontal">
 
-        <Spinner
-            android:id="@+id/spinner_cate1"
-            android:layout_width="80dp"
+            <View
+                android:layout_width="80dp"
+                android:layout_weight="1"
+                android:layout_height="match_parent"/>
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:paddingTop="15dp"
+                android:paddingHorizontal="5dp">
+
+                <CheckBox
+                    android:id="@+id/cate_it"
+                    android:layout_width="25dp"
+                    android:layout_height="25dp"
+                    android:layout_marginHorizontal="8dp"
+                    android:button="@null"
+                    android:background="@drawable/custom_checkbox"/>
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginHorizontal="15dp"
+                    android:textSize="15sp"
+                    android:textStyle="bold"
+                    android:textColor="#000E2B"
+                    android:text="IT"/>
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:paddingTop="15dp"
+                android:paddingHorizontal="5dp">
+
+                <CheckBox
+                    android:id="@+id/cate_art"
+                    android:layout_width="25dp"
+                    android:layout_height="25dp"
+                    android:layout_marginHorizontal="8dp"
+                    android:button="@null"
+                    android:background="@drawable/custom_checkbox"/>
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textSize="15sp"
+                    android:layout_marginHorizontal="7dp"
+                    android:textStyle="bold"
+                    android:textColor="#000E2B"
+                    android:text="미술"/>
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:paddingTop="15dp"
+                android:paddingHorizontal="5dp">
+
+                <CheckBox
+                    android:id="@+id/cate_music"
+                    android:layout_width="25dp"
+                    android:layout_height="25dp"
+                    android:layout_marginHorizontal="8dp"
+                    android:button="@null"
+                    android:background="@drawable/custom_checkbox"/>
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginHorizontal="7dp"
+                    android:textSize="15sp"
+                    android:textStyle="bold"
+                    android:textColor="#000E2B"
+                    android:text="음악"/>
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:paddingTop="15dp"
+                android:paddingHorizontal="5dp">
+
+                <CheckBox
+                    android:id="@+id/cate_cook"
+                    android:layout_width="25dp"
+                    android:layout_height="25dp"
+                    android:layout_marginHorizontal="8dp"
+                    android:button="@null"
+                    android:background="@drawable/custom_checkbox"/>
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginHorizontal="7dp"
+                    android:textSize="15sp"
+                    android:textStyle="bold"
+                    android:textColor="#000E2B"
+                    android:text="요리"/>
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:paddingTop="15dp"
+                android:paddingHorizontal="5dp">
+
+                <CheckBox
+                    android:id="@+id/cate_health"
+                    android:layout_width="25dp"
+                    android:layout_height="25dp"
+                    android:button="@null"
+                    android:layout_marginHorizontal="8dp"
+                    android:background="@drawable/custom_checkbox"/>
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginHorizontal="7dp"
+                    android:textSize="15sp"
+                    android:textStyle="bold"
+                    android:textColor="#000E2B"
+                    android:text="건강"/>
+
+
+            </LinearLayout>
+
+            <View
+                android:layout_width="80dp"
+                android:layout_weight="1"
+                android:layout_height="match_parent"/>
+
+        </LinearLayout>
+
+
+        <LinearLayout
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:entries="@array/cate"/>
+            android:orientation="horizontal">
 
-        <View
-            android:layout_width="wrap_content"
-            android:layout_height="30dp"
-            android:layout_weight="1"/>
+            <View
+                android:layout_width="match_parent"
+                android:layout_weight="1"
+                android:layout_height="match_parent"/>
 
-    </LinearLayout>
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:paddingTop="15dp"
+                android:paddingHorizontal="5dp">
 
-    <LinearLayout
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="10dp"
-        android:background="#DBDBE5"
-        android:orientation="horizontal">
+                <CheckBox
+                    android:id="@+id/cate_certificate"
+                    android:layout_width="25dp"
+                    android:layout_height="25dp"
+                    android:layout_marginHorizontal="8dp"
+                    android:button="@null"
+                    android:background="@drawable/custom_checkbox"/>
 
-        <View
-            android:layout_width="wrap_content"
-            android:layout_height="30dp"
-            android:layout_weight="1"/>
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginHorizontal="1dp"
+                    android:textSize="15sp"
+                    android:textStyle="bold"
+                    android:textColor="#000E2B"
+                    android:text="자격증"/>
 
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:textStyle="bold"
-            android:textSize="20sp"
-            android:text="2 순 위 :"/>
+            </LinearLayout>
 
-        <Spinner
-            android:id="@+id/spinner_cate2"
-            android:layout_width="80dp"
-            android:layout_height="wrap_content"
-            android:entries="@array/cate"/>
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:paddingTop="15dp"
+                android:paddingHorizontal="5dp">
 
-        <View
-            android:layout_width="wrap_content"
-            android:layout_height="30dp"
-            android:layout_weight="1"/>
+                <CheckBox
+                    android:id="@+id/cate_humanity"
+                    android:layout_width="25dp"
+                    android:layout_height="25dp"
+                    android:layout_marginHorizontal="8dp"
+                    android:button="@null"
+                    android:background="@drawable/custom_checkbox"/>
 
-    </LinearLayout>
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginHorizontal="1dp"
+                    android:textSize="15sp"
+                    android:textStyle="bold"
+                    android:textColor="#000E2B"
+                    android:text="인문학"/>
 
-    <LinearLayout
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="10dp"
-        android:background="#DBDBE5"
-        android:orientation="horizontal">
+            </LinearLayout>
 
-        <View
-            android:layout_width="wrap_content"
-            android:layout_height="30dp"
-            android:layout_weight="1"/>
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:paddingTop="15dp"
+                android:paddingHorizontal="5dp">
 
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:textStyle="bold"
-            android:textSize="20sp"
-            android:text="3 순 위 :"/>
+                <CheckBox
+                    android:id="@+id/cate_etc"
+                    android:layout_width="25dp"
+                    android:layout_height="25dp"
+                    android:layout_marginHorizontal="8dp"
+                    android:button="@null"
+                    android:background="@drawable/custom_checkbox"/>
 
-        <Spinner
-            android:id="@+id/spinner_cate3"
-            android:layout_width="80dp"
-            android:layout_height="wrap_content"
-            android:entries="@array/cate"/>
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="7dp"
+                    android:textSize="15sp"
+                    android:textStyle="bold"
+                    android:textColor="#000E2B"
+                    android:text="기타"/>
 
-        <View
-            android:layout_width="wrap_content"
-            android:layout_height="30dp"
-            android:layout_weight="1"/>
+            </LinearLayout>
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_weight="1"
+                android:layout_height="match_parent"/>
+
+        </LinearLayout>
+
 
     </LinearLayout>
 
