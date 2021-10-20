@@ -154,7 +154,8 @@ public class QuestionDetailFragment extends Fragment {
                 str2 =question_comment_content.getText().toString();
                 String eemail=useremail.replaceAll(EMAIL_PATTERN, "$1****$2");
                 dataRef =FirebaseDatabase.getInstance().getReference("comment_question").push();
-                Comment comment = new Comment(eemail,str,str2,userkey);
+                String mykey= dataRef.getKey();
+                Comment comment = new Comment(eemail,str,str2,userkey,mykey);
                 dataRef.setValue(comment);
                 adapter.notifyDataSetChanged();
 

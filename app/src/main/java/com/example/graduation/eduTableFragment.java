@@ -7,6 +7,8 @@ import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Button;
+import android.widget.EditText;
 import android.widget.TextView;
 
 import androidx.annotation.NonNull;
@@ -20,6 +22,8 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
+import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
@@ -38,6 +42,7 @@ import com.naver.maps.map.overlay.Marker;
 
 import java.util.ArrayList;
 import java.util.Collections;
+import java.util.Date;
 
 public class eduTableFragment extends Fragment implements OnMapReadyCallback {
 
@@ -57,6 +62,14 @@ public class eduTableFragment extends Fragment implements OnMapReadyCallback {
     TextView table_target;
     TextView table_teacher;
     TextView table_teacher_info;
+    EditText edu_comment_content;
+    Button edu_comment_btn;
+    private FirebaseDatabase database;
+    private DatabaseReference databaseReference1;
+    private RecyclerView recyclerView;
+    private RecyclerView.Adapter adapter;
+    private RecyclerView.LayoutManager layoutManager;
+    private ArrayList<Comment> arrayList;
 
     private String apply_start;
     private String apply_url;
@@ -75,20 +88,25 @@ public class eduTableFragment extends Fragment implements OnMapReadyCallback {
     private String teacher;
     private String teacher_info;
     private NaverMap naverMap;
-    private FirebaseDatabase database;
-    private DatabaseReference databaseReference;
-
+    private DatabaseReference databaseReference,dataRef;
+    private String str, str2;
+    private static final String EMAIL_PATTERN = "([\\w.])(?:[\\w.]*)(@.*)";
     private double lat;
     private double log;
     private ArrayList<Map> Maplist;
     private LatLng latLng;
+    private String userid,useremail;
 
     @Nullable
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
         View v=inflater.inflate(R.layout.edu_table,container,false);
 
-
+        FirebaseUser user = FirebaseAuth.getInstance().getCurrentUser();
+        if (user != null) {
+            userid =user.getUid();
+            useremail= user.getEmail();
+        }
 
        table_name = v.findViewById(R.id.table_name);
        table_outlook = v.findViewById(R.id.table_outlook);
@@ -198,6 +216,60 @@ public class eduTableFragment extends Fragment implements OnMapReadyCallback {
 
         mapFragment.getMapAsync(this);
 
+
+//        edu_comment_content = (EditText) v.findViewById(R.id.edu_comment_content);
+//        edu_comment_btn = (Button)v.findViewById(R.id.edu_comment_btn);
+//        edu_comment_btn.setOnClickListener(new View.OnClickListener() {
+//            @Override
+//            public void onClick(View v) {
+//                long now = System.currentTimeMillis();
+//                java.text.SimpleDateFormat dayTime = new java.text.SimpleDateFormat("yyyy-MM-dd HH:mm");
+//                Date date = new Date(now);
+//                str = dayTime.format(date);
+//                str2 =edu_comment_content.getText().toString();
+//                String eemail=useremail.replaceAll(EMAIL_PATTERN, "$1****$2");
+//                dataRef =FirebaseDatabase.getInstance().getReference("comment_edu").push();
+//                Comment comment = new Comment(eemail,str,str2,name,teacher);
+//
+//                dataRef.setValue(comment);
+//                adapter.notifyDataSetChanged();
+//
+//                edu_comment_content.setText(null);
+//            }
+//        });
+
+//        recyclerView = (RecyclerView) v.findViewById(R.id.recycler_edu_comment);
+//        recyclerView.setHasFixedSize(true); // 리사이클러뷰 기존성능 강화
+//        layoutManager = new LinearLayoutManager(getContext());
+//        recyclerView.setLayoutManager(layoutManager);
+//        arrayList = new ArrayList<>();
+//
+//        CommentAdapter.OnItemClickListener listener= null;
+//
+//        database = FirebaseDatabase.getInstance(); // 파이어베이스 데이터베이스 연동
+//        databaseReference1 = database.getReference("comment_edu"); // DB 테이블 연결
+//        databaseReference1.orderByChild("key").equalTo(name).orderByChild("mykey").equalTo(teacher).addListenerForSingleValueEvent(new ValueEventListener() {
+//            @Override
+//            public void onDataChange( DataSnapshot dataSnapshot) {
+//                // 파이어베이스 데이터베이스의 데이터를 받아오는 곳
+//                arrayList.clear(); // 기존 배열리스트가 존재하지않게 초기화
+//                for (DataSnapshot snapshot : dataSnapshot.getChildren()) { // 반복문으로 데이터 List를 추출해냄
+//                    Comment comment = snapshot.getValue(Comment.class); // 만들어뒀던 User 객체에 데이터를 담는다.
+//                    arrayList.add(comment); // 담은 데이터들을 배열리스트에 넣고 리사이클러뷰로 보낼 준비
+//                }
+//                Collections.reverse(arrayList);
+//                adapter.notifyDataSetChanged(); // 리스트 저장 및 새로고침해야 반영이 됨
+//            }
+//
+//            @Override
+//            public void onCancelled(@NonNull DatabaseError databaseError) {
+//                // 디비를 가져오던중 에러 발생 시
+//                Log.e("HomeFragment", String.valueOf(databaseError.toException())); // 에러문 출력
+//            }
+//        });
+//
+//        adapter = new CommentAdapter(arrayList, getContext(), listener);
+//        recyclerView.setAdapter(adapter); // 리사이클러뷰에 어댑터 연결
 
 
         return v;
