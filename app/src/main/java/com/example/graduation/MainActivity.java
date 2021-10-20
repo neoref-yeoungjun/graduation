@@ -171,6 +171,9 @@ public class MainActivity extends AppCompatActivity {
 
     private void setFrag(int n)
     {
+        String uid = getIntent().getStringExtra("uid");
+        Bundle bundle = new Bundle(); bundle.putString("uid",uid);
+
         fm = getSupportFragmentManager();
         ft = fm.beginTransaction();
         switch(n)
@@ -179,6 +182,8 @@ public class MainActivity extends AppCompatActivity {
             ft.replace(R.id.frame_container,home1,"Frag1");
             ft.addToBackStack(null);
             ft.commit();
+            home1.setArguments(bundle);
+
             break;
 
             case 1:
@@ -215,6 +220,7 @@ public class MainActivity extends AppCompatActivity {
                 ft.replace(R.id.frame_container,question1,"Frag8");
                 ft.addToBackStack(null);
                 ft.commit();
+                question1.setArguments(bundle);
                 break;
             case 8:
                 ft.replace(R.id.frame_container,search1,"Frag9");

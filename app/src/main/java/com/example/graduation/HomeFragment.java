@@ -29,8 +29,8 @@ public class HomeFragment extends Fragment {
     private RecyclerView.Adapter adapter;
     private RecyclerView.LayoutManager layoutManager;
     private ArrayList<edu> arrayList;
-    private FirebaseDatabase database,database2;
-    private DatabaseReference databaseReference,databaseReference2;
+    private FirebaseDatabase database;
+    private DatabaseReference databaseReference;
     private eduAdapter.OnItemClickListener listener;
     private View view;
 
