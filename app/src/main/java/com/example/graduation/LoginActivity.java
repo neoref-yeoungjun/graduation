@@ -17,7 +17,7 @@ import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
 
 public class LoginActivity extends AppCompatActivity {
-    Button mLoginBtn, mRegisterBtn;
+    Button mLoginBtn, mRegisterBtn, mPwdBtn;
     EditText mEmailText, mPasswordText;
     private FirebaseAuth firebaseAuth;
 
@@ -32,6 +32,7 @@ public class LoginActivity extends AppCompatActivity {
         mPasswordText = findViewById(R.id.password);
         mLoginBtn = findViewById(R.id.login);
         mRegisterBtn = findViewById(R.id.sign_up);
+        mPwdBtn = findViewById((R.id.id_pwd_search));
         Intent intent = getIntent();
 
         //가입 버튼 눌리면
@@ -41,6 +42,17 @@ public class LoginActivity extends AppCompatActivity {
             public void onClick(View v){
                 //intent함수를 통해 register액티비티 함수를 호출한다.
                 startActivity(new Intent(LoginActivity.this,RegisterActivity.class));
+            }
+
+        });
+
+        //비밀번호 찾기 버튼 눌리면
+        mPwdBtn.setOnClickListener(new View.OnClickListener(){
+
+            @Override
+            public void onClick(View v){
+                // intent 함수를 통해 pwd 액티비티 함수를 호출한다
+                startActivity(new Intent(LoginActivity.this,PwdActivity.class));
             }
         });
 

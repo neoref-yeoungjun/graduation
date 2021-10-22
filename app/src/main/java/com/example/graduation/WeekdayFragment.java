@@ -166,8 +166,9 @@ public class WeekdayFragment extends Fragment {
                 }
             }
                 Week=mond+tued+wedd+thud+fird+satd+sund;
-                Week= Week.substring(0,Week.length()-1);
-
+            if(Week.length()>0) {
+                Week = Week.substring(0, Week.length() - 1);
+            }
             Toast.makeText(getContext(), Week, Toast.LENGTH_SHORT).show();
             adapter.notifyDataSetChanged();
                 result2 = Week + "\uf8ff";
