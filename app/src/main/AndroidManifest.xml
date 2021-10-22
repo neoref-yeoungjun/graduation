@@ -29,6 +29,10 @@
 
         </activity>
 
+        <activity android:name=".PwdActivity">
+
+        </activity>
+
         <meta-data
             android:name="com.naver.maps.map.CLIENT_ID"
             android:value="k8y9cka6ev" />
