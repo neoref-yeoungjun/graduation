@@ -28,6 +28,9 @@
         <activity android:name=".RegisterActivity">
 
         </activity>
+        <activity android:name=".PwdActivity">
+
+        </activity>
 
         <meta-data
             android:name="com.naver.maps.map.CLIENT_ID"
