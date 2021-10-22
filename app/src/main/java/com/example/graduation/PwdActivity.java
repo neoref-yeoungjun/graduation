@@ -1,13 +1,11 @@
 package com.example.graduation;
 
-import android.content.Intent;
+
 import android.os.Bundle;
-import android.widget.Button;
 
 import androidx.appcompat.app.AppCompatActivity;
-
 public class PwdActivity extends AppCompatActivity {
-    private static final String tag = "PwdActivity";
+    private static final String TAG = "PwdActivity";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -16,3 +14,4 @@ public class PwdActivity extends AppCompatActivity {
     }
 
 }
+
