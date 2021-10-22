@@ -73,11 +73,11 @@
 
             <Button
                 android:id="@+id/id_pwd_search"
-                android:layout_width="wrap_content"
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_margin="10dp"
                 android:textStyle="bold"
-                android:text="아이디 비밀번호 찾기"
+                android:text="비밀번호 찾기"
                 android:textColor="#D9CFE7"
                 android:background="#50697D"/>
 
