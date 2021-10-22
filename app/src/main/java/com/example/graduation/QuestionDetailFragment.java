@@ -93,6 +93,7 @@ public class QuestionDetailFragment extends Fragment {
                     bundle.putString("date",que_date);
                     bundle.putString("con",que_con);
                     bundle.putString("userid",user_id);
+                    bundle.putString("key",userkey);
                     FragmentTransaction transaction = getActivity().getSupportFragmentManager().beginTransaction();
                     QuestionModifyFragment frag_question_modify = new QuestionModifyFragment();
                     frag_question_modify.setArguments(bundle);

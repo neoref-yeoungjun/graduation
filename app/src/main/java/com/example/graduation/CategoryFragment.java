@@ -169,8 +169,9 @@ public class CategoryFragment extends Fragment {
                 }
             }
             cate=it+health+etc+art+cook+music+humanity+certificate;
-            cate= cate.substring(0,cate.length()-1);
-
+            if(cate.length()>0) {
+                cate = cate.substring(0, cate.length() - 1);
+            }
             Toast.makeText(getContext(), cate, Toast.LENGTH_SHORT).show();
             adapter.notifyDataSetChanged();
             result2 = cate + "\uf8ff";
