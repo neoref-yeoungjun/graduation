@@ -8,10 +8,19 @@ import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.CheckBox;
+import android.widget.CompoundButton;
 import android.widget.TextView;
 import android.content.Intent;
+import android.widget.Toast;
+
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
+
+import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.auth.FirebaseUser;
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
 
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
@@ -20,10 +29,13 @@ import java.util.List;
 public class eduAdapter extends RecyclerView.Adapter<eduAdapter.eduViewHolder> {
 
     private ArrayList<edu> arrayList;
+    private ArrayList<Item> list;
     private Context context;
     String start1;
     String end1;
-
+    private FirebaseDatabase database;
+    private DatabaseReference databaseReference, dataRef;
+    String userid;
 
     public interface OnItemClickListener{
         void onItemClick(View v, int pos);
@@ -72,6 +84,11 @@ public class eduAdapter extends RecyclerView.Adapter<eduAdapter.eduViewHolder> {
         holder.fee.setText(arrayList.get(position).getFee());
         holder.week.setText(arrayList.get(position).getWeek());
         holder.onBind(arrayList.get(position));
+        holder.checkBox.setOnCheckedChangeListener(null);
+        holder.onchec(arrayList.get(position));
+
+
+
     }
 
     @Override
@@ -92,6 +109,7 @@ public class eduAdapter extends RecyclerView.Adapter<eduAdapter.eduViewHolder> {
         TextView fee;
         TextView week;
         TextView apply_day;
+        CheckBox checkBox;
 
 
         public eduViewHolder(@NonNull View itemView)  {
@@ -106,6 +124,7 @@ public class eduAdapter extends RecyclerView.Adapter<eduAdapter.eduViewHolder> {
             this.week = itemView.findViewById(R.id.text_8);
             this.fee = itemView.findViewById(R.id.text_9);
             this.apply_day = itemView.findViewById(R.id.apply_day);
+            this.checkBox=itemView.findViewById(R.id.favorite_Btn);
 
 
 
@@ -150,6 +169,35 @@ public class eduAdapter extends RecyclerView.Adapter<eduAdapter.eduViewHolder> {
                 apply_day.setBackgroundColor(Color.parseColor("#82B1FF"));
 
             }
+            }
+
+            public  void onchec(edu edu){
+            checkBox.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
+                @Override
+                public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
+                    checkBox.setSelected(isChecked);
+                    if(checkBox.isChecked()){
+                        FirebaseUser user = FirebaseAuth.getInstance().getCurrentUser();// 로그인 상태확인
+                        if (user != null) {
+                            Toast.makeText(context, "관심강좌 추가됨" + getAdapterPosition(), Toast.LENGTH_SHORT).show();
+                            userid=user.getUid();
+                            database = FirebaseDatabase.getInstance();
+                            databaseReference = database.getReference("favorite").child(userid);
+                            dataRef=databaseReference.push();
+                            dataRef.setValue(edu);
+                        }
+                        else{
+                            Toast.makeText(context, "로그인이 필요한 기능입니다.", Toast.LENGTH_SHORT).show();
+                            checkBox.setChecked(false);
+                        }
+                    }
+                    else{
+                        Toast.makeText(context, "관심강좌 취소"+getAdapterPosition(), Toast.LENGTH_SHORT).show();
+                        dataRef.removeValue();
+                    }
+                }
+            });
+
             }
 
     }
