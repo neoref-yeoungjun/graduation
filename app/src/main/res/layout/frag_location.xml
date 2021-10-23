@@ -69,7 +69,8 @@
                 android:layout_width="200dp"
                 android:layout_height="wrap_content"
                 android:spinnerMode="dropdown"
-                android:dropDownWidth="25sp">
+                android:dropDownWidth="25sp"
+                android:entries="@array/loca">
             </Spinner>
 
             <View
