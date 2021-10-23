@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <string-array name="chungju">
+        <item>전체</item>
         <item>교현안림동주민자치위원회</item>
         <item>노인복지관남부분관</item>
         <item>노인복지관본관</item>
