@@ -68,10 +68,8 @@
                 android:layout_centerHorizontal="true"
                 android:layout_width="200dp"
                 android:layout_height="wrap_content"
-                android:spinnerMode="dropdown"
-                android:dropDownWidth="25sp"
-                android:entries="@array/loca">
-            </Spinner>
+                android:entries="@array/loca"/>
+
 
             <View
                 android:layout_width="wrap_content"
@@ -120,10 +118,7 @@
                 android:layout_marginTop="4dp"
                 android:layout_centerHorizontal="true"
                 android:layout_width="200dp"
-                android:layout_height="wrap_content"
-                android:spinnerMode="dropdown"
-                android:dropDownWidth="25sp">
-            </Spinner>
+                android:layout_height="wrap_content" />
 
             <View
                 android:layout_width="wrap_content"
@@ -138,7 +133,7 @@
 
 
     <androidx.recyclerview.widget.RecyclerView
-        android:id="@+id/recycler_weekday"
+        android:id="@+id/recycler_location"
         android:layout_marginTop="30dp"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
