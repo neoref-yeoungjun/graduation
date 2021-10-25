@@ -16,16 +16,15 @@ import java.util.ArrayList;
 public class CommentAdapter extends RecyclerView.Adapter<CommentAdapter.CommentViewHolder>{
     private ArrayList<Comment> arrayList;
     private Context context;
-    private CommentAdapter.OnItemClickListener mListener =null;
 
     public interface OnItemClickListener{
         void onItemClick(View v, int pos);
     }
 
-    public CommentAdapter(ArrayList<Comment> arrayList, Context context, CommentAdapter.OnItemClickListener listener) {
+    public CommentAdapter(ArrayList<Comment> arrayList, Context context) {
         this.arrayList = arrayList;
         this.context = context;
-        this.mListener = listener;
+
     }
 
     @NonNull
@@ -67,25 +66,7 @@ public class CommentAdapter extends RecyclerView.Adapter<CommentAdapter.CommentV
 
 
 
-            itemView.setOnClickListener(new View.OnClickListener() {
-                @Override
-                public void onClick(View v) {
-                    Log.d("Recyclerview", "position=" + getAdapterPosition());
 
-                    int pos = getAdapterPosition();
-                    Comment comment = arrayList.get(pos);
-                    mListener.onItemClick(v, pos);
-                    if (pos != RecyclerView.NO_POSITION) {
-                        if (mListener != null) {
-                            Bundle bundle = new Bundle();
-                            bundle.putString("table_1", comment.getContent());
-
-
-                        }
-                    }
-
-                }
-            });
         }
     }
 }

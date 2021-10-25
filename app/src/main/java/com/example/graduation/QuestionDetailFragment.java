@@ -14,8 +14,10 @@ import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentTransaction;
+import androidx.recyclerview.widget.ItemTouchHelper;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
+import androidx.recyclerview.widget.StaggeredGridLayoutManager;
 
 import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.FirebaseAuth;
@@ -47,6 +49,7 @@ public class QuestionDetailFragment extends Fragment {
     private String que_title,que_date,que_con;
     private String userid,user_id,useremail;
     private String userkey, str2, str;
+    private String removeid, removekey;
     private ArrayList<Comment> arrayList;
     private RecyclerView recyclerView;
     private RecyclerView.Adapter adapter;
@@ -156,7 +159,8 @@ public class QuestionDetailFragment extends Fragment {
                 String eemail=useremail.replaceAll(EMAIL_PATTERN, "$1****$2");
                 dataRef =FirebaseDatabase.getInstance().getReference("comment_question").push();
                 String mykey= dataRef.getKey();
-                Comment comment = new Comment(eemail,str,str2,userkey,mykey);
+
+                Comment comment = new Comment(eemail,str,str2,userkey,mykey,user_id);
                 dataRef.setValue(comment);
                 adapter.notifyDataSetChanged();
 
@@ -164,10 +168,48 @@ public class QuestionDetailFragment extends Fragment {
 
             }
         });
+        ItemTouchHelper.SimpleCallback simpleItemTouchCallback = new ItemTouchHelper.SimpleCallback(0, ItemTouchHelper.LEFT | ItemTouchHelper.RIGHT) {
+            @Override
+            public boolean onMove(@NonNull RecyclerView recyclerView, @NonNull RecyclerView.ViewHolder viewHolder, @NonNull RecyclerView.ViewHolder target) {
+                return false;
+            }
+
+            @Override
+            public void onSwiped(@NonNull RecyclerView.ViewHolder viewHolder, int direction) {
+
+
+                    final int position = viewHolder.getAdapterPosition();
+                    removeid =arrayList.get(position).getMyid().toString();
+                    removekey =arrayList.get(position).getMykey();
+                    databaseReference2=database.getReference("comment_question");
+                    databaseReference2.orderByChild("myid").equalTo(removeid).addListenerForSingleValueEvent(new ValueEventListener() {
+                        @Override
+                        public void onDataChange(@NonNull DataSnapshot snapshot) {
+                            for (DataSnapshot datasnapshot : snapshot.getChildren()) { // 반복문으로 데이터 List를 추출해냄
+                                Comment comment2 = datasnapshot.getValue(Comment.class);
+                                if(comment2.getMykey().equals(removekey)){
+                                arrayList.remove(position);
+                                datasnapshot.getRef().removeValue();
+
+                                }
+                            }
+
+                            adapter.notifyDataSetChanged();
+                        }
+
+                        @Override
+                        public void onCancelled(@NonNull DatabaseError error) {
+
+                        }
+                    });
+
+            }
+        };
+
 
         recyclerView = (RecyclerView) view.findViewById(R.id.recycler_question_comment);
         recyclerView.setHasFixedSize(true); // 리사이클러뷰 기존성능 강화
-        layoutManager = new LinearLayoutManager(getContext());
+        layoutManager = new StaggeredGridLayoutManager(1, StaggeredGridLayoutManager.VERTICAL);
         recyclerView.setLayoutManager(layoutManager);
         arrayList = new ArrayList<>();
 
@@ -198,8 +240,10 @@ public class QuestionDetailFragment extends Fragment {
 
 
 
-        adapter = new CommentAdapter(arrayList, getContext(), listener);
+        adapter = new CommentAdapter(arrayList, getContext());
         recyclerView.setAdapter(adapter); // 리사이클러뷰에 어댑터 연결
+        ItemTouchHelper itemTouchHelper = new ItemTouchHelper(simpleItemTouchCallback);
+        itemTouchHelper.attachToRecyclerView(recyclerView);
 
         return view;
 

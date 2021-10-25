@@ -2,6 +2,9 @@ package com.example.graduation;
 import static android.content.ContentValues.TAG;
 
 import android.content.Intent;
+import android.content.pm.PackageManager;
+import android.content.pm.ResolveInfo;
+import android.net.Uri;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.LayoutInflater;
@@ -40,9 +43,12 @@ import com.naver.maps.map.OnMapReadyCallback;
 import com.naver.maps.map.UiSettings;
 import com.naver.maps.map.overlay.Marker;
 
+import java.io.UnsupportedEncodingException;
+import java.net.URLEncoder;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.Date;
+import java.util.List;
 
 public class eduTableFragment extends Fragment implements OnMapReadyCallback {
 
@@ -98,6 +104,7 @@ public class eduTableFragment extends Fragment implements OnMapReadyCallback {
     private ArrayList<Map> Maplist;
     private LatLng latLng;
     private String userid,useremail;
+    private Button naver_web;
 
     @Nullable
     @Override
@@ -189,6 +196,32 @@ public class eduTableFragment extends Fragment implements OnMapReadyCallback {
             mapFragment = MapFragment.newInstance();
             fm.beginTransaction().add(R.id.map, mapFragment).commit();
         }
+        naver_web= (Button)v.findViewById(R.id.naver_web);
+        naver_web.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+
+                String encodeStr = null;
+                try {
+                    encodeStr = URLEncoder.encode(institution, "UTF-8");
+                } catch (UnsupportedEncodingException e) {
+                    e.printStackTrace();
+                }
+                String url = "nmap://place?lat="+lat+"&lng="+log+"&name="+encodeStr+"&zoom=10&appname=com.example.myapp";
+
+                Intent intent = new Intent(Intent.ACTION_VIEW, Uri.parse(url));
+                intent.addCategory(Intent.CATEGORY_BROWSABLE);
+
+                List<ResolveInfo> list = getActivity().getPackageManager().queryIntentActivities(intent, PackageManager.MATCH_DEFAULT_ONLY);
+                if (list == null || list.isEmpty()) {
+                    getContext().startActivity(new Intent(Intent.ACTION_VIEW, Uri.parse("market://details?id=com.nhn.android.nmap")));
+                } else {
+                    getContext().startActivity(intent);
+                }
+
+            }
+        });
+
         // 파이어베이스 데이터베이스 연동
         database = FirebaseDatabase.getInstance();
         databaseReference = database.getReference("Map"); // DB 테이블 연결
@@ -236,7 +269,7 @@ public class eduTableFragment extends Fragment implements OnMapReadyCallback {
                 str2 =edu_comment_content.getText().toString();
                 String eemail=useremail.replaceAll(EMAIL_PATTERN, "$1****$2");
                 dataRef =FirebaseDatabase.getInstance().getReference("comment_edu").push();
-                Comment comment = new Comment(eemail,str,str2,name,teacher);
+                Comment comment = new Comment(eemail,str,str2,name,teacher,userid);
                 dataRef.setValue(comment);
                 adapter.notifyDataSetChanged();
 
@@ -274,7 +307,7 @@ public class eduTableFragment extends Fragment implements OnMapReadyCallback {
             }
         });
 
-        adapter = new CommentAdapter(arrayList, getContext(), listener);
+        adapter = new CommentAdapter(arrayList, getContext());
         recyclerView.setAdapter(adapter); // 리사이클러뷰에 어댑터 연결
 
 
