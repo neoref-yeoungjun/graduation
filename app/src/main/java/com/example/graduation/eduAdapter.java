@@ -92,8 +92,12 @@ public class eduAdapter extends RecyclerView.Adapter<eduAdapter.eduViewHolder> {
         holder.week.setText(arrayList.get(position).getWeek());
         holder.catecori.setText(arrayList.get(position).getCategory());
         holder.onBind(arrayList.get(position));
-        holder.oninter(arrayList.get(position));
+        FirebaseUser user = FirebaseAuth.getInstance().getCurrentUser();
         holder.onchec(arrayList.get(position));
+        if (user != null) {
+
+            holder.oninter(arrayList.get(position));
+        }
 
 
 
@@ -184,7 +188,9 @@ public class eduAdapter extends RecyclerView.Adapter<eduAdapter.eduViewHolder> {
             public void oninter(edu edu){
                 database = FirebaseDatabase.getInstance();
                 FirebaseUser user = FirebaseAuth.getInstance().getCurrentUser();
-                userid=user.getUid();
+                if (user != null) {
+                    userid = user.getUid();
+                }
                 datacheck= database.getReference("check").child(userid);
                 datacheck.addListenerForSingleValueEvent(new ValueEventListener() {
                     @Override
@@ -208,7 +214,9 @@ public class eduAdapter extends RecyclerView.Adapter<eduAdapter.eduViewHolder> {
             public  void onchec(edu edu){
             database = FirebaseDatabase.getInstance();
             FirebaseUser user = FirebaseAuth.getInstance().getCurrentUser();
-            userid=user.getUid();
+                if (user != null) {
+                    userid = user.getUid();
+                }
             check = new ArrayList<>();
             checkBox.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
                 @Override

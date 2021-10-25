@@ -177,7 +177,9 @@ public class interestAdapter extends RecyclerView.Adapter<interestAdapter.intere
 
         public void onbtn(edu edu){
             FirebaseUser user = FirebaseAuth.getInstance().getCurrentUser();
-            userid=user.getUid();
+            if (user != null) {
+                userid = user.getUid();
+            }
             removeinter.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
