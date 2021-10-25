@@ -6,17 +6,27 @@ public class Comment {
     private String content;
     private String key;
     private String mykey;
+    private String myid;
 
     public Comment(){
 
     }
 
-    public Comment(String email, String date, String content, String key, String mykey) {
+    public Comment(String email, String date, String content, String key, String mykey, String myid) {
         this.email = email;
         this.date = date;
         this.content = content;
         this.key = key;
         this.mykey= mykey;
+        this.myid= myid;
+    }
+
+    public String getMyid() {
+        return myid;
+    }
+
+    public void setMyid(String myid) {
+        this.myid = myid;
     }
 
     public String getMykey() {

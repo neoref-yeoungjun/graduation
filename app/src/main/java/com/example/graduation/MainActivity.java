@@ -143,8 +143,11 @@ public class MainActivity extends AppCompatActivity {
                         break;
 
                     case R.id.item_fragment5:
-                        setFrag(2);
-                        break;
+                        if (user != null) {
+                            setFrag(6);
+                        } else {
+                            Toast.makeText(getApplicationContext(), "로그인이 필요합니다.", Toast.LENGTH_SHORT).show();
+                        }
                     case android.R.id.home:{ // 왼쪽 상단 버튼 눌렀을 때
                         mDrawerLayout.openDrawer(GravityCompat.START);
                         return true;

@@ -8,6 +8,7 @@ import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Button;
 import android.widget.CheckBox;
 import android.widget.CompoundButton;
 import android.widget.TextView;
@@ -18,8 +19,11 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
+import com.google.firebase.database.DataSnapshot;
+import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.database.ValueEventListener;
 
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
@@ -31,7 +35,7 @@ public class interestAdapter extends RecyclerView.Adapter<interestAdapter.intere
     String start1;
     String end1;
     private FirebaseDatabase database;
-    private DatabaseReference databaseReference, dataRef;
+    private DatabaseReference dataremove, checkremove;
     String userid;
 
     public interface OnItemClickListener{
@@ -83,6 +87,7 @@ public class interestAdapter extends RecyclerView.Adapter<interestAdapter.intere
         holder.fee.setText(arrayList.get(position).getFee());
         holder.week.setText(arrayList.get(position).getWeek());
         holder.onBind(arrayList.get(position));
+        holder.onbtn(arrayList.get(position));
 
 
 
@@ -107,6 +112,7 @@ public class interestAdapter extends RecyclerView.Adapter<interestAdapter.intere
         TextView cate;
         TextView week;
         TextView apply_day;
+        Button removeinter;
 
 
         public interestViewHolder(@NonNull View itemView)  {
@@ -122,6 +128,7 @@ public class interestAdapter extends RecyclerView.Adapter<interestAdapter.intere
             this.week = itemView.findViewById(R.id.interweek);
             this.fee = itemView.findViewById(R.id.interfee);
             this.apply_day = itemView.findViewById(R.id.interapply_day);
+            this.removeinter = itemView.findViewById(R.id.favorite_Btn);
 
 
 
@@ -166,6 +173,56 @@ public class interestAdapter extends RecyclerView.Adapter<interestAdapter.intere
                 apply_day.setBackgroundColor(Color.parseColor("#82B1FF"));
 
             }
+        }
+
+        public void onbtn(edu edu){
+            FirebaseUser user = FirebaseAuth.getInstance().getCurrentUser();
+            userid=user.getUid();
+            removeinter.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    Toast.makeText(context, "관심강좌를 삭제하였습니다.", Toast.LENGTH_SHORT).show();
+                    database = FirebaseDatabase.getInstance();;
+                    dataremove=database.getReference("favorite").child(userid);
+                    dataremove.addListenerForSingleValueEvent(new ValueEventListener() {
+                        @Override
+                        public void onDataChange(@NonNull DataSnapshot snapshot) {
+                            for (DataSnapshot datasnapshot : snapshot.getChildren()) { // 반복문으로 데이터 List를 추출해냄
+                                edu edu2 = datasnapshot.getValue(edu.class);
+                                if(edu2.getFIELD1()==edu.getFIELD1()) {
+                                    datasnapshot.getRef().removeValue();
+                                    arrayList.remove(getAdapterPosition());
+                                    notifyItemRemoved(getAdapterPosition());
+                                    notifyDataSetChanged();
+                                    checkremove=database.getReference("check").child(userid);
+                                    checkremove.orderByChild("inter").equalTo(edu.getFIELD1()).addListenerForSingleValueEvent(new ValueEventListener() {
+                                        @Override
+                                        public void onDataChange(@NonNull DataSnapshot snapshot) {
+                                            for (DataSnapshot datasnapshot : snapshot.getChildren()) { // 반복문으로 데이터 List를 추출해냄
+                                                check check2 = datasnapshot.getValue(check.class);
+                                                if(check2.getInter()==edu.getFIELD1()) {
+                                                    datasnapshot.getRef().removeValue();
+
+                                                }
+                                            }
+                                        }
+
+                                        @Override
+                                        public void onCancelled(@NonNull DatabaseError error) {
+
+                                        }
+                                    });
+                                }
+                            }
+                        }
+
+                        @Override
+                        public void onCancelled(@NonNull DatabaseError error) {
+
+                        }
+                    });
+                }
+            });
         }
 
 
