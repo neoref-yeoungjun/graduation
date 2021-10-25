@@ -62,6 +62,7 @@ public class eduTableFragment extends Fragment implements OnMapReadyCallback {
     TextView table_target;
     TextView table_teacher;
     TextView table_teacher_info;
+    TextView table_cate;
     EditText edu_comment_content;
     Button edu_comment_btn;
     private FirebaseDatabase database;
@@ -87,6 +88,7 @@ public class eduTableFragment extends Fragment implements OnMapReadyCallback {
     private String target;
     private String teacher;
     private String teacher_info;
+    private String cate;
     private NaverMap naverMap;
     private DatabaseReference databaseReference,dataRef;
     private String str, str2;
@@ -124,6 +126,7 @@ public class eduTableFragment extends Fragment implements OnMapReadyCallback {
        table_fee = v.findViewById(R.id.table_fee);
        table_teacher_info = v.findViewById(R.id.table_teacher_info);
        table_apply_url = v.findViewById(R.id.table_apply_url);
+       table_cate = v.findViewById(R.id.table_cate);
 
         if(getArguments() != null){
             lat = getArguments().getDouble("lat");
@@ -175,6 +178,10 @@ public class eduTableFragment extends Fragment implements OnMapReadyCallback {
 
             apply_url = getArguments().getString("table_apply_url");
             table_apply_url.setText(apply_url);
+
+            cate = getArguments().getString("table_cate");
+            table_cate.setText(cate);
+
         }
         FragmentManager fm = getChildFragmentManager();
         MapFragment mapFragment = (MapFragment)fm.findFragmentById(R.id.map);

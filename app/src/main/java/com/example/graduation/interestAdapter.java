@@ -11,7 +11,6 @@ import android.view.ViewGroup;
 import android.widget.CheckBox;
 import android.widget.CompoundButton;
 import android.widget.TextView;
-import android.content.Intent;
 import android.widget.Toast;
 
 import androidx.annotation.NonNull;
@@ -24,9 +23,8 @@ import com.google.firebase.database.FirebaseDatabase;
 
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
-import java.util.List;
 
-public class eduAdapter extends RecyclerView.Adapter<eduAdapter.eduViewHolder> {
+public class interestAdapter extends RecyclerView.Adapter<interestAdapter.interestViewHolder>{
 
     private ArrayList<edu> arrayList;
     private Context context;
@@ -44,12 +42,12 @@ public class eduAdapter extends RecyclerView.Adapter<eduAdapter.eduViewHolder> {
     SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd");
 
     final String today = sdf.format(now);
-    private OnItemClickListener mListener =null;
+    private interestAdapter.OnItemClickListener mListener =null;
     Activity activity;
 
 
 
-    public eduAdapter(ArrayList<edu> arrayList, Context context, OnItemClickListener listener) {
+    public interestAdapter(ArrayList<edu> arrayList, Context context, interestAdapter.OnItemClickListener listener) {
         this.arrayList = arrayList;
         this.context = context;
         this.mListener = listener;
@@ -57,9 +55,9 @@ public class eduAdapter extends RecyclerView.Adapter<eduAdapter.eduViewHolder> {
 
     @NonNull
     @Override
-    public eduViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
-        View view = LayoutInflater.from(parent.getContext()).inflate(R.layout.list_edu, parent, false);
-        eduViewHolder holder = new eduViewHolder(view);
+    public interestAdapter.interestViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
+        View view = LayoutInflater.from(parent.getContext()).inflate(R.layout.list_interest, parent, false);
+        interestAdapter.interestViewHolder holder = new interestAdapter.interestViewHolder(view);
         context =parent.getContext();
 
         return holder;
@@ -73,7 +71,7 @@ public class eduAdapter extends RecyclerView.Adapter<eduAdapter.eduViewHolder> {
     }
 
     @Override
-    public void onBindViewHolder(@NonNull eduViewHolder holder, int position) {
+    public void onBindViewHolder(@NonNull interestAdapter.interestViewHolder holder, int position) {
 
         holder.apply_start.setText(arrayList.get(position).getApply_start());
         holder.apply_end.setText(arrayList.get(position).getApply_end());
@@ -84,10 +82,7 @@ public class eduAdapter extends RecyclerView.Adapter<eduAdapter.eduViewHolder> {
         holder.time.setText(arrayList.get(position).getTime());
         holder.fee.setText(arrayList.get(position).getFee());
         holder.week.setText(arrayList.get(position).getWeek());
-        holder.catecori.setText(arrayList.get(position).getCategory());
         holder.onBind(arrayList.get(position));
-        holder.checkBox.setOnCheckedChangeListener(null);
-        holder.onchec(arrayList.get(position));
 
 
 
@@ -100,7 +95,7 @@ public class eduAdapter extends RecyclerView.Adapter<eduAdapter.eduViewHolder> {
 
 
 
-    public class eduViewHolder extends RecyclerView.ViewHolder {
+    public class interestViewHolder extends RecyclerView.ViewHolder {
         TextView apply_start;
         TextView apply_end;
         TextView edu_start;
@@ -109,30 +104,28 @@ public class eduAdapter extends RecyclerView.Adapter<eduAdapter.eduViewHolder> {
         TextView name;
         TextView time;
         TextView fee;
+        TextView cate;
         TextView week;
         TextView apply_day;
-        CheckBox checkBox;
-        TextView catecori;
 
 
-        public eduViewHolder(@NonNull View itemView)  {
+        public interestViewHolder(@NonNull View itemView)  {
             super(itemView);
-            this.name = itemView.findViewById(R.id.text_1);
-            this.institution = itemView.findViewById(R.id.text_2);
-            this.apply_start = itemView.findViewById(R.id.text_3);
-            this.apply_end = itemView.findViewById(R.id.text_4);
-            this.edu_start = itemView.findViewById(R.id.text_5);
-            this.edu_end = itemView.findViewById(R.id.text_6);
-            this.time = itemView.findViewById(R.id.text_7);
-            this.week = itemView.findViewById(R.id.text_8);
-            this.fee = itemView.findViewById(R.id.text_9);
-            this.catecori = itemView.findViewById(R.id.text_cate);
-            this.apply_day = itemView.findViewById(R.id.apply_day);
-            this.checkBox=itemView.findViewById(R.id.favorite_Btn);
+            this.name = itemView.findViewById(R.id.intername);
+            this.institution = itemView.findViewById(R.id.interinsti);
+            this.cate = itemView.findViewById(R.id.inter_cate);
+            this.apply_start = itemView.findViewById(R.id.interaps);
+            this.apply_end = itemView.findViewById(R.id.interape);
+            this.edu_start = itemView.findViewById(R.id.interedus);
+            this.edu_end = itemView.findViewById(R.id.interedue);
+            this.time = itemView.findViewById(R.id.intertime);
+            this.week = itemView.findViewById(R.id.interweek);
+            this.fee = itemView.findViewById(R.id.interfee);
+            this.apply_day = itemView.findViewById(R.id.interapply_day);
 
 
 
-           itemView.setOnClickListener(new View.OnClickListener() {
+            itemView.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
                     Log.d("Recyclerview", "position="+getAdapterPosition());
@@ -152,8 +145,8 @@ public class eduAdapter extends RecyclerView.Adapter<eduAdapter.eduViewHolder> {
                         }
                     }
 
-                    }
-                });
+                }
+            });
         }
         public void onBind(edu edu){
             String start1 = edu.getApply_start().toString();
@@ -173,36 +166,9 @@ public class eduAdapter extends RecyclerView.Adapter<eduAdapter.eduViewHolder> {
                 apply_day.setBackgroundColor(Color.parseColor("#82B1FF"));
 
             }
-            }
+        }
 
-            public  void onchec(edu edu){
-            checkBox.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
-                @Override
-                public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
-                    checkBox.setSelected(isChecked);
-                    if(checkBox.isChecked()){
-                        FirebaseUser user = FirebaseAuth.getInstance().getCurrentUser();// 로그인 상태확인
-                        if (user != null) {
-                            Toast.makeText(context, "관심강좌 추가됨" + getAdapterPosition(), Toast.LENGTH_SHORT).show();
-                            userid=user.getUid();
-                            database = FirebaseDatabase.getInstance();
-                            databaseReference = database.getReference("favorite").child(userid);
-                            dataRef=databaseReference.push();
-                            dataRef.setValue(edu);
-                        }
-                        else{
-                            Toast.makeText(context, "로그인이 필요한 기능입니다.", Toast.LENGTH_SHORT).show();
-                            checkBox.setChecked(false);
-                        }
-                    }
-                    else{
-                        Toast.makeText(context, "관심강좌 취소"+getAdapterPosition(), Toast.LENGTH_SHORT).show();
-                        dataRef.removeValue();
-                    }
-                }
-            });
 
-            }
 
     }
 }

@@ -27,7 +27,7 @@ public class InterestFragment extends Fragment {
     private DatabaseReference databaseReference;
     private RecyclerView.Adapter adapter;
     private RecyclerView.LayoutManager layoutManager;
-    private eduAdapter.OnItemClickListener listener;
+    private interestAdapter.OnItemClickListener listener;
     private RecyclerView recyclerView;
     private ArrayList<edu> arrayList;
 
@@ -65,7 +65,7 @@ public class InterestFragment extends Fragment {
             }
         });
 
-        adapter = new eduAdapter(arrayList, getContext(), listener);
+        adapter = new interestAdapter(arrayList, getContext(), listener);
         recyclerView.setAdapter(adapter); // 리사이클러뷰에 어댑터 연결
 
         return v;

@@ -49,9 +49,9 @@ public class HomeFragment extends Fragment {
 
         FirebaseUser user = FirebaseAuth.getInstance().getCurrentUser();// 로그인 상태확인
         if (user != null) {
-            Toast.makeText(getContext(), "로그인됨", Toast.LENGTH_SHORT).show();
+
         } else {
-            Toast.makeText(getContext(), "로그인안됨", Toast.LENGTH_SHORT).show();
+
         }
         eduAdapter.OnItemClickListener listener= new eduAdapter.OnItemClickListener() {
             @Override
@@ -74,6 +74,7 @@ public class HomeFragment extends Fragment {
                 bundle.putString("table_fee",arrayList.get(pos).getFee());
                 bundle.putString("table_teacher_info",arrayList.get(pos).getTeacher_info());
                 bundle.putString("table_apply_url",arrayList.get(pos).getApply_url());
+                bundle.putString("table_cate",arrayList.get(pos).getCategory());
 
 
 
