@@ -137,7 +137,7 @@ public class SearchActivity extends Fragment {
                 bundle.putString("table_fee",arrayList.get(pos).getFee());
                 bundle.putString("table_teacher_info",arrayList.get(pos).getTeacher_info());
                 bundle.putString("table_apply_url",arrayList.get(pos).getApply_url());
-
+                bundle.putString("table_cate",arrayList.get(pos).getCategory());
 
 
                 FragmentTransaction transaction = getActivity().getSupportFragmentManager().beginTransaction();

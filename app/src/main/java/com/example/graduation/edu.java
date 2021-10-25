@@ -19,10 +19,21 @@ public class edu {
     private String target;
     private String teacher;
     private String teacher_info;
+    boolean isSelected;
 
     public edu() {
 
     }
+    public boolean getSelected()
+    {
+        return isSelected;
+    }
+
+    public void setSelected(boolean selected)
+    {
+        isSelected = selected;
+    }
+
 
     public String getApply_start() {
         return apply_start;

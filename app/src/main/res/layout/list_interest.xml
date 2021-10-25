@@ -35,7 +35,7 @@
                     android:textColor="@color/black" />
 
                 <TextView
-                    android:id="@+id/text_1"
+                    android:id="@+id/intername"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
@@ -56,7 +56,7 @@
                     android:layout_height="0dp"
                     android:layout_weight="1" />
                 <TextView
-                    android:id="@+id/apply_day"
+                    android:id="@+id/interapply_day"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
 
@@ -85,7 +85,7 @@
                     android:textColor="@color/black" />
 
                 <TextView
-                    android:id="@+id/text_2"
+                    android:id="@+id/interinsti"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_margin="5dp"
@@ -127,7 +127,7 @@
                     android:textColor="@color/black" />
 
                 <TextView
-                    android:id="@+id/text_cate"
+                    android:id="@+id/inter_cate"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_margin="5dp"
@@ -160,7 +160,7 @@
                     android:textColor="@color/black" />
 
                 <TextView
-                    android:id="@+id/text_3"
+                    android:id="@+id/interaps"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
 
@@ -187,7 +187,7 @@
                     android:textColor="@color/black" />
 
                 <TextView
-                    android:id="@+id/text_4"
+                    android:id="@+id/interape"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
 
@@ -221,7 +221,7 @@
 
 
                 <TextView
-                    android:id="@+id/text_5"
+                    android:id="@+id/interedus"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_margin="5dp"
@@ -245,7 +245,7 @@
                     android:textColor="@color/black" />
 
                 <TextView
-                    android:id="@+id/text_6"
+                    android:id="@+id/interedue"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_margin="5dp"
@@ -274,7 +274,7 @@
                     android:textColor="@color/black" />
 
                 <TextView
-                    android:id="@+id/text_7"
+                    android:id="@+id/intertime"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_margin="5dp"
@@ -282,7 +282,7 @@
                     android:textColor="@color/black" />
 
                 <TextView
-                    android:id="@+id/text_8"
+                    android:id="@+id/interweek"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_margin="5dp"
@@ -303,7 +303,7 @@
                     android:textColor="@color/black" />
 
                 <TextView
-                    android:id="@+id/text_9"
+                    android:id="@+id/interfee"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_margin="5dp"
