@@ -1,15 +1,18 @@
 package com.example.graduation;
 
 import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
 import androidx.appcompat.app.ActionBar;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.core.view.GravityCompat;
 import androidx.drawerlayout.widget.DrawerLayout;
+import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentManager;
 import androidx.fragment.app.FragmentTransaction;
 
 import android.content.Context;
 import android.content.Intent;
+import android.os.Build;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuInflater;
@@ -130,8 +133,7 @@ public class MainActivity extends AppCompatActivity {
                         break;
 
                     case R.id.item_fragment3://새로 고침
-
-
+                        setFrag(9);
                         break;
 
                     case R.id.item_fragment4:
@@ -148,6 +150,7 @@ public class MainActivity extends AppCompatActivity {
                         } else {
                             Toast.makeText(getApplicationContext(), "로그인이 필요합니다.", Toast.LENGTH_SHORT).show();
                         }
+                        break;
                     case android.R.id.home:{ // 왼쪽 상단 버튼 눌렀을 때
                         mDrawerLayout.openDrawer(GravityCompat.START);
                         return true;
@@ -230,6 +233,14 @@ public class MainActivity extends AppCompatActivity {
                 ft.addToBackStack(null);
                 ft.commit();
                 break;
+            case 9:
+                Fragment frg = null;
+                frg = getSupportFragmentManager().findFragmentById(R.id.frame_container);
+                ft = getSupportFragmentManager().beginTransaction();
+                if (Build.VERSION.SDK_INT >= 26) {
+                    ft.setReorderingAllowed(false);
+                }
+                ft.detach(frg).attach(frg).commit();
 
 
         }

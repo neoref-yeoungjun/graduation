@@ -20,6 +20,7 @@ import androidx.annotation.UiThread;
 import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentManager;
 import androidx.recyclerview.widget.DividerItemDecoration;
+import androidx.recyclerview.widget.ItemTouchHelper;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
@@ -72,11 +73,12 @@ public class eduTableFragment extends Fragment implements OnMapReadyCallback {
     EditText edu_comment_content;
     Button edu_comment_btn;
     private FirebaseDatabase database;
-    private DatabaseReference databaseReference1;
+    private DatabaseReference databaseReference1,databaseReference2;
     private RecyclerView recyclerView;
     private RecyclerView.Adapter adapter;
     private RecyclerView.LayoutManager layoutManager;
     private ArrayList<Comment> arrayList;
+    private String removeid, removekey;
 
     private String apply_start;
     private String apply_url;
@@ -269,14 +271,51 @@ public class eduTableFragment extends Fragment implements OnMapReadyCallback {
                 str2 =edu_comment_content.getText().toString();
                 String eemail=useremail.replaceAll(EMAIL_PATTERN, "$1****$2");
                 dataRef =FirebaseDatabase.getInstance().getReference("comment_edu").push();
-                Comment comment = new Comment(eemail,str,str2,name,teacher,userid);
+                String mykey= dataRef.getKey();
+                Comment comment = new Comment(eemail,str,str2,name,mykey,userid);
                 dataRef.setValue(comment);
                 adapter.notifyDataSetChanged();
 
                 edu_comment_content.setText(null);
             }
         });
+        ItemTouchHelper.SimpleCallback simpleItemTouchCallback = new ItemTouchHelper.SimpleCallback(0, ItemTouchHelper.LEFT | ItemTouchHelper.RIGHT) {
+            @Override
+            public boolean onMove(@NonNull RecyclerView recyclerView, @NonNull RecyclerView.ViewHolder viewHolder, @NonNull RecyclerView.ViewHolder target) {
+                return false;
+            }
 
+            @Override
+            public void onSwiped(@NonNull RecyclerView.ViewHolder viewHolder, int direction) {
+
+
+                final int position = viewHolder.getAdapterPosition();
+                removeid =arrayList.get(position).getMyid().toString();
+                removekey =arrayList.get(position).getMykey();
+                databaseReference2=database.getReference("comment_edu");
+                databaseReference2.orderByChild("myid").equalTo(removeid).addListenerForSingleValueEvent(new ValueEventListener() {
+                    @Override
+                    public void onDataChange(@NonNull DataSnapshot snapshot) {
+                        for (DataSnapshot datasnapshot : snapshot.getChildren()) { // 반복문으로 데이터 List를 추출해냄
+                            Comment comment2 = datasnapshot.getValue(Comment.class);
+                            if(comment2.getMykey().equals(removekey)){
+                                arrayList.remove(position);
+                                datasnapshot.getRef().removeValue();
+
+                            }
+                        }
+
+                        adapter.notifyDataSetChanged();
+                    }
+
+                    @Override
+                    public void onCancelled(@NonNull DatabaseError error) {
+
+                    }
+                });
+
+            }
+        };
         recyclerView = (RecyclerView) v.findViewById(R.id.recycler_edu_comment);
         recyclerView.setHasFixedSize(true); // 리사이클러뷰 기존성능 강화
         layoutManager = new LinearLayoutManager(getContext());
@@ -309,7 +348,8 @@ public class eduTableFragment extends Fragment implements OnMapReadyCallback {
 
         adapter = new CommentAdapter(arrayList, getContext());
         recyclerView.setAdapter(adapter); // 리사이클러뷰에 어댑터 연결
-
+        ItemTouchHelper itemTouchHelper = new ItemTouchHelper(simpleItemTouchCallback);
+        itemTouchHelper.attachToRecyclerView(recyclerView);
 
         return v;
 
