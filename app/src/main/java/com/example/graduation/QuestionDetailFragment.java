@@ -178,18 +178,19 @@ public class QuestionDetailFragment extends Fragment {
             public void onSwiped(@NonNull RecyclerView.ViewHolder viewHolder, int direction) {
 
 
-                    final int position = viewHolder.getAdapterPosition();
-                    removeid =arrayList.get(position).getMyid().toString();
-                    removekey =arrayList.get(position).getMykey();
-                    databaseReference2=database.getReference("comment_question");
+                final int position = viewHolder.getAdapterPosition();
+                if (user != null) {
+                    removeid = arrayList.get(position).getMyid().toString();
+                    removekey = arrayList.get(position).getMykey();
+                    databaseReference2 = database.getReference("comment_question");
                     databaseReference2.orderByChild("myid").equalTo(removeid).addListenerForSingleValueEvent(new ValueEventListener() {
                         @Override
                         public void onDataChange(@NonNull DataSnapshot snapshot) {
                             for (DataSnapshot datasnapshot : snapshot.getChildren()) { // 반복문으로 데이터 List를 추출해냄
                                 Comment comment2 = datasnapshot.getValue(Comment.class);
-                                if(comment2.getMykey().equals(removekey)){
-                                arrayList.remove(position);
-                                datasnapshot.getRef().removeValue();
+                                if (comment2.getMykey().equals(removekey)) {
+                                    arrayList.remove(position);
+                                    datasnapshot.getRef().removeValue();
 
                                 }
                             }
@@ -203,6 +204,7 @@ public class QuestionDetailFragment extends Fragment {
                         }
                     });
 
+                }
             }
         };
 
@@ -242,8 +244,10 @@ public class QuestionDetailFragment extends Fragment {
 
         adapter = new CommentAdapter(arrayList, getContext());
         recyclerView.setAdapter(adapter); // 리사이클러뷰에 어댑터 연결
-        ItemTouchHelper itemTouchHelper = new ItemTouchHelper(simpleItemTouchCallback);
-        itemTouchHelper.attachToRecyclerView(recyclerView);
+        if(user != null) {
+            ItemTouchHelper itemTouchHelper = new ItemTouchHelper(simpleItemTouchCallback);
+            itemTouchHelper.attachToRecyclerView(recyclerView);
+        }
 
         return view;
 
