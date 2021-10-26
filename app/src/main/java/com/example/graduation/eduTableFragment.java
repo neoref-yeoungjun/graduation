@@ -290,30 +290,32 @@ public class eduTableFragment extends Fragment implements OnMapReadyCallback {
 
 
                 final int position = viewHolder.getAdapterPosition();
-                removeid =arrayList.get(position).getMyid().toString();
-                removekey =arrayList.get(position).getMykey();
-                databaseReference2=database.getReference("comment_edu");
-                databaseReference2.orderByChild("myid").equalTo(removeid).addListenerForSingleValueEvent(new ValueEventListener() {
-                    @Override
-                    public void onDataChange(@NonNull DataSnapshot snapshot) {
-                        for (DataSnapshot datasnapshot : snapshot.getChildren()) { // 반복문으로 데이터 List를 추출해냄
-                            Comment comment2 = datasnapshot.getValue(Comment.class);
-                            if(comment2.getMykey().equals(removekey)){
-                                arrayList.remove(position);
-                                datasnapshot.getRef().removeValue();
+                if (user != null) {
+                    removeid = arrayList.get(position).getMyid().toString();
+                    removekey = arrayList.get(position).getMykey();
+                    databaseReference2 = database.getReference("comment_edu");
+                    databaseReference2.orderByChild("myid").equalTo(removeid).addListenerForSingleValueEvent(new ValueEventListener() {
+                        @Override
+                        public void onDataChange(@NonNull DataSnapshot snapshot) {
+                            for (DataSnapshot datasnapshot : snapshot.getChildren()) { // 반복문으로 데이터 List를 추출해냄
+                                Comment comment2 = datasnapshot.getValue(Comment.class);
+                                if (comment2.getMykey().equals(removekey)) {
+                                    arrayList.remove(position);
+                                    datasnapshot.getRef().removeValue();
 
+                                }
                             }
+
+                            adapter.notifyDataSetChanged();
                         }
 
-                        adapter.notifyDataSetChanged();
-                    }
+                        @Override
+                        public void onCancelled(@NonNull DatabaseError error) {
 
-                    @Override
-                    public void onCancelled(@NonNull DatabaseError error) {
+                        }
+                    });
 
-                    }
-                });
-
+                }
             }
         };
         recyclerView = (RecyclerView) v.findViewById(R.id.recycler_edu_comment);
