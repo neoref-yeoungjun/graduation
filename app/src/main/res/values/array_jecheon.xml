@@ -1,6 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <string-array name="jecheon">
-        <item> </item>
+        <item>전체</item>
+        <item>시립도서관</item>
+        <item>여성문화센터</item>
     </string-array>
 </resources>

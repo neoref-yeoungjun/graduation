@@ -150,6 +150,31 @@ public class LocationFragment extends Fragment {
                         adspin2 = ArrayAdapter.createFromResource(getActivity(), R.array.jecheon, android.R.layout.simple_spinner_dropdown_item);
                         adspin2.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
                         spinner2.setAdapter(adspin2);
+                        spinner2.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
+                            @Override
+                            public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
+                                switch(position) {
+                                    case 0:
+                                        choice_se = "제천";
+                                        choice_do = "제천" + "\uf8ff";
+                                        basest();
+                                        break;
+                                    case 1:
+                                        choice_se = "제천시립도서관";
+                                        baseon();
+                                        break;
+                                    case 2:
+                                        choice_se = "제천여성문화센터";
+                                        baseon();
+                                        break;
+                                }
+                            }
+
+                            @Override
+                            public void onNothingSelected(AdapterView<?> parent) {
+
+                            }
+                        });
                         break;
                     case 3:
                         adspin2 = ArrayAdapter.createFromResource(getActivity(), R.array.boeun, android.R.layout.simple_spinner_dropdown_item);
