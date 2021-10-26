@@ -86,7 +86,7 @@
 
     <!-- 하단바 -->
     <com.google.android.material.bottomnavigation.BottomNavigationView
-        android:id="@+id/bottomNavi"
+        android:id="@+id/bottomNavi_login"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_gravity="bottom"
