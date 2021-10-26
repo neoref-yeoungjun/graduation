@@ -261,24 +261,26 @@ public class eduTableFragment extends Fragment implements OnMapReadyCallback {
 
         edu_comment_content = (EditText) v.findViewById(R.id.edu_comment_content);
         edu_comment_btn = (Button)v.findViewById(R.id.edu_comment_btn);
-        edu_comment_btn.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                long now = System.currentTimeMillis();
-                java.text.SimpleDateFormat dayTime = new java.text.SimpleDateFormat("yyyy-MM-dd HH:mm");
-                Date date = new Date(now);
-                str = dayTime.format(date);
-                str2 =edu_comment_content.getText().toString();
-                String eemail=useremail.replaceAll(EMAIL_PATTERN, "$1****$2");
-                dataRef =FirebaseDatabase.getInstance().getReference("comment_edu").push();
-                String mykey= dataRef.getKey();
-                Comment comment = new Comment(eemail,str,str2,name,mykey,userid);
-                dataRef.setValue(comment);
-                adapter.notifyDataSetChanged();
+        if (user != null) {
+            edu_comment_btn.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    long now = System.currentTimeMillis();
+                    java.text.SimpleDateFormat dayTime = new java.text.SimpleDateFormat("yyyy-MM-dd HH:mm");
+                    Date date = new Date(now);
+                    str = dayTime.format(date);
+                    str2 = edu_comment_content.getText().toString();
+                    String eemail = useremail.replaceAll(EMAIL_PATTERN, "$1****$2");
+                    dataRef = FirebaseDatabase.getInstance().getReference("comment_edu").push();
+                    String mykey = dataRef.getKey();
+                    Comment comment = new Comment(eemail, str, str2, name, mykey, userid);
+                    dataRef.setValue(comment);
+                    adapter.notifyDataSetChanged();
 
-                edu_comment_content.setText(null);
-            }
-        });
+                    edu_comment_content.setText(null);
+                }
+            });
+        }
         ItemTouchHelper.SimpleCallback simpleItemTouchCallback = new ItemTouchHelper.SimpleCallback(0, ItemTouchHelper.LEFT | ItemTouchHelper.RIGHT) {
             @Override
             public boolean onMove(@NonNull RecyclerView recyclerView, @NonNull RecyclerView.ViewHolder viewHolder, @NonNull RecyclerView.ViewHolder target) {

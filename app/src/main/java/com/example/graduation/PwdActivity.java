@@ -1,6 +1,7 @@
 package com.example.graduation;
 
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
@@ -33,16 +34,10 @@ public class PwdActivity extends AppCompatActivity {
             public void onClick(View v) {
                 emailAddress =pwdEditText.getText().toString();
                 FirebaseAuth auth = FirebaseAuth.getInstance();
-                auth.setLanguageCode("fr");
-                auth.sendPasswordResetEmail(emailAddress)
-                        .addOnCompleteListener(new OnCompleteListener<Void>() {
-                            @Override
-                            public void onComplete(@NonNull Task<Void> task) {
-                                if (task.isSuccessful()) {
-                                    Log.d(TAG, "Email sent.");
-                                }
-                            }
-                        });
+                auth.setLanguageCode("kr");
+                auth.sendPasswordResetEmail(emailAddress);
+                Intent intent = new Intent(PwdActivity.this,LoginActivity.class );
+                startActivity(intent);
             }
         });
     }

@@ -49,23 +49,6 @@
         android:textSize="15sp"
         android:textStyle="bold"/>
 
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="50dp"
-        android:orientation="horizontal"
-        android:paddingLeft="10dp">
 
-        <Button
-            android:id="@+id/comment_remove"
-            android:layout_width="wrap_content"
-            android:layout_height="40dp"
-            android:layout_weight="1"
-            android:textSize="15sp"
-            android:textStyle="bold"
-            android:text="삭 제 하 기"/>
 
     </LinearLayout>
-
-
-
-</LinearLayout>
