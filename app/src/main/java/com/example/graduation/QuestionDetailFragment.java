@@ -244,8 +244,10 @@ public class QuestionDetailFragment extends Fragment {
 
         adapter = new CommentAdapter(arrayList, getContext());
         recyclerView.setAdapter(adapter); // 리사이클러뷰에 어댑터 연결
-        ItemTouchHelper itemTouchHelper = new ItemTouchHelper(simpleItemTouchCallback);
-        itemTouchHelper.attachToRecyclerView(recyclerView);
+        if(user != null) {
+            ItemTouchHelper itemTouchHelper = new ItemTouchHelper(simpleItemTouchCallback);
+            itemTouchHelper.attachToRecyclerView(recyclerView);
+        }
 
         return view;
 
