@@ -28,7 +28,7 @@
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                android:background="#eeeeee">
+                android:background="#E3F2FD">
 
                 <TextView
                     android:layout_width="wrap_content"
@@ -52,7 +52,7 @@
 
             <LinearLayout
                 android:layout_width="match_parent"
-                android:background="#eeeeee"
+                android:background="#E3F2FD"
                 android:layout_height="match_parent">
 
                 <TextView
@@ -97,7 +97,7 @@
 
             <LinearLayout
                 android:layout_width="match_parent"
-                android:background="#eeeeee"
+                android:background="#E3F2FD"
                 android:layout_height="match_parent">
 
                 <TextView
@@ -121,7 +121,7 @@
 
             <LinearLayout
                 android:layout_width="match_parent"
-                android:background="#eeeeee"
+                android:background="#E3F2FD"
                 android:layout_height="match_parent">
 
                 <TextView
@@ -163,7 +163,7 @@
 
             <LinearLayout
                 android:layout_width="match_parent"
-                android:background="#eeeeee"
+                android:background="#E3F2FD"
                 android:layout_height="match_parent">
 
                 <TextView
@@ -208,7 +208,7 @@
 
             <LinearLayout
                 android:layout_width="match_parent"
-                android:background="#eeeeee"
+                android:background="#E3F2FD"
                 android:layout_height="match_parent">
 
                 <TextView
@@ -253,7 +253,7 @@
 
             <LinearLayout
                 android:layout_width="match_parent"
-                android:background="#eeeeee"
+                android:background="#E3F2FD"
                 android:layout_height="match_parent">
 
                 <TextView
@@ -294,7 +294,7 @@
 
             <LinearLayout
                 android:layout_width="match_parent"
-                android:background="#eeeeee"
+                android:background="#E3F2FD"
                 android:layout_height="match_parent">
 
                 <TextView
@@ -335,7 +335,7 @@
 
             <LinearLayout
                 android:layout_width="match_parent"
-                android:background="#eeeeee"
+                android:background="#E3F2FD"
                 android:layout_height="match_parent">
 
                 <TextView
@@ -380,7 +380,7 @@
 
             <LinearLayout
                 android:layout_width="match_parent"
-                android:background="#eeeeee"
+                android:background="#E3F2FD"
                 android:layout_height="match_parent">
 
                 <TextView
@@ -405,7 +405,7 @@
 
             <LinearLayout
                 android:layout_width="match_parent"
-                android:background="#eeeeee"
+                android:background="#E3F2FD"
                 android:layout_height="match_parent">
 
                 <TextView
@@ -463,8 +463,9 @@
                     android:layout_height="wrap_content"
                     android:text="네이버 지도앱에 위치 열기 "
                     android:textStyle="bold"
-                    android:textColor="@color/black"
-                    android:textSize="15sp"/>
+                    android:textColor="#DCEDC8"
+                    android:background="#E57373"
+                    android:textSize="20sp"/>
 
                 <View
                     android:layout_width="wrap_content"
@@ -488,23 +489,26 @@
 
             <LinearLayout
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
+                android:layout_marginTop="10dp"
+                android:layout_height="70dp"
                 android:orientation="horizontal">
 
                 <EditText
                     android:id="@+id/edu_comment_content"
                     android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:padding="8dp"
-                    android:background="#eeeeee"
+                    android:layout_height="50dp"
+                    android:background="#E3F2FD"
                     android:layout_weight="1"
                     android:hint="댓글 내용을 입력하세요"/>
 
                 <Button
                     android:id="@+id/edu_comment_btn"
                     android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:padding="8dp"
+                    android:layout_height="50dp"
+                    android:background="#E57373"
+                    android:textColor="#DCEDC8"
+                    android:textStyle="bold"
+                    android:textSize="15sp"
                     android:text="등 록 하 기"/>
 
             </LinearLayout>
