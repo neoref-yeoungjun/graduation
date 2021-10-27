@@ -10,8 +10,8 @@
         android:layout_width="match_parent"
         android:layout_height="200dp"
         android:gravity="center"
-        android:background="#50697D"
-        android:textColor="#D9CFE7"
+        android:background="#E57373"
+        android:textColor="#DCEDC8"
         android:text="비 밀 번 호    변 경"
         android:textSize="35sp"
         android:textStyle="bold" />
@@ -29,6 +29,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginBottom="5dp"
+            android:paddingHorizontal="16dp"
             android:ems="10"
             android:hint="이메일을 입력하세요."
             android:inputType="textEmailAddress" />
@@ -39,10 +40,11 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginTop="20dp"
-            android:text="비 밀 번 호    수 정"
+            android:text="비 밀 번 호    변 경"
             android:textSize="20sp"
-            android:textColor="#D9CFE7"
-            android:background="#50697D"/>
+            android:paddingHorizontal="16dp"
+            android:textColor="#DCEDC8"
+            android:background="#E57373"/>
 
     </LinearLayout>
 

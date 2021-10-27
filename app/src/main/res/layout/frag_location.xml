@@ -5,7 +5,6 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:padding="16dp"
     android:orientation="vertical"
     android:background="#fff">
 
@@ -13,18 +12,17 @@
         android:layout_width="match_parent"
         android:layout_height="60dp"
         android:layout_gravity="center"
-        android:layout_marginTop="20dp"
-        android:background="#6B799E"
+        android:textColor="#DCEDC8"
+        android:background="#E57373"
+        android:textStyle="bold"
         android:gravity="center"
-        android:text="지역을 선택하세요."
-        android:textColor="#263238"
-        android:textSize="30dp" />
+        android:text="지 역 별  강 의"
+        android:textSize="30sp" />
 
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginTop="13dp"
-        android:background="#DBDBE5"
+        android:background="#DCEDC8"
         android:orientation="vertical">
 
         <LinearLayout
@@ -34,10 +32,11 @@
 
             <View
                 android:layout_width="wrap_content"
-                android:layout_height="20dp"
+                android:layout_height="35dp"
                 android:layout_weight="1"/>
 
             <TextView
+                android:paddingTop="10dp"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="지 역 을     선 택 하 세 요."
@@ -47,7 +46,7 @@
 
             <View
                 android:layout_width="wrap_content"
-                android:layout_height="20dp"
+                android:layout_height="35dp"
                 android:layout_weight="1"/>
 
         </LinearLayout>
@@ -65,6 +64,7 @@
             <Spinner
                 android:id="@+id/spinner_loca"
                 android:layout_marginTop="4dp"
+                android:paddingTop="10dp"
                 android:layout_centerHorizontal="true"
                 android:layout_width="200dp"
                 android:layout_height="wrap_content"
@@ -91,6 +91,7 @@
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:paddingTop="10dp"
                 android:text="기 관 을     선 택 하 세 요."
                 android:textSize="20sp"
                 android:textColor="@color/black"
@@ -116,6 +117,7 @@
             <Spinner
                 android:id="@+id/spinner_orgn"
                 android:layout_marginTop="4dp"
+                android:paddingTop="10dp"
                 android:layout_centerHorizontal="true"
                 android:layout_width="200dp"
                 android:layout_height="wrap_content" />
@@ -134,7 +136,7 @@
 
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/recycler_location"
-        android:layout_marginTop="30dp"
+        android:layout_marginTop="20dp"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:scrollbars="vertical"/>

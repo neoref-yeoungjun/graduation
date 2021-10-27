@@ -8,31 +8,63 @@
     android:layout_height="match_parent"
     android:background="#fff">
 
-    <ImageView
-        android:id="@+id/user_grade_sticker"
-        android:layout_width="150dp"
-        android:layout_height="140dp"
-        android:layout_marginHorizontal="125dp"
-        android:layout_marginTop="80dp"
-        android:src="@drawable/ic_baseline_people_mypage"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
 
-    <TextView
-        android:id="@+id/usermyid"
-        android:layout_width="200dp"
-        android:layout_height="30dp"
-        android:layout_marginHorizontal="100dp"
-        android:textStyle="normal"
-        android:text="User ID"
-        android:textColor="@color/black"
-        android:textSize="20sp" />
+        <View
+            android:layout_width="wrap_content"
+            android:layout_weight="1"
+            android:layout_height="180dp"/>
 
+        <ImageView
+            android:id="@+id/user_grade_sticker"
+            android:layout_width="250dp"
+            android:layout_height="100dp"
+            android:layout_marginTop="80dp"
+            android:src="@drawable/logo"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <View
+            android:layout_width="wrap_content"
+            android:layout_weight="1"
+            android:layout_height="180dp"/>
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
+
+        <View
+            android:layout_width="wrap_content"
+            android:layout_height="30dp"
+            android:layout_weight="1"/>
+
+        <TextView
+            android:id="@+id/usermyid"
+            android:layout_width="wrap_content"
+            android:layout_height="30dp"
+            android:layout_marginHorizontal="100dp"
+            android:textStyle="normal"
+            android:text="User ID"
+            android:textColor="@color/black"
+            android:textSize="20sp" />
+
+        <View
+            android:layout_width="wrap_content"
+            android:layout_height="30dp"
+            android:layout_weight="1"/>
+
+    </LinearLayout>
 
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:background="#6B799E"
+        android:background="#ECEFF1"
         android:layout_marginTop="50dp"
         android:padding="16dp"
         android:orientation="vertical">
@@ -40,28 +72,33 @@
 
         <Button
             android:id="@+id/userinfo"
+            android:background="#E57373"
             android:layout_width="match_parent"
             android:layout_height="70dp"
             android:text="회 원 정 보  수 정"
-            android:textColor="#261326"
+            android:textColor="#DCEDC8"
             android:textStyle="bold"
             android:textSize="25sp"/>
 
         <Button
             android:id="@+id/mylogout"
+            android:background="#E57373"
+            android:layout_marginTop="15dp"
             android:layout_width="match_parent"
             android:layout_height="70dp"
             android:text="로 그 아 웃"
-            android:textColor="#261326"
+            android:textColor="#DCEDC8"
             android:textStyle="bold"
             android:textSize="25sp"/>
 
         <Button
             android:id="@+id/userout"
+            android:background="#E57373"
+            android:layout_marginTop="15dp"
             android:layout_width="match_parent"
             android:layout_height="70dp"
             android:text="회 원  탈 퇴"
-            android:textColor="#261326"
+            android:textColor="#DCEDC8"
             android:textStyle="bold"
             android:textSize="25sp"/>
 
