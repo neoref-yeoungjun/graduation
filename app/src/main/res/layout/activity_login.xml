@@ -7,11 +7,11 @@
 
     <TextView
         android:id="@+id/textView1"
-        android:background="#50697D"
+        android:background="#E57373"
         android:layout_width="match_parent"
-        android:layout_height="220dp"
+        android:layout_height="200dp"
         android:gravity="center"
-        android:textColor="#D9CFE7"
+        android:textColor="#DCEDC8"
         android:textSize="40sp"
         android:textStyle="bold"
         android:text="로 그 인" />
@@ -19,6 +19,7 @@
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
+        android:layout_marginTop="50dp"
         android:layout_weight="1"
         android:orientation="vertical"
         android:background="#FFFFFF">
@@ -31,8 +32,9 @@
             android:padding="10dp"
             android:gravity="left"
             android:textSize="15dp"
+            android:paddingHorizontal="16dp"
             android:inputType="textEmailAddress"
-            android:hint="이메일" />
+            android:hint="이메일을 입력하세요." />
 
         <EditText
             android:id="@+id/password"
@@ -42,13 +44,16 @@
             android:padding="10dp"
             android:gravity="left"
             android:textSize="15dp"
-            android:hint="비밀번호 입력"
+            android:paddingHorizontal="16dp"
+            android:hint="비밀번호를 입력하세요."
             android:inputType="textPassword" />
 
         <LinearLayout
             android:layout_width="wrap_content"
             android:layout_height="75dp"
             android:layout_gravity="center"
+            android:paddingHorizontal="16dp"
+            android:layout_marginTop="20dp"
             android:orientation="horizontal">
 
             <Button
@@ -58,8 +63,8 @@
                 android:layout_margin="10dp"
                 android:textStyle="bold"
                 android:text="로그인"
-                android:textColor="#D9CFE7"
-                android:background="#50697D" />
+                android:textColor="#DCEDC8"
+                android:background="#E57373" />
 
             <Button
                 android:id="@+id/sign_up"
@@ -68,8 +73,8 @@
                 android:layout_margin="10dp"
                 android:textStyle="bold"
                 android:text="회원가입"
-                android:textColor="#D9CFE7"
-                android:background="#50697D"/>
+                android:textColor="#DCEDC8"
+                android:background="#E57373"/>
 
             <Button
                 android:id="@+id/id_pwd_search"
@@ -77,9 +82,9 @@
                 android:layout_height="wrap_content"
                 android:layout_margin="10dp"
                 android:textStyle="bold"
-                android:text="비밀번호 찾기"
-                android:textColor="#D9CFE7"
-                android:background="#50697D"/>
+                android:text="비밀번호 변경"
+                android:textColor="#DCEDC8"
+                android:background="#E57373"/>
 
         </LinearLayout>
     </LinearLayout>

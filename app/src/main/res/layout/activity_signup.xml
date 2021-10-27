@@ -10,8 +10,8 @@
         android:layout_width="match_parent"
         android:layout_height="200dp"
         android:gravity="center"
-        android:background="#50697D"
-        android:textColor="#D9CFE7"
+        android:background="#E57373"
+        android:textColor="#DCEDC8"
         android:text="회 원 가 입"
         android:textSize="35sp"
         android:textStyle="bold" />
@@ -19,45 +19,50 @@
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
+        android:layout_marginTop="30dp"
         android:layout_weight="1"
         android:orientation="vertical"
         android:padding="10dp">
 
         <EditText
             android:id="@+id/emailEditText"
+            android:paddingHorizontal="16dp"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginBottom="5dp"
             android:ems="10"
-            android:hint="이메일"
+            android:hint="이메일을 입력하세요."
             android:inputType="textEmailAddress" />
 
         <EditText
             android:id="@+id/passwordEditText"
+            android:paddingHorizontal="16dp"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginBottom="5dp"
             android:ems="10"
-            android:hint="비밀번호"
+            android:hint="비밀번호을 입력하세요."
             android:inputType="textPassword" />
 
         <EditText
             android:id="@+id/passwordCheckEditText"
+            android:paddingHorizontal="16dp"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginBottom="5dp"
             android:ems="10"
-            android:hint="비밀번호 확인"
+            android:hint="비밀번호을 한번 더 입력하세요."
             android:inputType="textPassword" />
 
         <Button
             android:id="@+id/signUpButton"
+            android:paddingHorizontal="16dp"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:text="회 원 가 입"
             android:textSize="20sp"
-            android:textColor="#D9CFE7"
-            android:background="#50697D"/>
+            android:textColor="#DCEDC8"
+            android:background="#E57373"/>
 
 
 
