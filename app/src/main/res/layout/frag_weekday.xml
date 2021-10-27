@@ -12,7 +12,6 @@
     <TextView
         android:layout_width="match_parent"
         android:layout_height="60dp"
-        android:layout_marginTop="10dp"
         android:text="요 일 별  강 의"
         android:textSize="30sp"
         android:gravity="center"
