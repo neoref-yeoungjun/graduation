@@ -3,7 +3,6 @@
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
-    android:paddingHorizontal="16dp"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
@@ -11,14 +10,15 @@
 
     <TextView
         android:layout_width="match_parent"
-        android:layout_height="50dp"
+        android:layout_height="60dp"
         android:text=" 문 의   게 시 판 "
-        android:textSize="25sp"
+        android:textSize="30sp"
         android:textStyle="bold"
         android:paddingTop="15dp"
         android:includeFontPadding="false"
         android:gravity="center_horizontal"
-        android:background="#6B799E" />
+        android:background="#E57373"
+        android:textColor="#DCEDC8"/>
 
     <ScrollView
         android:layout_width="match_parent"
@@ -39,11 +39,12 @@
         android:id="@+id/question_btn"
         android:layout_gravity="bottom"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        android:layout_height="50dp"
         android:text="새    글    작 성 하 기"
         android:textStyle="bold"
         android:textSize="20sp"
-        android:background="#6B799E" />
+        android:background="#E57373"
+        android:textColor="#DCEDC8"/>
 
 
     </LinearLayout>
