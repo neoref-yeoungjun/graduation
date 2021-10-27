@@ -86,6 +86,7 @@ public class interestAdapter extends RecyclerView.Adapter<interestAdapter.intere
         holder.time.setText(arrayList.get(position).getTime());
         holder.fee.setText(arrayList.get(position).getFee());
         holder.week.setText(arrayList.get(position).getWeek());
+        holder.cate.setText(arrayList.get(position).getCategory());
         holder.onBind(arrayList.get(position));
         holder.onbtn(arrayList.get(position));
 
@@ -165,7 +166,7 @@ public class interestAdapter extends RecyclerView.Adapter<interestAdapter.intere
             }
             if(today.compareTo(start1)>0 &today.compareTo(end1)<=0){
                 apply_day.setText("접수 중");
-                apply_day.setBackgroundColor(Color.parseColor("#84FFFF"));
+                apply_day.setBackgroundColor(Color.parseColor("#00C853"));
 
             }
             if(today.compareTo(end1)>0 & today.compareTo(end2)<=0){

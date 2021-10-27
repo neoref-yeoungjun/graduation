@@ -145,6 +145,27 @@ public class LocationFragment extends Fragment {
                         adspin2 = ArrayAdapter.createFromResource(getActivity(), R.array.cheongju, android.R.layout.simple_spinner_dropdown_item);
                         adspin2.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
                         spinner2.setAdapter(adspin2);
+                        spinner2.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
+                            @Override
+                            public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
+                                switch(position) {
+                                    case 0:
+                                        choice_se = "청주";
+                                        choice_do = "청주" + "\uf8ff";
+                                        basest();
+                                        break;
+                                    case 1:
+                                        choice_se = "청주평생학습관-본관";
+                                        baseon();
+                                        break;
+                                }
+                            }
+
+                            @Override
+                            public void onNothingSelected(AdapterView<?> parent) {
+
+                            }
+                        });
                         break;
                     case 2:
                         adspin2 = ArrayAdapter.createFromResource(getActivity(), R.array.jecheon, android.R.layout.simple_spinner_dropdown_item);
@@ -185,36 +206,199 @@ public class LocationFragment extends Fragment {
                         adspin2 = ArrayAdapter.createFromResource(getActivity(), R.array.okcheon, android.R.layout.simple_spinner_dropdown_item);
                         adspin2.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
                         spinner2.setAdapter(adspin2);
+                        spinner2.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
+                            @Override
+                            public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
+                                switch(position) {
+                                    case 0:
+                                        choice_se = "옥천";
+                                        choice_do = "옥천" + "\uf8ff";
+                                        basest();
+                                        break;
+                                    case 1:
+                                        choice_se = "옥천평생학습원";
+                                        baseon();
+                                        break;
+                                }
+                            }
+
+                            @Override
+                            public void onNothingSelected(AdapterView<?> parent) {
+
+                            }
+                        });
                         break;
                     case 5:
                         adspin2 = ArrayAdapter.createFromResource(getActivity(), R.array.yeongdong, android.R.layout.simple_spinner_dropdown_item);
                         adspin2.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
                         spinner2.setAdapter(adspin2);
+                        spinner2.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
+                            @Override
+                            public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
+                                switch(position) {
+                                    case 0:
+                                        choice_se = "영동";
+                                        choice_do = "영동" + "\uf8ff";
+                                        basest();
+                                        break;
+                                    case 1:
+                                        choice_se = "영동군청";
+                                        baseon();
+                                        break;
+                                    case 2:
+                                        choice_se = "영동군건강가정다문화가족지원센터";
+                                        baseon();
+                                        break;
+                                    case 3:
+                                        choice_se = "영동여성회관";
+                                        baseon();
+                                        break;
+                                }
+                            }
+
+                            @Override
+                            public void onNothingSelected(AdapterView<?> parent) {
+
+                            }
+                        });
                         break;
                     case 6:
                         adspin2 = ArrayAdapter.createFromResource(getActivity(), R.array.jeungpyeong, android.R.layout.simple_spinner_dropdown_item);
                         adspin2.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
                         spinner2.setAdapter(adspin2);
+                        spinner2.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
+                            @Override
+                            public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
+                                switch(position) {
+                                    case 0:
+                                        choice_se = "증평";
+                                        choice_do = "증평" + "\uf8ff";
+                                        basest();
+                                        break;
+                                    case 1:
+                                        choice_se = "증평군평생학습관";
+                                        baseon();
+                                        break;
+                                }
+                            }
+
+                            @Override
+                            public void onNothingSelected(AdapterView<?> parent) {
+
+                            }
+                        });
                         break;
                     case 7:
                         adspin2 = ArrayAdapter.createFromResource(getActivity(), R.array.jincheon, android.R.layout.simple_spinner_dropdown_item);
                         adspin2.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
                         spinner2.setAdapter(adspin2);
+                        spinner2.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
+                            @Override
+                            public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
+                                switch(position) {
+                                    case 0:
+                                        choice_se = "진천";
+                                        choice_do = "진천" + "\uf8ff";
+                                        basest();
+                                        break;
+                                    case 1:
+                                        choice_se = "진천군립도서관";
+                                        baseon();
+                                        break;
+                                    case 2:
+                                        choice_se = "진천문백면평생학습센터";
+                                        baseon();
+                                        break;
+                                    case 3:
+                                        choice_se = "진천읍행정복지센터";
+                                        baseon();
+                                        break;
+                                }
+                            }
+
+                            @Override
+                            public void onNothingSelected(AdapterView<?> parent) {
+
+                            }
+                        });
                         break;
                     case 8:
                         adspin2 = ArrayAdapter.createFromResource(getActivity(), R.array.goesan, android.R.layout.simple_spinner_dropdown_item);
                         adspin2.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
                         spinner2.setAdapter(adspin2);
+                        spinner2.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
+                            @Override
+                            public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
+                                switch(position) {
+                                    case 0:
+                                        choice_se = "괴산";
+                                        choice_do = "괴산" + "\uf8ff";
+                                        basest();
+                                        break;
+                                    case 1:
+                                        choice_se = "괴산군평생학습관";
+                                        baseon();
+                                        break;
+                                }
+                            }
+
+                            @Override
+                            public void onNothingSelected(AdapterView<?> parent) {
+
+                            }
+                        });
                         break;
                     case 9:
                         adspin2 = ArrayAdapter.createFromResource(getActivity(), R.array.eumseong, android.R.layout.simple_spinner_dropdown_item);
                         adspin2.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
                         spinner2.setAdapter(adspin2);
+                        spinner2.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
+                            @Override
+                            public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
+                                switch(position) {
+                                    case 0:
+                                        choice_se = "음성";
+                                        choice_do = "음성" + "\uf8ff";
+                                        basest();
+                                        break;
+                                    case 1:
+                                        choice_se = "음성군평생학습관";
+                                        baseon();
+                                        break;
+                                }
+                            }
+
+                            @Override
+                            public void onNothingSelected(AdapterView<?> parent) {
+
+                            }
+                        });
                         break;
                     case 10:
                         adspin2 = ArrayAdapter.createFromResource(getActivity(), R.array.danyang, android.R.layout.simple_spinner_dropdown_item);
                         adspin2.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
                         spinner2.setAdapter(adspin2);
+                        spinner2.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
+                            @Override
+                            public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
+                                switch(position) {
+                                    case 0:
+                                        choice_se = "단양";
+                                        choice_do = "단양" + "\uf8ff";
+                                        basest();
+                                        break;
+                                    case 1:
+                                        choice_se = "단양군평생학습센터";
+                                        baseon();
+                                        break;
+                                }
+                            }
+
+                            @Override
+                            public void onNothingSelected(AdapterView<?> parent) {
+
+                            }
+                        });
                         break;
 
 

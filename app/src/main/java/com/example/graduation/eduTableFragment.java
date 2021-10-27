@@ -11,8 +11,11 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
+import android.widget.CheckBox;
+import android.widget.CompoundButton;
 import android.widget.EditText;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
@@ -73,13 +76,13 @@ public class eduTableFragment extends Fragment implements OnMapReadyCallback {
     EditText edu_comment_content;
     Button edu_comment_btn;
     private FirebaseDatabase database;
-    private DatabaseReference databaseReference1,databaseReference2;
+    private DatabaseReference databaseReference1,databaseReference2,dataremove,datainter,datacheck,datacheck2,checkremove;;
     private RecyclerView recyclerView;
     private RecyclerView.Adapter adapter;
     private RecyclerView.LayoutManager layoutManager;
     private ArrayList<Comment> arrayList;
     private String removeid, removekey;
-
+    private ArrayList<Integer> check;
     private String apply_start;
     private String apply_url;
     private String apply_end;
@@ -97,6 +100,7 @@ public class eduTableFragment extends Fragment implements OnMapReadyCallback {
     private String teacher;
     private String teacher_info;
     private String cate;
+    private int field;
     private NaverMap naverMap;
     private DatabaseReference databaseReference,dataRef;
     private String str, str2;
@@ -107,6 +111,8 @@ public class eduTableFragment extends Fragment implements OnMapReadyCallback {
     private LatLng latLng;
     private String userid,useremail;
     private Button naver_web;
+    private CheckBox check_fa;
+    private int ch;
 
     @Nullable
     @Override
@@ -191,7 +197,141 @@ public class eduTableFragment extends Fragment implements OnMapReadyCallback {
             cate = getArguments().getString("table_cate");
             table_cate.setText(cate);
 
+            field= getArguments().getInt("field");
+
         }
+        database = FirebaseDatabase.getInstance();
+        check_fa=v.findViewById(R.id.favorite_Btn_check);
+        check = new ArrayList<>();
+        if (user != null) {
+            datacheck = database.getReference("check").child(userid);
+            datacheck.addListenerForSingleValueEvent(new ValueEventListener() {
+                @Override
+                public void onDataChange(@NonNull DataSnapshot snapshot) {
+                    for (DataSnapshot datasnapshot : snapshot.getChildren()) { // 반복문으로 데이터 List를 추출해냄
+                        check check = datasnapshot.getValue(check.class);
+                        if (field == check.getInter()) {
+                            check_fa.setChecked(true);
+                            ch = check.getInter();
+                        }
+                    }
+                }
+
+                @Override
+                public void onCancelled(@NonNull DatabaseError error) {
+
+                }
+            });
+        }
+
+
+        database = FirebaseDatabase.getInstance();
+        check_fa.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
+            @Override
+            public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
+                check_fa.setSelected(isChecked);
+                if(check_fa.isChecked()){// 로그인 상태확인
+                    if (user != null) {
+                        datacheck2= database.getReference("favorite").child(userid);
+                        datacheck2.orderByChild("field1").addListenerForSingleValueEvent(new ValueEventListener() {
+                            @Override
+                            public void onDataChange(@NonNull DataSnapshot snapshot) {
+                                for (DataSnapshot datasnapshot : snapshot.getChildren()) { // 반복문으로 데이터 List를 추출해냄
+                                    edu edu3 = datasnapshot.getValue(edu.class);
+                                    check.add(edu3.getFIELD1());
+                                }
+                                if(check.contains(field)){
+
+                                }
+                                else{
+                                    Toast.makeText(getContext(), "관심강좌가 추가되었습니다.", Toast.LENGTH_SHORT).show();
+                                    database = FirebaseDatabase.getInstance();
+                                    databaseReference = database.getReference("favorite").child(userid);
+                                    dataRef = databaseReference.push();
+                                    String key = dataRef.getKey();
+                                    edu edu= new edu();
+                                    edu.setName(name);
+                                    edu.setOutlook(outlook);
+                                    edu.setInstitution(institution);
+                                    edu.setPlace(place);
+                                    edu.setWeek(week);
+                                    edu.setTime(time);
+                                    edu.setTeacher(teacher);
+                                    edu.setEdu_person(edu_person);
+                                    edu.setApply_start(apply_start);
+                                    edu.setApply_end(apply_end);
+                                    edu.setApply_url(apply_url);
+                                    edu.setEdu_start(edu_start);
+                                    edu.setEdu_end(edu_end);
+                                    edu.setTarget(target);
+                                    edu.setFee(fee);
+                                    edu.setTeacher_info(teacher_info);
+                                    edu.setCategory(cate);
+                                    edu.setEdukey(key);
+                                    edu.setFIELD1(field);
+                                    dataRef.setValue(edu);
+
+                                    int i = field;
+                                    datainter = database.getReference("check").child(userid).push();
+                                    datainter.child("inter").setValue(i);
+                                }
+
+                            }
+
+                            @Override
+                            public void onCancelled(@NonNull DatabaseError error) {
+
+                            }
+                        });
+                    }
+                    else{
+                        Toast.makeText(getContext(), "로그인이 필요한 기능입니다.", Toast.LENGTH_SHORT).show();
+                        check_fa.setChecked(false);
+                    }
+                }
+                else{
+                    Toast.makeText(getContext(), "관심강좌를 취소하였습니다.", Toast.LENGTH_SHORT).show();
+                    database = FirebaseDatabase.getInstance();;
+                    dataremove=database.getReference("favorite").child(userid);
+                    dataremove.addListenerForSingleValueEvent(new ValueEventListener() {
+                        @Override
+                        public void onDataChange(@NonNull DataSnapshot snapshot) {
+                            for (DataSnapshot datasnapshot : snapshot.getChildren()) { // 반복문으로 데이터 List를 추출해냄
+                                edu edu2 = datasnapshot.getValue(edu.class);
+                                if(edu2.getFIELD1()==field) {
+                                    datasnapshot.getRef().removeValue();
+                                    checkremove=database.getReference("check").child(userid);
+                                    checkremove.orderByChild("inter").equalTo(field).addListenerForSingleValueEvent(new ValueEventListener() {
+                                        @Override
+                                        public void onDataChange(@NonNull DataSnapshot snapshot) {
+                                            for (DataSnapshot datasnapshot : snapshot.getChildren()) { // 반복문으로 데이터 List를 추출해냄
+                                                check check2 = datasnapshot.getValue(check.class);
+                                                if(check2.getInter()==field) {
+                                                    datasnapshot.getRef().removeValue();
+                                                }
+                                            }
+                                        }
+
+                                        @Override
+                                        public void onCancelled(@NonNull DatabaseError error) {
+
+                                        }
+                                    });
+                                }
+                            }
+                        }
+
+                        @Override
+                        public void onCancelled(@NonNull DatabaseError error) {
+
+                        }
+                    });
+
+
+                }
+            }
+        });
+
         FragmentManager fm = getChildFragmentManager();
         MapFragment mapFragment = (MapFragment)fm.findFragmentById(R.id.map);
         if (mapFragment == null) {

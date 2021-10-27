@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <string-array name="eumseong">
-        <item> </item>
+        <item>전체</item>
+        <item>음성군평생학습관</item>
     </string-array>
 </resources>
