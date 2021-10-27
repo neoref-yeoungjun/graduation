@@ -12,7 +12,6 @@
     <TextView
         android:layout_width="match_parent"
         android:layout_height="60dp"
-        android:layout_marginTop="10dp"
         android:text="분 야 별  강 의"
         android:textColor="#DCEDC8"
         android:background="#E57373"
