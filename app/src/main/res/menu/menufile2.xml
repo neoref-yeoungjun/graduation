@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+    <item
+        android:id="@+id/item_fragment1"
+        android:enabled="true"
+        android:icon="@drawable/ic_baseline_home_24"
+        android:title="홈" />
+    <item
+        android:id="@+id/item_fragment2"
+        android:enabled="true"
+        android:icon="@drawable/ic_baseline_arrow_back_ios_24"
+        android:title="이전" />
+    <item
+        android:id="@+id/item_fragment3"
+        android:enabled="true"
+        android:icon="@drawable/ic_baseline_refresh_24"
+        android:title="새로고침" />
+    <item
+        android:id="@+id/item_fragment4"
+        android:enabled="true"
+        android:icon="@drawable/ic_baseline_star_border_24"
+        android:title="관심강좌" />
+    <item
+        android:id="@+id/item_fragment5"
+        android:enabled="true"
+        android:icon="@drawable/ic_baseline_people_mypage"
+        android:title="관리자 페이지" />
+
+</menu>
