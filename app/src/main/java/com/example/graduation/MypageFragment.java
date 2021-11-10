@@ -61,9 +61,9 @@ public class MypageFragment extends Fragment {
         mylogout.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+
                 signOut();
-                Intent intent = getActivity().getIntent();
-                getActivity().finish();
+                getActivity().finishAffinity();
                 startActivity(new Intent(getActivity(), MainActivity.class));
                 FragmentTransaction transaction = getActivity().getSupportFragmentManager().beginTransaction();
                 transaction.replace(R.id.frame_container, home1);

@@ -70,9 +70,15 @@ public class LoginActivity extends AppCompatActivity {
                             @Override
                             public void onComplete(@NonNull Task<AuthResult> task) {
                                 if(task.isSuccessful()) {
-                                    Intent intent = new Intent(LoginActivity.this, MainActivity.class);
-                                    intent.putExtra("uid",firebaseAuth.getCurrentUser().getUid());
-                                    startActivity(intent);
+                                    if(firebaseAuth.getCurrentUser().getUid().equals("EV2I7N1QRtMRWkpzDbOeKnnJB2H2")){
+                                        Intent intent2 = new Intent(LoginActivity.this, adminActivity.class);
+                                        startActivity(intent2);
+                                    }else {
+                                        Intent intent = new Intent(LoginActivity.this, MainActivity.class);
+                                        intent.putExtra("uid", firebaseAuth.getCurrentUser().getUid());
+                                        startActivity(intent);
+                                    }
+
                                 }else{
                                     Toast.makeText(LoginActivity.this,"로그인 오류", Toast.LENGTH_SHORT).show();
                                 }
@@ -90,7 +96,6 @@ public class LoginActivity extends AppCompatActivity {
                 switch (item.getItemId()){
                     case R.id.item_fragment1 :
                         Intent intent = new Intent(LoginActivity.this, MainActivity.class);
-                        intent.putExtra("uid",firebaseAuth.getCurrentUser().getUid());
                         startActivity(intent);
                         break;
 
