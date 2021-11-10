@@ -1,15 +1,5 @@
 package com.example.graduation;
 
-import androidx.annotation.NonNull;
-import androidx.annotation.Nullable;
-import androidx.appcompat.app.ActionBar;
-import androidx.appcompat.app.AppCompatActivity;
-import androidx.core.view.GravityCompat;
-import androidx.drawerlayout.widget.DrawerLayout;
-import androidx.fragment.app.Fragment;
-import androidx.fragment.app.FragmentManager;
-import androidx.fragment.app.FragmentTransaction;
-
 import android.content.Context;
 import android.content.Intent;
 import android.os.Build;
@@ -19,15 +9,23 @@ import android.view.MenuInflater;
 import android.view.MenuItem;
 import android.widget.Toast;
 
+import androidx.annotation.NonNull;
+import androidx.appcompat.app.ActionBar;
+import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
+import androidx.core.view.GravityCompat;
+import androidx.drawerlayout.widget.DrawerLayout;
+import androidx.fragment.app.Fragment;
+import androidx.fragment.app.FragmentManager;
+import androidx.fragment.app.FragmentTransaction;
 
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 import com.google.android.material.navigation.NavigationView;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
 
-public class MainActivity extends AppCompatActivity {
-    private static final String TAG = "Main_Activity";
+public class adminActivity extends AppCompatActivity {
+    private static final String TAG = "admin_Activity";
 
     private BottomNavigationView bottomNavigationView;
     private FragmentManager fm;
@@ -41,6 +39,7 @@ public class MainActivity extends AppCompatActivity {
     private MypageFragment mypage1;
     private QuestionFragment question1;
     private SearchActivity search1;
+    private AdminFragment admin1;
 
 
     private DrawerLayout mDrawerLayout;
@@ -50,13 +49,11 @@ public class MainActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_main);
+        setContentView(R.layout.activity_main_admin);
 
-        if (user != null) {
 
-        }
 
-        bottomNavigationView = findViewById(R.id.bottomNavi);
+        bottomNavigationView = findViewById(R.id.bottomNavi_admin);
 
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
@@ -117,7 +114,7 @@ public class MainActivity extends AppCompatActivity {
 
 
         //첫 화면 띄우기
-       // getSupportFragmentManager().beginTransaction().add(R.id.frame_container,new home1()).commit();
+        // getSupportFragmentManager().beginTransaction().add(R.id.frame_container,new home1()).commit();
 
         //case 함수를 통해 클릭 받을 때마다 화면 변경하기
         bottomNavigationView.setOnNavigationItemSelectedListener(new BottomNavigationView.OnNavigationItemSelectedListener()
@@ -148,7 +145,7 @@ public class MainActivity extends AppCompatActivity {
 
                     case R.id.item_fragment5:
                         if (user != null) {
-                            setFrag(6);
+                            setFrag(10);
                         } else {
                             Toast.makeText(getApplicationContext(), "로그인이 필요합니다.", Toast.LENGTH_SHORT).show();
                         }
@@ -174,7 +171,8 @@ public class MainActivity extends AppCompatActivity {
         mypage1 = new MypageFragment();
         question1 = new QuestionFragment();
         search1 = new SearchActivity();
-        setFrag(0);
+        admin1 = new AdminFragment();
+        setFrag(10);
     }
 
     private void setFrag(int n)
@@ -187,62 +185,68 @@ public class MainActivity extends AppCompatActivity {
         switch(n)
         {
             case 0:
-            ft.replace(R.id.frame_container,home1,"Frag1");
-            ft.addToBackStack(null);
-            ft.commit();
-            home1.setArguments(bundle);
+                ft.replace(R.id.admin_frame_container,home1,"Frag1");
+                ft.addToBackStack(null);
+                ft.commit();
+                home1.setArguments(bundle);
 
-            break;
+                break;
 
             case 1:
-                ft.replace(R.id.frame_container,interest1,"Frag2");
+                ft.replace(R.id.admin_frame_container,interest1,"Frag2");
                 ft.addToBackStack(null);
                 ft.commit();
                 break;
             case 2:
-                ft.replace(R.id.frame_container,setting1,"Frag3");
+                ft.replace(R.id.admin_frame_container,setting1,"Frag3");
                 ft.addToBackStack(null);
                 ft.commit();
                 break;
             case 3:
-                ft.replace(R.id.frame_container,weekday1,"Frag4");
+                ft.replace(R.id.admin_frame_container,weekday1,"Frag4");
                 ft.addToBackStack(null);
                 ft.commit();
                 break;
             case 4:
-                ft.replace(R.id.frame_container,location1,"Frag5");
+                ft.replace(R.id.admin_frame_container,location1,"Frag5");
                 ft.addToBackStack(null);
                 ft.commit();
                 break;
             case 5:
-                ft.replace(R.id.frame_container,cate1,"Frag6");
+                ft.replace(R.id.admin_frame_container,cate1,"Frag6");
                 ft.addToBackStack(null);
                 ft.commit();
                 break;
             case 6:
-                ft.replace(R.id.frame_container,mypage1,"Frag7");
+                ft.replace(R.id.admin_frame_container,mypage1,"Frag7");
                 ft.addToBackStack(null);
                 ft.commit();
                 break;
             case 7:
-                ft.replace(R.id.frame_container,question1,"Frag8");
+                ft.replace(R.id.admin_frame_container,question1,"Frag8");
                 ft.addToBackStack(null);
                 ft.commit();
                 question1.setArguments(bundle);
                 break;
             case 8:
-                ft.replace(R.id.frame_container,search1,"Frag9");
+                ft.replace(R.id.admin_frame_container,search1,"Frag9");
+                ft.addToBackStack(null);
+                ft.commit();
+                break;
+            case 10:
+                ft.replace(R.id.admin_frame_container,admin1,"Frag10");
                 ft.addToBackStack(null);
                 ft.commit();
                 break;
             case 9:
                 Fragment frg = null;
-                frg = getSupportFragmentManager().findFragmentById(R.id.frame_container);
+                frg = getSupportFragmentManager().findFragmentById(R.id.admin_frame_container);
                 ft = getSupportFragmentManager().beginTransaction();
                 if (Build.VERSION.SDK_INT >= 26) {
                     ft.setReorderingAllowed(false);
                 }
                 ft.detach(frg).attach(frg).commit();
+
 
 
         }
@@ -263,20 +267,20 @@ public class MainActivity extends AppCompatActivity {
                 return true;
             }
 
-                case R.id.action_search: {
-                    setFrag(8);
-                    return true;
+            case R.id.action_search: {
+                setFrag(8);
+                return true;
+            }
+            case R.id.action_account: {
+                if (user != null) {
+                    setFrag(6);
+                } else {
+                    Intent intent = new Intent(adminActivity.this, LoginActivity.class);
+                    startActivity(intent);
                 }
-                case R.id.action_account: {
-                    if (user != null) {
-                        setFrag(6);
-                    } else {
-                        Intent intent = new Intent(MainActivity.this, LoginActivity.class);
-                        startActivity(intent);
-                    }
 
-                    return true;
-                }
+                return true;
+            }
 
 
         }

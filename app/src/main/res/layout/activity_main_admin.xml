@@ -34,7 +34,7 @@
     </androidx.appcompat.widget.Toolbar>
 
     <FrameLayout
-        android:id="@+id/frame_container"
+        android:id="@+id/admin_frame_container"
         android:layout_gravity="center"
         android:layout_width="match_parent"
         android:padding="16dp"
@@ -52,7 +52,7 @@
 
     <!-- 하단바 -->
    <com.google.android.material.bottomnavigation.BottomNavigationView
-        android:id="@+id/bottomNavi"
+        android:id="@+id/bottomNavi_admin"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_gravity="bottom"
