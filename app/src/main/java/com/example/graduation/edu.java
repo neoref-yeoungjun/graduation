@@ -19,10 +19,49 @@ public class edu {
     private String target;
     private String teacher;
     private String teacher_info;
+    boolean isSelected;
+    private String edukey;
+    private String inter;
+    private int FIELD1;
 
     public edu() {
 
     }
+
+    public int getFIELD1() {
+        return FIELD1;
+    }
+
+    public void setFIELD1(int FIELD1) {
+        this.FIELD1 = FIELD1;
+    }
+
+    public String getInter() {
+        return inter;
+    }
+
+    public void setInter(String inter) {
+        this.inter = inter;
+    }
+
+    public String getEdukey() {
+        return edukey;
+    }
+
+    public void setEdukey(String edukey) {
+        this.edukey = edukey;
+    }
+
+    public boolean getSelected()
+    {
+        return isSelected;
+    }
+
+    public void setSelected(boolean selected)
+    {
+        isSelected = selected;
+    }
+
 
     public String getApply_start() {
         return apply_start;

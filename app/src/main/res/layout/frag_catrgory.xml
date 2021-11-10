@@ -5,7 +5,6 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:padding="16dp"
     android:orientation="vertical"
     android:background="#fff">
 
@@ -13,19 +12,20 @@
     <TextView
         android:layout_width="match_parent"
         android:layout_height="60dp"
-        android:layout_marginTop="20dp"
-        android:text="분야를 선택하세요."
+        android:text="분 야 별  강 의"
+        android:textColor="#DCEDC8"
+        android:background="#E57373"
+        android:textStyle="bold"
         android:textSize="30dp"
         android:gravity="center"
-        android:background="#6B799E"
         android:layout_gravity="center" />
 
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginTop="20dp"
+        android:layout_marginTop="10dp"
         android:orientation="vertical"
-        android:background="#DBDBE5"
+        android:background="#DCEDC8"
         android:paddingVertical="5dp">
 
         <LinearLayout
@@ -276,7 +276,7 @@
     </LinearLayout>
 
     <androidx.recyclerview.widget.RecyclerView
-        android:id="@+id/recycler_weekday"
+        android:id="@+id/recycler_category"
         android:layout_marginTop="30dp"
         android:layout_width="match_parent"
         android:layout_height="match_parent"

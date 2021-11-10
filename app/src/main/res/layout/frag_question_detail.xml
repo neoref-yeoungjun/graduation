@@ -3,7 +3,6 @@
     xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:padding="16dp"
     android:orientation="vertical">
 
     <TextView
@@ -15,7 +14,8 @@
         android:paddingTop="15dp"
         android:includeFontPadding="false"
         android:gravity="center_horizontal"
-        android:background="#6B799E" />
+        android:background="#E57373"
+        android:textColor="#DCEDC8" />
 
     <ScrollView
         android:layout_width="match_parent"
@@ -36,15 +36,15 @@
                 <TextView
                     android:layout_width="100dp"
                     android:layout_height="wrap_content"
-                    android:padding="16dp"
+                    android:padding="8dp"
                     android:text="제 목"/>
 
                 <TextView
                     android:id="@+id/question_title"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:padding="16dp"
-                    android:background="#eeeeee"
+                    android:padding="8dp"
+                    android:background="#E3F2FD"
                     android:layout_weight="1"
                     android:text="제 목 입 니 다."/>
 
@@ -53,29 +53,31 @@
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:layout_marginTop="5dp"
                 android:orientation="horizontal">
 
                 <TextView
                     android:layout_width="100dp"
                     android:layout_height="wrap_content"
-                    android:padding="16dp"
+                    android:padding="8dp"
                     android:text="작 성 일"/>
 
                 <TextView
                     android:id="@+id/question_date"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:padding="16dp"
-                    android:background="#eeeeee"
+                    android:padding="8dp"
+                    android:background="#E3F2FD"
                     android:layout_weight="1"
                     android:text="작성일자"/>
 
             </LinearLayout>
 
             <TextView
-                android:layout_width="wrap_content"
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:padding="16dp"
+                android:gravity="center"
+                android:padding="8dp"
                 android:text="내 용"/>
 
             <TextView
@@ -83,50 +85,57 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:padding="16dp"
-                android:background="#eeeeee"
+                android:background="#E3F2FD"
                 android:text="내 용 입 니 다."/>
 
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:paddingLeft="150dp"
+                android:layout_marginTop="5dp"
                 android:orientation="horizontal">
 
                 <Button
                     android:id="@+id/question_modify"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_margin="20dp"
+                    android:layout_margin="5dp"
                     android:layout_weight="1"
-                    android:layout_gravity="right"
-                    android:textSize="15sp"
+                    android:layout_gravity="center_horizontal"
+                    android:textSize="20sp"
                     android:textStyle="bold"
-                    android:text="수 정 하 기"/>
+                    android:text="수 정 하 기"
+                    android:background="#E57373"
+                    android:textColor="#DCEDC8"/>
 
                 <Button
                     android:id="@+id/question_remove"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
-                    android:layout_gravity="right"
-                    android:textSize="15sp"
+                    android:layout_gravity="center_horizontal"
+                    android:background="#E57373"
+                    android:textColor="#DCEDC8"
+                    android:textSize="20sp"
                     android:textStyle="bold"
                     android:text="삭 제 하 기"/>
 
             </LinearLayout>
 
-            <TextView
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:padding="16dp"
-                android:text="댓 글"/>
+
+
 
             <LinearLayout
                 android:id="@+id/question_comment"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:padding="8dp"
+                android:padding="3dp"
                 android:orientation="vertical"/>
+
+            <androidx.recyclerview.widget.RecyclerView
+                android:id="@+id/recycler_question_comment"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:scrollbars="vertical"/>
 
 
         </LinearLayout>
@@ -137,22 +146,26 @@
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:padding="5dp"
         android:orientation="horizontal">
 
         <EditText
             android:id="@+id/question_comment_content"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
+            android:layout_height="45dp"
             android:padding="8dp"
-            android:background="#eeeeee"
+            android:background="#E3F2FD"
             android:layout_weight="1"
             android:hint="댓글 내용을 입력하세요"/>
 
         <Button
             android:id="@+id/question_comment_btn"
             android:layout_width="wrap_content"
-            android:layout_height="match_parent"
+            android:layout_height="wrap_content"
             android:padding="8dp"
+            android:textSize="15sp"
+            android:background="#E57373"
+            android:textColor="#DCEDC8"
             android:text="등 록 하 기"/>
 
     </LinearLayout>

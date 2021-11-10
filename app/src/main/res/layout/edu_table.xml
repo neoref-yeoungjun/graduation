@@ -1,9 +1,10 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    android:id="@+id/constraintLayout"
     android:layout_width="match_parent"
-    android:layout_height="wrap_content">
+    android:layout_height="match_parent"
+    xmlns:card_view="http://schemas.android.com/tools">
 
     <ScrollView
         android:id="@+id/scrollView3"
@@ -18,7 +19,6 @@
             android:layout_marginTop="10dp"
             android:layout_marginEnd="10dp"
             android:layout_marginRight="10dp"
-            android:background="#F2D3C1"
             android:orientation="vertical"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
@@ -27,7 +27,8 @@
 
             <LinearLayout
                 android:layout_width="match_parent"
-                android:layout_height="match_parent">
+                android:layout_height="match_parent"
+                android:background="#E3F2FD">
 
                 <TextView
                     android:layout_width="wrap_content"
@@ -35,7 +36,7 @@
                     android:layout_margin="5dp"
                     android:text="강좌 명:"
                     android:textColor="@color/black"
-                    android:textSize="15dp" />
+                    android:textSize="15sp" />
 
                 <TextView
                     android:id="@+id/table_name"
@@ -44,7 +45,48 @@
                     android:layout_margin="5dp"
                     android:text="강좌"
                     android:textColor="@color/black"
-                    android:textSize="15dp" />
+                    android:textSize="15sp" />
+
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:background="#E3F2FD"
+                android:layout_height="match_parent">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="5dp"
+                    android:text="분    야:"
+                    android:textColor="@color/black"
+                    android:textSize="15sp" />
+
+                <TextView
+                    android:id="@+id/table_cate"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="5dp"
+                    android:maxLines="2"
+                    android:text="분야명"
+                    android:textColor="@color/black"
+                    android:textSize="15sp" />
+
+                <CheckBox
+                    android:id="@+id/favorite_Btn_check"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="150dp"
+                    android:button="@drawable/favorite_star"
+                    android:minWidth="36dp"
+                    android:minHeight="20dp"
+                    android:scaleX="1.5"
+                    android:scaleY="1.5"
+                    card_view:buttonTint="#FFEB3B">
+
+                </CheckBox>
+
 
             </LinearLayout>
 
@@ -55,6 +97,7 @@
 
             <LinearLayout
                 android:layout_width="match_parent"
+                android:background="#E3F2FD"
                 android:layout_height="match_parent">
 
                 <TextView
@@ -63,7 +106,7 @@
                     android:layout_margin="5dp"
                     android:text="강좌 설명:"
                     android:textColor="@color/black"
-                    android:textSize="15dp" />
+                    android:textSize="15sp" />
 
                 <TextView
                     android:id="@+id/table_outlook"
@@ -72,12 +115,13 @@
                     android:layout_margin="5dp"
                     android:text="강좌설명"
                     android:textColor="@color/black"
-                    android:textSize="15dp" />
+                    android:textSize="15sp" />
 
             </LinearLayout>
 
             <LinearLayout
                 android:layout_width="match_parent"
+                android:background="#E3F2FD"
                 android:layout_height="match_parent">
 
                 <TextView
@@ -86,7 +130,7 @@
                     android:layout_margin="5dp"
                     android:text="장    소:"
                     android:textColor="@color/black"
-                    android:textSize="15dp" />
+                    android:textSize="15sp" />
 
                 <TextView
                     android:id="@+id/table_institution"
@@ -96,7 +140,7 @@
                     android:maxLines="2"
                     android:text="장소명"
                     android:textColor="@color/black"
-                    android:textSize="15dp" />
+                    android:textSize="15sp" />
 
                 <TextView
                     android:layout_width="wrap_content"
@@ -114,11 +158,12 @@
                     android:maxLines="2"
                     android:text="강의실"
                     android:textColor="@color/black"
-                    android:textSize="15dp" />
+                    android:textSize="15sp" />
             </LinearLayout>
 
             <LinearLayout
                 android:layout_width="match_parent"
+                android:background="#E3F2FD"
                 android:layout_height="match_parent">
 
                 <TextView
@@ -127,7 +172,7 @@
                     android:layout_margin="5dp"
                     android:text="강의 요일:"
                     android:textColor="@color/black"
-                    android:textSize="15dp" />
+                    android:textSize="15sp" />
 
                 <TextView
                     android:id="@+id/table_week"
@@ -136,7 +181,7 @@
                     android:layout_margin="5dp"
                     android:text="강의요일"
                     android:textColor="@color/black"
-                    android:textSize="15dp" />
+                    android:textSize="15sp" />
 
                 <View
                     android:layout_width="0dp"
@@ -149,7 +194,7 @@
                     android:layout_margin="5dp"
                     android:text="강의 시간:"
                     android:textColor="@color/black"
-                    android:textSize="15dp" />
+                    android:textSize="15sp" />
 
                 <TextView
                     android:id="@+id/table_time"
@@ -158,11 +203,12 @@
                     android:layout_margin="5dp"
                     android:text="강의시간"
                     android:textColor="@color/black"
-                    android:textSize="15dp" />
+                    android:textSize="15sp" />
             </LinearLayout>
 
             <LinearLayout
                 android:layout_width="match_parent"
+                android:background="#E3F2FD"
                 android:layout_height="match_parent">
 
                 <TextView
@@ -171,7 +217,7 @@
                     android:layout_margin="5dp"
                     android:text="강사 명:"
                     android:textColor="@color/black"
-                    android:textSize="15dp" />
+                    android:textSize="15sp" />
 
                 <TextView
                     android:id="@+id/table_teacher"
@@ -180,7 +226,7 @@
                     android:layout_margin="5dp"
                     android:text="강사이름"
                     android:textColor="@color/black"
-                    android:textSize="15dp" />
+                    android:textSize="15sp" />
 
                 <View
                     android:layout_width="0dp"
@@ -193,7 +239,7 @@
                     android:layout_margin="5dp"
                     android:text="정  원:"
                     android:textColor="@color/black"
-                    android:textSize="15dp" />
+                    android:textSize="15sp" />
 
                 <TextView
                     android:id="@+id/table_edu_person"
@@ -202,11 +248,12 @@
                     android:layout_margin="5dp"
                     android:text="정원 수"
                     android:textColor="@color/black"
-                    android:textSize="15dp" />
+                    android:textSize="15sp" />
             </LinearLayout>
 
             <LinearLayout
                 android:layout_width="match_parent"
+                android:background="#E3F2FD"
                 android:layout_height="match_parent">
 
                 <TextView
@@ -215,7 +262,7 @@
                     android:layout_margin="5dp"
                     android:text="접수 기간:"
                     android:textColor="@color/black"
-                    android:textSize="15dp" />
+                    android:textSize="15sp" />
 
                 <TextView
                     android:id="@+id/table_apply_start"
@@ -224,7 +271,7 @@
                     android:layout_margin="5dp"
                     android:text="접수 시작"
                     android:textColor="@color/black"
-                    android:textSize="15dp" />
+                    android:textSize="15sp" />
 
                 <TextView
                     android:layout_width="wrap_content"
@@ -232,7 +279,7 @@
                     android:layout_margin="5dp"
                     android:text="~"
                     android:textColor="@color/black"
-                    android:textSize="15dp" />
+                    android:textSize="15sp" />
 
                 <TextView
                     android:id="@+id/table_apply_end"
@@ -241,12 +288,13 @@
                     android:layout_margin="5dp"
                     android:text="접수 끝"
                     android:textColor="@color/black"
-                    android:textSize="15dp" />
+                    android:textSize="15sp" />
 
             </LinearLayout>
 
             <LinearLayout
                 android:layout_width="match_parent"
+                android:background="#E3F2FD"
                 android:layout_height="match_parent">
 
                 <TextView
@@ -255,7 +303,7 @@
                     android:layout_margin="5dp"
                     android:text="교육 기간:"
                     android:textColor="@color/black"
-                    android:textSize="15dp" />
+                    android:textSize="15sp" />
 
                 <TextView
                     android:id="@+id/table_edu_start"
@@ -264,7 +312,7 @@
                     android:layout_margin="5dp"
                     android:text="교육 시작"
                     android:textColor="@color/black"
-                    android:textSize="15dp" />
+                    android:textSize="15sp" />
 
                 <TextView
                     android:layout_width="wrap_content"
@@ -272,7 +320,7 @@
                     android:layout_margin="5dp"
                     android:text="~"
                     android:textColor="@color/black"
-                    android:textSize="15dp" />
+                    android:textSize="15sp" />
 
                 <TextView
                     android:id="@+id/table_edu_end"
@@ -281,12 +329,13 @@
                     android:layout_margin="5dp"
                     android:text="교육 끝"
                     android:textColor="@color/black"
-                    android:textSize="15dp" />
+                    android:textSize="15sp" />
 
             </LinearLayout>
 
             <LinearLayout
                 android:layout_width="match_parent"
+                android:background="#E3F2FD"
                 android:layout_height="match_parent">
 
                 <TextView
@@ -295,7 +344,7 @@
                     android:layout_margin="5dp"
                     android:text="대   상:"
                     android:textColor="@color/black"
-                    android:textSize="15dp" />
+                    android:textSize="15sp" />
 
                 <TextView
                     android:id="@+id/table_target"
@@ -317,7 +366,7 @@
                     android:layout_margin="5dp"
                     android:text="수강료:"
                     android:textColor="@color/black"
-                    android:textSize="15dp" />
+                    android:textSize="15sp" />
 
                 <TextView
                     android:id="@+id/table_fee"
@@ -326,11 +375,12 @@
                     android:layout_margin="5dp"
                     android:text="수강료"
                     android:textColor="@color/black"
-                    android:textSize="15dp" />
+                    android:textSize="15sp" />
             </LinearLayout>
 
             <LinearLayout
                 android:layout_width="match_parent"
+                android:background="#E3F2FD"
                 android:layout_height="match_parent">
 
                 <TextView
@@ -339,7 +389,7 @@
                     android:layout_margin="5dp"
                     android:text="강사 정보:"
                     android:textColor="@color/black"
-                    android:textSize="15dp" />
+                    android:textSize="15sp" />
 
                 <TextView
                     android:id="@+id/table_teacher_info"
@@ -349,12 +399,13 @@
                     android:maxLines="10"
                     android:text="강사 정보"
                     android:textColor="@color/black"
-                    android:textSize="15dp" />
+                    android:textSize="15sp" />
 
             </LinearLayout>
 
             <LinearLayout
                 android:layout_width="match_parent"
+                android:background="#E3F2FD"
                 android:layout_height="match_parent">
 
                 <TextView
@@ -363,7 +414,7 @@
                     android:layout_margin="5dp"
                     android:text="신청 URL:"
                     android:textColor="@color/black"
-                    android:textSize="15dp" />
+                    android:textSize="15sp" />
 
                 <TextView
                     android:id="@+id/table_apply_url"
@@ -376,9 +427,10 @@
                     android:maxLines="2"
                     android:text="url"
                     android:textColor="@color/black"
-                    android:textSize="15dp" />
+                    android:textSize="15sp" />
 
             </LinearLayout>
+
             <View
                 android:layout_width="match_parent"
                 android:background="@color/white"
@@ -392,38 +444,80 @@
             <View
                 android:layout_width="match_parent"
                 android:background="@color/white"
-                android:layout_height="100dp"
+                android:layout_height="10dp"
                 android:layout_weight="1" />
+
             <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+
+                <View
+                    android:layout_width="wrap_content"
+                    android:layout_height="10dp"
+                    android:layout_weight="1"/>
+
+                <Button
+                    android:id="@+id/naver_web"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="네이버 지도앱에 위치 열기 "
+                    android:textStyle="bold"
+                    android:textColor="#DCEDC8"
+                    android:background="#E57373"
+                    android:textSize="20sp"/>
+
+                <View
+                    android:layout_width="wrap_content"
+                    android:layout_height="10dp"
+                    android:layout_weight="1"/>
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/question_comment"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:background="@color/white"
+                android:padding="8dp"
+                android:orientation="vertical"/>
+
+            <androidx.recyclerview.widget.RecyclerView
+                android:id="@+id/recycler_edu_comment"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:scrollbars="vertical"/>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_marginTop="10dp"
+                android:layout_height="70dp"
                 android:orientation="horizontal">
 
                 <EditText
-                    android:id="@+id/question_comment_content"
+                    android:id="@+id/edu_comment_content"
                     android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:padding="8dp"
-                    android:background="#eeeeee"
+                    android:layout_height="50dp"
+                    android:background="#E3F2FD"
                     android:layout_weight="1"
                     android:hint="댓글 내용을 입력하세요"/>
 
                 <Button
-                    android:id="@+id/question_comment_btn"
+                    android:id="@+id/edu_comment_btn"
                     android:layout_width="wrap_content"
-                    android:layout_height="match_parent"
-                    android:padding="8dp"
+                    android:layout_height="50dp"
+                    android:background="#E57373"
+                    android:textColor="#DCEDC8"
+                    android:textStyle="bold"
+                    android:textSize="15sp"
                     android:text="등 록 하 기"/>
 
             </LinearLayout>
-            <View
-                android:layout_width="match_parent"
-                android:background="@color/white"
-                android:layout_height="10dp"
-                android:layout_weight="1" />
+
         </LinearLayout>
 
-
     </ScrollView>
-</androidx.constraintlayout.widget.ConstraintLayout>
+
+</LinearLayout>
+
+
+

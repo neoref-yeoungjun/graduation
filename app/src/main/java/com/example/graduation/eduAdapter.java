@@ -8,10 +8,22 @@ import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.CheckBox;
+import android.widget.CompoundButton;
 import android.widget.TextView;
 import android.content.Intent;
+import android.widget.Toast;
+
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
+
+import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.auth.FirebaseUser;
+import com.google.firebase.database.DataSnapshot;
+import com.google.firebase.database.DatabaseError;
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.database.ValueEventListener;
 
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
@@ -20,10 +32,15 @@ import java.util.List;
 public class eduAdapter extends RecyclerView.Adapter<eduAdapter.eduViewHolder> {
 
     private ArrayList<edu> arrayList;
+    private ArrayList<Integer> check;
+
     private Context context;
     String start1;
     String end1;
-
+    private FirebaseDatabase database;
+    private DatabaseReference databaseReference, dataRef,dataremove,datainter,datacheck,datacheck2,checkremove;
+    String userid;
+    private int ch;
 
     public interface OnItemClickListener{
         void onItemClick(View v, int pos);
@@ -55,6 +72,12 @@ public class eduAdapter extends RecyclerView.Adapter<eduAdapter.eduViewHolder> {
     }
 
 
+
+    @Override
+    public int getItemViewType(int position) {
+        return position;
+    }
+
     @Override
     public void onBindViewHolder(@NonNull eduViewHolder holder, int position) {
 
@@ -67,7 +90,18 @@ public class eduAdapter extends RecyclerView.Adapter<eduAdapter.eduViewHolder> {
         holder.time.setText(arrayList.get(position).getTime());
         holder.fee.setText(arrayList.get(position).getFee());
         holder.week.setText(arrayList.get(position).getWeek());
+        holder.catecori.setText(arrayList.get(position).getCategory());
         holder.onBind(arrayList.get(position));
+        FirebaseUser user = FirebaseAuth.getInstance().getCurrentUser();
+        holder.onchec(arrayList.get(position));
+        if (user != null) {
+
+            holder.oninter(arrayList.get(position));
+        }
+
+
+
+
     }
 
     @Override
@@ -88,6 +122,8 @@ public class eduAdapter extends RecyclerView.Adapter<eduAdapter.eduViewHolder> {
         TextView fee;
         TextView week;
         TextView apply_day;
+        CheckBox checkBox;
+        TextView catecori;
 
 
         public eduViewHolder(@NonNull View itemView)  {
@@ -101,7 +137,9 @@ public class eduAdapter extends RecyclerView.Adapter<eduAdapter.eduViewHolder> {
             this.time = itemView.findViewById(R.id.text_7);
             this.week = itemView.findViewById(R.id.text_8);
             this.fee = itemView.findViewById(R.id.text_9);
+            this.catecori = itemView.findViewById(R.id.text_cate);
             this.apply_day = itemView.findViewById(R.id.apply_day);
+            this.checkBox=itemView.findViewById(R.id.favorite_Btn);
 
 
 
@@ -138,7 +176,7 @@ public class eduAdapter extends RecyclerView.Adapter<eduAdapter.eduViewHolder> {
             }
             if(today.compareTo(start1)>0 &today.compareTo(end1)<=0){
                 apply_day.setText("접수 중");
-                apply_day.setBackgroundColor(Color.parseColor("#84FFFF"));
+                apply_day.setBackgroundColor(Color.parseColor("#00C853"));
 
             }
             if(today.compareTo(end1)>0 & today.compareTo(end2)<=0){
@@ -146,6 +184,131 @@ public class eduAdapter extends RecyclerView.Adapter<eduAdapter.eduViewHolder> {
                 apply_day.setBackgroundColor(Color.parseColor("#82B1FF"));
 
             }
+            }
+            public void oninter(edu edu){
+                database = FirebaseDatabase.getInstance();
+                FirebaseUser user = FirebaseAuth.getInstance().getCurrentUser();
+                if (user != null) {
+                    userid = user.getUid();
+                }
+                datacheck= database.getReference("check").child(userid);
+                datacheck.addListenerForSingleValueEvent(new ValueEventListener() {
+                    @Override
+                    public void onDataChange(@NonNull DataSnapshot snapshot) {
+                        for (DataSnapshot datasnapshot : snapshot.getChildren()) { // 반복문으로 데이터 List를 추출해냄
+                            check check =datasnapshot.getValue(check.class);
+                            if(edu.getFIELD1()==check.getInter()){
+                                checkBox.setChecked(true);
+                                ch=check.getInter();
+                            }
+                        }
+                    }
+
+                    @Override
+                    public void onCancelled(@NonNull DatabaseError error) {
+
+                    }
+                });
+            }
+
+            public  void onchec(edu edu){
+            database = FirebaseDatabase.getInstance();
+            FirebaseUser user = FirebaseAuth.getInstance().getCurrentUser();
+                if (user != null) {
+                    userid = user.getUid();
+                }
+            check = new ArrayList<>();
+            checkBox.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
+                @Override
+                public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
+                    checkBox.setSelected(isChecked);
+                    if(checkBox.isChecked()){// 로그인 상태확인
+                        if (user != null) {
+                                datacheck2= database.getReference("favorite").child(userid);
+                                datacheck2.orderByChild("field1").addListenerForSingleValueEvent(new ValueEventListener() {
+                                    @Override
+                                    public void onDataChange(@NonNull DataSnapshot snapshot) {
+                                        for (DataSnapshot datasnapshot : snapshot.getChildren()) { // 반복문으로 데이터 List를 추출해냄
+                                            edu edu3 = datasnapshot.getValue(edu.class);
+                                            check.add(edu3.getFIELD1());
+                                        }
+                                        if(check.contains(edu.getFIELD1())){
+
+                                        }
+                                        else{
+                                            Toast.makeText(context, "관심강좌가 추가되었습니다.", Toast.LENGTH_SHORT).show();
+                                            database = FirebaseDatabase.getInstance();
+                                            databaseReference = database.getReference("favorite").child(userid);
+                                            dataRef = databaseReference.push();
+                                            String key = dataRef.getKey();
+                                            edu.setEdukey(key);
+                                            dataRef.setValue(edu);
+
+                                            int i = edu.getFIELD1();
+                                            datainter = database.getReference("check").child(userid).push();
+                                            datainter.child("inter").setValue(i);
+                                        }
+
+                                    }
+
+                                    @Override
+                                    public void onCancelled(@NonNull DatabaseError error) {
+
+                                    }
+                                });
+
+
+                        }
+                        else{
+                            Toast.makeText(context, "로그인이 필요한 기능입니다.", Toast.LENGTH_SHORT).show();
+                            checkBox.setChecked(false);
+                        }
+                    }
+                    else{
+                        Toast.makeText(context, "관심강좌를 취소하였습니다.", Toast.LENGTH_SHORT).show();
+                        database = FirebaseDatabase.getInstance();;
+                        dataremove=database.getReference("favorite").child(userid);
+                        dataremove.addListenerForSingleValueEvent(new ValueEventListener() {
+                            @Override
+                            public void onDataChange(@NonNull DataSnapshot snapshot) {
+                                for (DataSnapshot datasnapshot : snapshot.getChildren()) { // 반복문으로 데이터 List를 추출해냄
+                                    edu edu2 = datasnapshot.getValue(edu.class);
+                                    if(edu2.getFIELD1()==edu.getFIELD1()) {
+                                        datasnapshot.getRef().removeValue();
+                                        checkremove=database.getReference("check").child(userid);
+                                        checkremove.orderByChild("inter").equalTo(edu.getFIELD1()).addListenerForSingleValueEvent(new ValueEventListener() {
+                                            @Override
+                                            public void onDataChange(@NonNull DataSnapshot snapshot) {
+                                                for (DataSnapshot datasnapshot : snapshot.getChildren()) { // 반복문으로 데이터 List를 추출해냄
+                                                    check check2 = datasnapshot.getValue(check.class);
+                                                    if(check2.getInter()==edu.getFIELD1()) {
+                                                        datasnapshot.getRef().removeValue();
+                                                    }
+                                                }
+                                            }
+
+                                            @Override
+                                            public void onCancelled(@NonNull DatabaseError error) {
+
+                                            }
+                                        });
+                                    }
+                                }
+                            }
+
+                            @Override
+                            public void onCancelled(@NonNull DatabaseError error) {
+
+                            }
+                        });
+
+
+                    }
+                }
+            });
+
+
+
             }
 
     }

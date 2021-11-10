@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string-array name="danyang">
+        <item>전체</item>
+        <item>단양군평생학습센터</item>
+    </string-array>
+</resources>

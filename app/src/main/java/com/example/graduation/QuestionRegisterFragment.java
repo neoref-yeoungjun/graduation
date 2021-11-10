@@ -32,6 +32,7 @@ public class QuestionRegisterFragment extends Fragment {
     private String titlest,contenst;
     private FirebaseDatabase database;
     private DatabaseReference databaseReference;
+    private DatabaseReference dataRef;
     private static final String EMAIL_PATTERN = "([\\w.])(?:[\\w.]*)(@.*)";
 
     @Nullable
@@ -60,9 +61,11 @@ public class QuestionRegisterFragment extends Fragment {
                 Date date = new Date(now);
                 String str = dayTime.format(date);
 
-                question question = new question(titlest,contenst,userid,str,eemail);
-                databaseReference.child("question").push().setValue(question);
 
+                dataRef =databaseReference.child("question").push();
+                String key= dataRef.getKey();
+                question question = new question(titlest,contenst,userid,str,eemail,key);
+                dataRef.setValue(question);
                 Bundle bundle = new Bundle(); // 무언가를 담을 준비를 할 수 있는 꾸러미
                 bundle.putString("fromfragquestionRegister","questionRegister 프래그먼트");
                 FragmentTransaction transaction = getActivity().getSupportFragmentManager().beginTransaction();

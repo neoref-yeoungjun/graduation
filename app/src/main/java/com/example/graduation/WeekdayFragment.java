@@ -20,6 +20,7 @@ import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
+import com.naver.maps.map.internal.util.StringUtils;
 
 import java.util.ArrayList;
 import java.util.Collections;
@@ -34,7 +35,7 @@ public class WeekdayFragment extends Fragment {
     private RecyclerView recyclerView;
     private RecyclerView.LayoutManager layoutManager;
     private eduAdapter.OnItemClickListener listener;
-
+    String mond="",tued="",wedd="",thud="",fird="",satd="",sund="";
     String Week = "";
     String result = "", result2="";
 
@@ -79,6 +80,7 @@ public class WeekdayFragment extends Fragment {
                 bundle.putString("table_fee",arrayList.get(pos).getFee());
                 bundle.putString("table_teacher_info",arrayList.get(pos).getTeacher_info());
                 bundle.putString("table_apply_url",arrayList.get(pos).getApply_url());
+                bundle.putString("table_cate",arrayList.get(pos).getCategory());
 
 
 
@@ -117,67 +119,61 @@ public class WeekdayFragment extends Fragment {
             if (((CheckBox) v).isChecked()) {
                 switch (v.getId()) {
                     case R.id.week_check_mon:
-                        Week += "월,";
+                        mond += "월,";
                         break;
                     case R.id.week_check_tue:
-                        Week += "화,";
+                        tued += "화,";
                         break;
                     case R.id.week_check_wed:
-                        Week += "수,";
+                        wedd += "수,";
                         break;
                     case R.id.week_check_thu:
-                        Week += "목,";
+                        thud += "목,";
                         break;
                     case R.id.week_check_fri:
-                        Week += "금,";
+                        fird += "금,";
                         break;
                     case R.id.week_check_sat:
-                        Week += "토,";
+                        satd += "토,";
                         break;
                     case R.id.week_check_sun:
-                        Week += "일,";
+                        sund += "일,";
                         break;
                 }
             } else {
                 switch (v.getId()) {
                     case R.id.week_check_mon:
-                        Week=Week.replace("월,", "");
+                        mond=mond.replace("월,", "");
                         break;
                     case R.id.week_check_tue:
-                        Week=Week.replace("화,", "");
+                        tued=tued.replace("화,", "");
                         break;
                     case R.id.week_check_wed:
-                        Week=Week.replace("수,", "");
+                        wedd=wedd.replace("수,", "");
                         break;
                     case R.id.week_check_thu:
-                        Week=Week.replace("목,", "");
+                        thud=thud.replace("목,", "");
                         break;
                     case R.id.week_check_fri:
-                        Week=Week.replace("금,", "");
+                        fird=fird.replace("금,", "");
                         break;
                     case R.id.week_check_sat:
-                        Week=Week.replace("토,", "");
+                        satd=satd.replace("토,", "");
                         break;
                     case R.id.week_check_sun:
-                        Week=Week.replace("일,", "");
+                        sund=sund.replace("일,", "");
                         break;
 
                 }
             }
-
-                String[] arrWeek = Week.split(",");
-
-                for (int i = 0; i < arrWeek.length; i++) {
-                    if (i == arrWeek.length - 1) {
-                        result += arrWeek[i];
-                    } else {
-                        result += (arrWeek[i] + ",");
-                    }
-                }
-            Toast.makeText(getContext(), result, Toast.LENGTH_SHORT).show();
+                Week=mond+tued+wedd+thud+fird+satd+sund;
+            if(Week.length()>0) {
+                Week = Week.substring(0, Week.length() - 1);
+            }
+            Toast.makeText(getContext(), Week, Toast.LENGTH_SHORT).show();
             adapter.notifyDataSetChanged();
-                result2 = result + "\uf8ff";
-                databaseReference.orderByChild("week").startAt(result).endAt(result2).addListenerForSingleValueEvent(new ValueEventListener() {
+                result2 = Week + "\uf8ff";
+                databaseReference.orderByChild("week").startAt(Week).endAt(result2).addListenerForSingleValueEvent(new ValueEventListener() {
                     @Override
                     public void onDataChange(DataSnapshot dataSnapshot) {
                         // 파이어베이스 데이터베이스의 데이터를 받아오는 곳
@@ -188,7 +184,8 @@ public class WeekdayFragment extends Fragment {
                         }
                         Collections.reverse(arrayList);// 리스트 저장 및 새로고침해야 반영이 됨
                         adapter.notifyDataSetChanged();
-                        result="";
+                        Week="";
+
                     }
 
                     @Override

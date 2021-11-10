@@ -3,14 +3,15 @@
     xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    android:padding="16dp"
-    android:layout_margin="16dp"
-    android:background="#eeeeee"
+    android:padding="5dp"
+    android:paddingBottom="3dp"
+    android:background="#E3F2FD"
     android:orientation="vertical">
 
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:paddingHorizontal="10dp"
         android:orientation="horizontal">
 
         <TextView
@@ -36,6 +37,8 @@
 
     <TextView
         android:id="@+id/comment_detail_content"
+        android:paddingHorizontal="10dp"
+        android:paddingBottom="10dp"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:textColor="#333333"
@@ -45,51 +48,13 @@
 
     <View
         android:layout_width="match_parent"
-        android:layout_height="2dp"
-        android:layout_margin="20dp"
+        android:layout_height="1dp"
+        android:paddingBottom="10dp"
+        android:paddingHorizontal="20dp"
         android:background="#000000"
         android:textSize="15sp"
         android:textStyle="bold"/>
 
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="50dp"
-        android:orientation="horizontal"
-        android:paddingLeft="10dp">
 
-        <Button
-            android:id="@+id/comment_re"
-            android:layout_width="wrap_content"
-            android:layout_height="45dp"
-            android:layout_weight="1"
-            android:layout_gravity="right"
-            android:textSize="15sp"
-            android:textStyle="bold"
-            android:text="대 댓 글"/>
-
-        <Button
-            android:id="@+id/comment_modify"
-            android:layout_width="wrap_content"
-            android:layout_height="45dp"
-            android:layout_margin="15dp"
-            android:layout_weight="1"
-            android:layout_gravity="right"
-            android:textSize="15sp"
-            android:textStyle="bold"
-            android:text="수 정 하 기"/>
-
-        <Button
-            android:id="@+id/comment_remove"
-            android:layout_width="wrap_content"
-            android:layout_height="45dp"
-            android:layout_weight="1"
-            android:layout_gravity="right"
-            android:textSize="15sp"
-            android:textStyle="bold"
-            android:text="삭 제 하 기"/>
 
     </LinearLayout>
-
-
-
-</LinearLayout>

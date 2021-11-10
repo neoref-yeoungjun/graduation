@@ -6,25 +6,25 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
-    android:padding="16dp"
     android:background="#fff">
 
 
     <TextView
         android:layout_width="match_parent"
         android:layout_height="60dp"
-        android:layout_marginTop="20dp"
-        android:text="요일을 선택하세요."
-        android:textSize="30dp"
+        android:text="요 일 별  강 의"
+        android:textSize="30sp"
         android:gravity="center"
-        android:background="#6B799E"
+        android:textStyle="bold"
+        android:textColor="#DCEDC8"
+        android:background="#E57373"
         android:layout_gravity="center" />
 
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginTop="20dp"
-        android:background="#DBDBE5"
+        android:layout_marginTop="10dp"
+        android:background="#DCEDC8"
         android:paddingVertical="5dp">
 
         <View
@@ -216,7 +216,7 @@
 
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/recycler_weekday"
-        android:layout_marginTop="30dp"
+        android:layout_marginTop="20dp"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:scrollbars="vertical"/>

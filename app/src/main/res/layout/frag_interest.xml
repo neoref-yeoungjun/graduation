@@ -5,25 +5,27 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:padding="16dp"
     android:orientation="vertical"
     android:background="@color/white">
 
     <TextView
         android:layout_width="match_parent"
-        android:layout_height="50dp"
+        android:layout_height="60dp"
+        android:layout_gravity="center"
+        android:gravity="center"
         android:text=" 관 심 강 좌 "
-        android:textSize="25sp"
+        android:textSize="30sp"
         android:textStyle="bold"
-        android:paddingTop="15dp"
+        android:paddingTop="10dp"
         android:includeFontPadding="false"
-        android:gravity="center_horizontal"
-        android:background="#6B799E" />
+        android:textColor="#DCEDC8"
+        android:background="#E57373" />
 
-    <ListView
-        android:id="@+id/interest_edu_list"
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/recycler_view_interest"
+        android:layout_marginTop="20dp"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:layout_weight="1" />
+        android:scrollbars="vertical" />
 
 </LinearLayout>

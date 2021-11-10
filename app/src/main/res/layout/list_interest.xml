@@ -14,7 +14,9 @@
 
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:background="#E3F2FD"
         android:orientation="vertical">
+
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
@@ -35,8 +37,8 @@
                     android:textColor="@color/black" />
 
                 <TextView
-                    android:id="@+id/text_1"
-                    android:layout_width="wrap_content"
+                    android:id="@+id/intername"
+                    android:layout_width="150dp"
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
                     android:layout_margin="5dp"
@@ -56,7 +58,7 @@
                     android:layout_height="0dp"
                     android:layout_weight="1" />
                 <TextView
-                    android:id="@+id/apply_day"
+                    android:id="@+id/interapply_day"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
 
@@ -85,8 +87,8 @@
                     android:textColor="@color/black" />
 
                 <TextView
-                    android:id="@+id/text_2"
-                    android:layout_width="wrap_content"
+                    android:id="@+id/interinsti"
+                    android:layout_width="150dp"
                     android:layout_height="wrap_content"
                     android:layout_margin="5dp"
                     android:layout_weight="1"
@@ -99,11 +101,46 @@
 
                 <Button
                     android:id="@+id/favorite_Btn"
+                    android:background="#E57373"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_margin="5dp"
                     android:text="관심강좌 삭제"/>
 
+ ,
+
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/list_cate1"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:id="@+id/cate"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="5dp"
+                    android:autoSizeMaxTextSize="100sp"
+                    android:autoSizeMinTextSize="12sp"
+                    android:autoSizeStepGranularity="2sp"
+                    android:autoSizeTextType="uniform"
+                    android:text="분       야:"
+                    android:textColor="@color/black" />
+
+                <TextView
+                    android:id="@+id/inter_cate"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="5dp"
+                    android:autoSizeMaxTextSize="100sp"
+                    android:autoSizeMinTextSize="12sp"
+                    android:autoSizeStepGranularity="2sp"
+                    android:autoSizeTextType="uniform"
+                    android:text="분야"
+                    android:textColor="@color/black" />
 
 
             </LinearLayout>
@@ -127,7 +164,7 @@
                     android:textColor="@color/black" />
 
                 <TextView
-                    android:id="@+id/text_3"
+                    android:id="@+id/interaps"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
 
@@ -154,7 +191,7 @@
                     android:textColor="@color/black" />
 
                 <TextView
-                    android:id="@+id/text_4"
+                    android:id="@+id/interape"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
 
@@ -188,7 +225,7 @@
 
 
                 <TextView
-                    android:id="@+id/text_5"
+                    android:id="@+id/interedus"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_margin="5dp"
@@ -212,7 +249,7 @@
                     android:textColor="@color/black" />
 
                 <TextView
-                    android:id="@+id/text_6"
+                    android:id="@+id/interedue"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_margin="5dp"
@@ -241,7 +278,7 @@
                     android:textColor="@color/black" />
 
                 <TextView
-                    android:id="@+id/text_7"
+                    android:id="@+id/intertime"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_margin="5dp"
@@ -249,7 +286,7 @@
                     android:textColor="@color/black" />
 
                 <TextView
-                    android:id="@+id/text_8"
+                    android:id="@+id/interweek"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_margin="5dp"
@@ -270,7 +307,7 @@
                     android:textColor="@color/black" />
 
                 <TextView
-                    android:id="@+id/text_9"
+                    android:id="@+id/interfee"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_margin="5dp"

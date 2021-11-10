@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string-array name="chungju">
+        <item>전체</item>
+        <item>교현안림동주민자치위원회</item>
+        <item>노인복지관남부분관</item>
+        <item>노인복지관본관</item>
+        <item>문화동평생학습센터</item>
+        <item>충주문화원</item>
+        <item>충주시농업기술센터</item>
+        <item>시립도서관</item>
+        <item>충주시바이오산업과</item>
+        <item>충주시정보통신과</item>
+        <item>충주열린학교</item>
+        <item>충주종합사회복지관</item>
+        <item>충주평생학습관(본관)</item>
+        <item>충주평생학습관(분관)</item>
+        <item>한국교통대학교부설평생교육원</item>
+        <item>호암.직동행정복지센터주민자치위원회</item>
+    </string-array>
+</resources>

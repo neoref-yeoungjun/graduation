@@ -10,7 +10,7 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.Graduation" >
-        <activity android:name=".MainActivity" >
+        <activity android:name=".SplashActivity" >
 
 
             <intent-filter>
@@ -18,12 +18,20 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+
+        <activity android:name=".MainActivity">
+
+        </activity>
         <activity android:name=".LoginActivity">
 
         </activity>
         <activity android:name=".RegisterActivity">
 
         </activity>
+        <activity android:name=".PwdActivity">
+
+        </activity>
+
 
         <meta-data
             android:name="com.naver.maps.map.CLIENT_ID"
