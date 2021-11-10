@@ -50,6 +50,7 @@
         <entry key="..\:/Users/gkdy5/AndroidStudioProjects/graduation/app/src/main/res/xml/searchable.xml" value="0.1" />
         <entry key="..\:/Users/jiwon/AndroidStudioProjects/graduation/app/src/main/res/layout/activity_login.xml" value="0.264" />
         <entry key="..\:/Users/jiwon/AndroidStudioProjects/graduation/app/src/main/res/layout/activity_main.xml" value="0.264" />
+        <entry key="..\:/Users/jiwon/AndroidStudioProjects/graduation/app/src/main/res/layout/activity_main_admin.xml" value="0.25364583333333335" />
         <entry key="..\:/Users/jiwon/AndroidStudioProjects/graduation/app/src/main/res/layout/activity_pwd.xml" value="0.264" />
         <entry key="..\:/Users/jiwon/AndroidStudioProjects/graduation/app/src/main/res/layout/activity_search.xml" value="0.4" />
         <entry key="..\:/Users/jiwon/AndroidStudioProjects/graduation/app/src/main/res/layout/activity_signup.xml" value="0.264" />
@@ -57,6 +58,7 @@
         <entry key="..\:/Users/jiwon/AndroidStudioProjects/graduation/app/src/main/res/layout/activity_splash.xml" value="0.2105978260869565" />
         <entry key="..\:/Users/jiwon/AndroidStudioProjects/graduation/app/src/main/res/layout/comment_detail.xml" value="0.264" />
         <entry key="..\:/Users/jiwon/AndroidStudioProjects/graduation/app/src/main/res/layout/edu_table.xml" value="0.22644927536231885" />
+        <entry key="..\:/Users/jiwon/AndroidStudioProjects/graduation/app/src/main/res/layout/frag_admin.xml" value="0.25364583333333335" />
         <entry key="..\:/Users/jiwon/AndroidStudioProjects/graduation/app/src/main/res/layout/frag_catrgory.xml" value="0.17300724637681159" />
         <entry key="..\:/Users/jiwon/AndroidStudioProjects/graduation/app/src/main/res/layout/frag_home.xml" value="0.2105978260869565" />
         <entry key="..\:/Users/jiwon/AndroidStudioProjects/graduation/app/src/main/res/layout/frag_interest.xml" value="0.4" />
@@ -69,12 +71,14 @@
         <entry key="..\:/Users/jiwon/AndroidStudioProjects/graduation/app/src/main/res/layout/frag_question_register.xml" value="0.20878623188405798" />
         <entry key="..\:/Users/jiwon/AndroidStudioProjects/graduation/app/src/main/res/layout/frag_setting.xml" value="0.2105978260869565" />
         <entry key="..\:/Users/jiwon/AndroidStudioProjects/graduation/app/src/main/res/layout/frag_weekday.xml" value="0.6" />
+        <entry key="..\:/Users/jiwon/AndroidStudioProjects/graduation/app/src/main/res/layout/list_admin.xml" value="0.25364583333333335" />
         <entry key="..\:/Users/jiwon/AndroidStudioProjects/graduation/app/src/main/res/layout/list_edu.xml" value="0.264" />
         <entry key="..\:/Users/jiwon/AndroidStudioProjects/graduation/app/src/main/res/layout/list_interest.xml" value="0.21240942028985507" />
         <entry key="..\:/Users/jiwon/AndroidStudioProjects/graduation/app/src/main/res/layout/list_question.xml" value="0.28894927536231885" />
         <entry key="..\:/Users/jiwon/AndroidStudioProjects/graduation/app/src/main/res/menu/activity_main_drawer.xml" value="0.2" />
         <entry key="..\:/Users/jiwon/AndroidStudioProjects/graduation/app/src/main/res/menu/appbar_action.xml" value="0.25364583333333335" />
         <entry key="..\:/Users/jiwon/AndroidStudioProjects/graduation/app/src/main/res/menu/menufile1.xml" value="0.25364583333333335" />
+        <entry key="..\:/Users/jiwon/AndroidStudioProjects/graduation/app/src/main/res/menu/menufile2.xml" value="0.25364583333333335" />
       </map>
     </option>
   </component>
