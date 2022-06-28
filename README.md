@@ -8,13 +8,39 @@
 
 ![](https://github.com/gkdy5295/graduation/blob/82ad2f4ba7462dfacaef2bba94db648feffe4fcd/readme/%EA%B0%9C%EB%B0%9C%ED%99%98%EA%B2%BD.png)
 
+
+## 컴퓨터 구성/ 필수조건 (Prerequisites)
+
+
+
+## 파일 정보 및 목록 (File Manifest)
+
+
+
 ## 기능
 안드로이드 앱을 사용하면 다음을 수행 할 수 있습니다.
 - ?
 - ?
 
+
+## 문제 발생에 대한 해결책 (Troubleshooting)
+
+
 ## ScreenShots
 ![](https://github.com/gkdy5295/graduation/blob/8457077f2c7e536a6525f1760a8e8ecb0dd9fde2/readme/screen1.png)
+
+
+
+## Contribute 
+
+
+
+
+
+## 저작권 및 사용권 정보(Copyright / End User License)
+
+
+## 배포자 및 개발자의 연락처 정보 (Contact Information)
 
 
 
