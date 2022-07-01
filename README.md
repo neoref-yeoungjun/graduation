@@ -10,6 +10,7 @@
 
 
 ## 파일 정보 및 목록 (File Manifest)
+
 >**메인페이지**   
 >SplashActivity.java   
 >activity_splash.xml   
@@ -19,33 +20,40 @@
 >eduAdapter.java      
 >edu.java      
 >activity_main.xml      
+
 >**관리자페이지**      
 >AdminAdapter.java      
 >AdminFragment.java      
 >adminActivity.java      
 >activity_main_admin.xml      
+
 >**분야별, 지역별, 요일별 분류페이지**      
 >CategoryFragment.java      
 >LocationFragment.java      
 >WeekdayFragment.java      
+
 >**관심강좌**      
 >InterestFragment.java      
 >interestAdapter.java      
 >favoritebtn.java      
+
 >**로그인 페이지**      
 >LoginActivity.java      
 >RegisterActivity.java      
 >UserAccount.java      
 >activity_login.xml      
 >activity_signup.xml      
+
 >**강좌세부정보**      
 >Map.java      
 >comment_detail.xml      
+
 >**마이페이지**      
 >MyinfoModifyFragment.java      
 >MypageFragment.java      
 >PwdActivity.java      
 >activity_pwd.xml      
+
 >**게시판**      
 >QuestionDetailFragment.java      
 >QuestionFragment.java      
@@ -53,6 +61,7 @@
 >QuestionRegisterFragment.java      
 >question.java      
 >questionAdapter.java      
+
 >**강좌검색페이지**      
 >SearchActivity.java      
 >activity_search.xml      
@@ -64,13 +73,8 @@
 >- ?
 >- ?
 
-
-## 문제 발생에 대한 해결책 (Troubleshooting)
-
-
 ## ScreenShots
 <img src="https://github.com/gkdy5295/graduation/blob/8457077f2c7e536a6525f1760a8e8ecb0dd9fde2/readme/screen1.png" width="900" height="600"/>
-
 
 
 ## 저작권 및 개발 문서(Copyright / Develop Document)
