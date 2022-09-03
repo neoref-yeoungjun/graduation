@@ -9,8 +9,6 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
-import android.widget.CheckBox;
-import android.widget.CompoundButton;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -28,8 +26,7 @@ import com.google.firebase.database.ValueEventListener;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 
-public class interestAdapter extends RecyclerView.Adapter<interestAdapter.interestViewHolder>{
-
+public class AdminAdapter extends RecyclerView.Adapter<AdminAdapter.AdminViewHolder>{
     private ArrayList<edu> arrayList;
     private Context context;
     String start1;
@@ -46,12 +43,12 @@ public class interestAdapter extends RecyclerView.Adapter<interestAdapter.intere
     SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd");
 
     final String today = sdf.format(now);
-    private interestAdapter.OnItemClickListener mListener =null;
+    private AdminAdapter.OnItemClickListener mListener =null;
     Activity activity;
 
 
 
-    public interestAdapter(ArrayList<edu> arrayList, Context context, interestAdapter.OnItemClickListener listener) {
+    public AdminAdapter(ArrayList<edu> arrayList, Context context, AdminAdapter.OnItemClickListener listener) {
         this.arrayList = arrayList;
         this.context = context;
         this.mListener = listener;
@@ -59,9 +56,10 @@ public class interestAdapter extends RecyclerView.Adapter<interestAdapter.intere
 
     @NonNull
     @Override
-    public interestAdapter.interestViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
-        View view = LayoutInflater.from(parent.getContext()).inflate(R.layout.list_interest, parent, false);
-        interestAdapter.interestViewHolder holder = new interestAdapter.interestViewHolder(view);
+    public AdminAdapter.AdminViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
+        View view = LayoutInflater.from(parent.getContext()).inflate(R.layout.list_admin, parent, false);
+
+        AdminAdapter.AdminViewHolder holder = new AdminAdapter.AdminViewHolder(view);
         context =parent.getContext();
 
         return holder;
@@ -75,7 +73,7 @@ public class interestAdapter extends RecyclerView.Adapter<interestAdapter.intere
     }
 
     @Override
-    public void onBindViewHolder(@NonNull interestAdapter.interestViewHolder holder, int position) {
+    public void onBindViewHolder(@NonNull AdminAdapter.AdminViewHolder holder, int position) {
 
         holder.apply_start.setText(arrayList.get(position).getApply_start());
         holder.apply_end.setText(arrayList.get(position).getApply_end());
@@ -101,7 +99,7 @@ public class interestAdapter extends RecyclerView.Adapter<interestAdapter.intere
 
 
 
-    public class interestViewHolder extends RecyclerView.ViewHolder {
+    public class AdminViewHolder extends RecyclerView.ViewHolder {
         TextView apply_start;
         TextView apply_end;
         TextView edu_start;
@@ -113,23 +111,23 @@ public class interestAdapter extends RecyclerView.Adapter<interestAdapter.intere
         TextView cate;
         TextView week;
         TextView apply_day;
-        Button removeinter;
+        Button removeadmin;
 
 
-        public interestViewHolder(@NonNull View itemView)  {
+        public AdminViewHolder(@NonNull View itemView)  {
             super(itemView);
-            this.name = itemView.findViewById(R.id.intername);
-            this.institution = itemView.findViewById(R.id.interinsti);
-            this.cate = itemView.findViewById(R.id.inter_cate);
-            this.apply_start = itemView.findViewById(R.id.interaps);
-            this.apply_end = itemView.findViewById(R.id.interape);
-            this.edu_start = itemView.findViewById(R.id.interedus);
-            this.edu_end = itemView.findViewById(R.id.interedue);
-            this.time = itemView.findViewById(R.id.intertime);
-            this.week = itemView.findViewById(R.id.interweek);
-            this.fee = itemView.findViewById(R.id.interfee);
-            this.apply_day = itemView.findViewById(R.id.interapply_day);
-            this.removeinter = itemView.findViewById(R.id.favorite_Btn);
+            this.name = itemView.findViewById(R.id.admin_name2);
+            this.institution = itemView.findViewById(R.id.admin_insti);
+            this.cate = itemView.findViewById(R.id.admin_q);
+            this.apply_start = itemView.findViewById(R.id.admin_aps);
+            this.apply_end = itemView.findViewById(R.id.admin_ape);
+            this.edu_start = itemView.findViewById(R.id.admin_interedus);
+            this.edu_end = itemView.findViewById(R.id.admin_interedue);
+            this.time = itemView.findViewById(R.id.admin_intertime);
+            this.week = itemView.findViewById(R.id.admin_interweek);
+            this.fee = itemView.findViewById(R.id.admin_interfee);
+            this.apply_day = itemView.findViewById(R.id.admin_apply_day);
+            this.removeadmin = itemView.findViewById(R.id.admin_Btn);
 
 
 
@@ -181,12 +179,12 @@ public class interestAdapter extends RecyclerView.Adapter<interestAdapter.intere
             if (user != null) {
                 userid = user.getUid();
             }
-            removeinter.setOnClickListener(new View.OnClickListener() {
+            removeadmin.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
-                    Toast.makeText(context, "관심강좌를 삭제하였습니다.", Toast.LENGTH_SHORT).show();
+                    Toast.makeText(context, "강좌를 삭제하였습니다.", Toast.LENGTH_SHORT).show();
                     database = FirebaseDatabase.getInstance();;
-                    dataremove=database.getReference("favorite").child(userid);
+                    dataremove=database.getReference("edu");
                     dataremove.addListenerForSingleValueEvent(new ValueEventListener() {
                         @Override
                         public void onDataChange(@NonNull DataSnapshot snapshot) {
@@ -197,24 +195,7 @@ public class interestAdapter extends RecyclerView.Adapter<interestAdapter.intere
                                     arrayList.remove(getAdapterPosition());
                                     notifyItemRemoved(getAdapterPosition());
                                     notifyDataSetChanged();
-                                    checkremove=database.getReference("check").child(userid);
-                                    checkremove.orderByChild("inter").equalTo(edu.getFIELD1()).addListenerForSingleValueEvent(new ValueEventListener() {
-                                        @Override
-                                        public void onDataChange(@NonNull DataSnapshot snapshot) {
-                                            for (DataSnapshot datasnapshot : snapshot.getChildren()) { // 반복문으로 데이터 List를 추출해냄
-                                                check check2 = datasnapshot.getValue(check.class);
-                                                if(check2.getInter()==edu.getFIELD1()) {
-                                                    datasnapshot.getRef().removeValue();
 
-                                                }
-                                            }
-                                        }
-
-                                        @Override
-                                        public void onCancelled(@NonNull DatabaseError error) {
-
-                                        }
-                                    });
                                 }
                             }
                         }

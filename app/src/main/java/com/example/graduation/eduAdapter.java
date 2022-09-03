@@ -176,7 +176,7 @@ public class eduAdapter extends RecyclerView.Adapter<eduAdapter.eduViewHolder> {
             }
             if(today.compareTo(start1)>0 &today.compareTo(end1)<=0){
                 apply_day.setText("접수 중");
-                apply_day.setBackgroundColor(Color.parseColor("#84FFFF"));
+                apply_day.setBackgroundColor(Color.parseColor("#00C853"));
 
             }
             if(today.compareTo(end1)>0 & today.compareTo(end2)<=0){
